@@ -1,31 +1,4 @@
-# PHP 
-
-## MACOS 本地开发环境
-
-### 本机php.ini位置
-```sh
-/Applications/MAMP/bin/php/php7.2.10/conf/php.ini
-```
-
-### 本地rdkafka.so文件位置
-```sh
-/Applications/MAMP/bin/php/php7.2.10/lib/php/extensions/no-debug-non-zts-20170718/rdkafka.so
-```
-
-### 查找php-config位置
-```sh
-which php-config
-```
-
-### PHP7.2 设置 
-```sh
-export PATH=/usr/local/php5/bin:$PATH
-export PATH=/Applications/MAMP/bin/php/php7.2.10/bin:$PATH
-```
-
-
-
-## Yar 扩展安装
+# Yar 扩展安装
 
 ### MacOS php7.2 安装yar
 #### yar依赖msgpack扩展
