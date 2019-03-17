@@ -1,30 +1,30 @@
 # Laravel 笔记
 
-## 通过Composer的create-project来安装Laravel
+### 通过Composer的create-project来安装Laravel
 ```sh
 composer create-project laravel/laravel itapp --prefer-dist
 cd itapp
 php -S localhost:8000 -t public/
 ```
 
-## Laravel安装设置~/.composer/vendor/bin 路径加到 PATH
+### Laravel安装设置~/.composer/vendor/bin 路径加到 PATH
 ```sh
 export PATH=~/.composer/vendor/bin:$PATH
 ```
 
-## 设置PATH
+### 设置PATH
 ```sh
 vi ~/.bash_profile
 source ~/.bash_profile
 ```
 
-## Laravel 的远程服务器任务处理器 Envoy
+### Laravel 的远程服务器任务处理器 Envoy
 ```sh
 envoy run deploy
 root 1qazxsw234
 ```
 
-## nginx laravel 配置
+### nginx laravel 配置
 ```sh
 location / {
     try_files $uri $uri/ /index.php?$query_string;
