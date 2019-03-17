@@ -1,23 +1,23 @@
 # PHP 
 
-## 本地开发环境
+## MACOS 本地开发环境
 
-> 本机php.ini位置
+### 本机php.ini位置
 ```sh
 /Applications/MAMP/bin/php/php7.2.10/conf/php.ini
 ```
 
-## 本地rdkafka.so文件位置
+### 本地rdkafka.so文件位置
 ```sh
 /Applications/MAMP/bin/php/php7.2.10/lib/php/extensions/no-debug-non-zts-20170718/rdkafka.so
 ```
 
-> 查找php-config位置
+### 查找php-config位置
 ```sh
 which php-config
 ```
 
-## MACOS PHP7.2 设置 
+### PHP7.2 设置 
 ```sh
 export PATH=/usr/local/php5/bin:$PATH
 export PATH=/Applications/MAMP/bin/php/php7.2.10/bin:$PATH
@@ -35,8 +35,6 @@ cd msgpack-2.0.3
 ./configure
 make && make install
 ```
-Installing shared cd :     /Applications/MAMP/bin/php/php7.2.10/lib/php/extensions/no-debug-non-zts-20170718/
-Installing header files:   /Applications/MAMP/bin/php/php7.2.10/include/php/
 
 ### yar 安装
 ```sh
@@ -49,8 +47,11 @@ make && make install
 
 vim /etc/php.ini 加上extension=yar.so
 ```
-查看支持的配置：pec
+
+### 查看支持的配置：pec
+```sh
 php --re yar
+```
 
 ## Centos7 PHP7.2 安装Yar
 ```sh
