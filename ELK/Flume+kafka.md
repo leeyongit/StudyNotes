@@ -1,7 +1,7 @@
-日志/消息整体流向Flume => kafka => logstash => elasticsearch => kibana
+# 日志/消息整体流向Flume => kafka => logstash => elasticsearch => kibana
 
-# 安装JDK 
-## 用yum安装JDK
+## 安装JDK 
+### 用yum安装JDK
 1.查看yum库中都有哪些jdk版本(暂时只发现了openjdk)
 ```sh
 java -version
@@ -27,7 +27,7 @@ export JAVA_HOME JRE_HOME CLASS_PATH PATH
 ### 让修改生效
 source /etc/profile
 
-# 安装Flume
+## 安装Flume
 
 从官网下载Flume 二进制安装包，解压安装：
 ```sh
@@ -37,14 +37,16 @@ mv apache-flume-1.8.0-bin flume
 cd flume
 ```
 
-## 启动flume
+### 启动flume
+```sh
 nohup bin/flume-ng agent --conf-file  conf/kafka.properties -c conf/ --name agent -Dflume.root.logger=DEBUG,console 1>/dev/null 2>&1 &
---------------------------------------------------------------------------------
-# Kafka
---------------------------------------------------------------------------------
+```
+
+## Kafka
+
 [kafka教程](https://www.w3cschool.cn/apache_kafka/apache_kafka_introduction.html)
 
-## 安装kafka
+### 安装kafka
 ```sh
 wget  https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.1.0/kafka_2.12-2.1.0.tgz
 tar -zxf kafka_2.12-2.1.0.tgz
@@ -53,7 +55,8 @@ cd /usr/local/kafka_2.12-2.1.0/
 cp config/server.properties config/server-1.properties
 cp config/server.properties config/server-2.properties
 ```
-## 编辑这些新文件和设置以下属性：
+
+### 编辑这些新文件和设置以下属性：
 ```sh
 config/server-1.properties:
     broker.id=1
@@ -77,27 +80,21 @@ bin/kafka-server-start.sh config/server-2.properties 1>/dev/null 2>&1 &
 ps aux | grep server-1.properties
 kill -9 pid # 杀进程
 ```
-kafka-console-consumer --bootstrap-server localhost:9092 --topic test1 --from-beginning
-## 新增Topic test
+
+### 新增Topic test
 ```sh
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
 bin/kafka-topics.sh --list --zookeeper localhost:2181 # 要获取Kafka服务器中的主题列表
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test # 发送消息
 ```
 
-## 打开新终端，在kafka安装目录下执行如下命令，生成对topic test 的消费
+### 打开新终端，在kafka安装目录下执行如下命令，生成对topic test 的消费
 ```sh
 sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic log --from-beginning 
 ```
 
-docker run -d \
-     -p 9000:9000  \
-     -e ZK_HOSTS="39.107.158.137:2181" \
-     hlebalbau/kafka-manager:stable \
-     -Dpidfile.path=/dev/null
---------------------------------------------------------------------------------
-# Kafka php [php-rdkafka](https://github.com/arnaud-lb/php-rdkafka)
---------------------------------------------------------------------------------
+## Kafka php [php-rdkafka](https://github.com/arnaud-lb/php-rdkafka)
+
 
 ```sh
 # 安装librdkafka 
@@ -114,10 +111,10 @@ make all -j 5
 sudo make install
 php -i | grep rdkafka
 ```
---------------------------------------------------------------------------------
-# Flume+kafka 整合
---------------------------------------------------------------------------------
-## kafka.properties
+
+## Flume+kafka 整合
+
+### kafka.properties
 ```sh
 agent.sources = s1
 agent.channels = c1                                                                                    
