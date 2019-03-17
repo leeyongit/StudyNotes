@@ -1,9 +1,17 @@
 # PHP 
 
+## 本地开发环境
+
 > 本机php.ini位置
 ```sh
 /Applications/MAMP/bin/php/php7.2.10/conf/php.ini
 ```
+
+## 本地rdkafka.so文件位置
+```sh
+/Applications/MAMP/bin/php/php7.2.10/lib/php/extensions/no-debug-non-zts-20170718/rdkafka.so
+```
+
 > 查找php-config位置
 ```sh
 which php-config
@@ -13,7 +21,6 @@ which php-config
 ```sh
 export PATH=/usr/local/php5/bin:$PATH
 export PATH=/Applications/MAMP/bin/php/php7.2.10/bin:$PATH
-/Applications/MAMP/bin/php/php7.2.10/lib/php/extensions/no-debug-non-zts-20170718/rdkafka.so
 ```
 
 # Yar 扩展安装
