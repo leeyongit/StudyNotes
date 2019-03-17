@@ -25,7 +25,7 @@ git remote add origin git@github.com:leeyongit/go-files.git
 git push -u origin master
 ```
 
-## GitLab常用命令整理
+## Git常用命令整理
 
 ### 远程建立了dev分支本地获取对应分支
 ```sh
@@ -52,9 +52,10 @@ git reset的作用是还原Index的状态或修改本地分支HEAD的位置。
 ```sh
 git reset ** fileName
 ```
-1. git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
-2. git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
-3. git reset -hard 彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
+
+* git reset -mixed：此为默认方式，不带任何参数的git reset，这种方式，它回退到某个版本，只保留源码，回退commit和index信息
+* git reset -soft:回退到某个版本，只回退了commit的信息，不会恢复到index file一级。如果还要提交，直接commit即可
+* git reset -hard 彻底回退到某个版本，本地的源码也会变成为上一个版本的内容
 
 #### 回退到上一版本
 ```sh
