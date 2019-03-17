@@ -24,7 +24,9 @@
 ## 安装 Elasticsearch
 
 [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+
 [ELK学习系列文章第二章：elasticsearch常见错误与配置简介](https://blog.csdn.net/qq_21387171/article/details/53577115)
+
 ```sh
 cd /home
 sudo mkdir elk
@@ -41,21 +43,26 @@ chown -R elsearch:elsearch elasticsearch-6.2.3 # 更改elasticsearch文件夹及
 cd /home/elk/elasticsearch-6.2.3
 nohup su elsearch bin/elasticsearch 1>/dev/null 2>&1 &
 ```
-## 修改ip
+修改ip
+```sh
 vim config\elasticsearch.yml
 network.host 39.107.158.137
-## 修改max_map_count值
+```
+修改max_map_count值
+```sh
 sudo sysctl -w vm.max_map_count=262144
+```
 
 访问默认的9200端口
 ```sh
 curl -X GET http://localhost:9200
 ```
 
---------------------------------------------------------------------------------
+
 ## 安装logstash
---------------------------------------------------------------------------------
+
 [下载 Logstash](https://www.elastic.co/downloads/logstash)
+
 ```sh
 cd /search
 sudo mkdir logstash
@@ -63,6 +70,7 @@ cd logstash
 sudo wget https://artifacts.elastic.co/downloads/logstash/logstash-6.2.3.zip
 cd logstash-6.2.3
 ```
+
 先测试是否安装成功
 ```sh
 > bin/logstash -e 'input{stdin{}}output{stdout{codec=>rubydebug}}'
