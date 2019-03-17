@@ -1,5 +1,5 @@
 # PHP 
----
+
 > 本机php.ini位置
 ```sh
 /Applications/MAMP/bin/php/php7.2.10/conf/php.ini
@@ -17,7 +17,6 @@ export PATH=/Applications/MAMP/bin/php/php7.2.10/bin:$PATH
 ```
 
 # Yar 扩展安装
----
 
 ## MacOS php7.2 安装yar
 ### yar依赖msgpack扩展
