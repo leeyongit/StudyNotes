@@ -34,6 +34,11 @@ git push -u origin master
 git checkout --track origin/dev
 ```
 
+### 查看命令历史
+```sh
+git reflog
+```
+
 ### 查看文件的修改记录
 
 ```sh
@@ -91,7 +96,7 @@ git reset –hard origin/master
 
 > Git Revert原理：根据你要回退的提交所做的改动做相反的改动，然后重新提交代码，使代码达到没有这些旧提交所能达到的状态。
 
-### 回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit.(代码回滚到上个版本，并提交git)
+回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit.(代码回滚到上个版本，并提交git)
 ```sh
 git revert HEAD
 ```
@@ -102,11 +107,6 @@ git revert HEAD
 git reset HEAD <file>...
 git reset HEAD -filename # 如果是撤销某个文件或文件夹
 git reset HEAD . # 如果是撤销所有的已经add的文件
-```
-
-### 查看命令历史
-```sh
-git reflog
 ```
 
 ### Git鼓励大量使用分支：
