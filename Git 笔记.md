@@ -1,13 +1,13 @@
 # Git 笔记
 
-## 全局设置用户信息
+### 全局设置用户信息
 
 ```sh
 git config --global user.name "李永"
 git config --global user.email "leeyongit@163.com"
 ```
 
-## 用命令行设置一个仓库
+### 用命令行设置一个仓库
 
 ```sh
 echo "# go-files" >> README.md
@@ -18,7 +18,7 @@ git remote add origin git@github.com:leeyongit/go-files.git
 git push -u origin master
 ```
 
-## 用命令行推送已经存在的仓库
+### 用命令行推送已经存在的仓库
 
 ```sh
 git remote add origin git@github.com:leeyongit/go-files.git
