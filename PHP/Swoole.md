@@ -1,5 +1,6 @@
 
 ## 安装swoole
+---
 ```sh
 #!/bin/bash
 pecl install swoole
