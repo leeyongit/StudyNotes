@@ -7,7 +7,7 @@ git config --global user.name "李永"
 git config --global user.email "leeyongit@163.com"
 ```
 
-### 用命令行设置一个仓库
+### 用命令行创建一个新仓库
 
 ```sh
 echo "# go-files" >> README.md
@@ -24,6 +24,8 @@ git push -u origin master
 git remote add origin git@github.com:leeyongit/go-files.git
 git push -u origin master
 ```
+
+
 
 ## Git常用命令整理
 
@@ -86,6 +88,7 @@ git reset –hard origin/master
 ### git revert
 
 > 假如某些旧提交我们不想要了，而又不愿通过自己修改代码重新提交的方式来完成，这个时候我们就可以把这项工作交给revert命令。
+
 > Git Revert原理：根据你要回退的提交所做的改动做相反的改动，然后重新提交代码，使代码达到没有这些旧提交所能达到的状态。
 
 ### 回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit.(代码回滚到上个版本，并提交git)
