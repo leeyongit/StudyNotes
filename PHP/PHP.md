@@ -23,6 +23,8 @@ export PATH=/usr/local/php5/bin:$PATH
 export PATH=/Applications/MAMP/bin/php/php7.2.10/bin:$PATH
 ```
 
+
+
 ## Yar 扩展安装
 
 ### MacOS php7.2 安装yar
@@ -54,6 +56,7 @@ php --re yar
 ```
 
 ### Centos7 PHP7.2 安装Yar
+
 ```sh
 yum install php-devel php-pear httpd-devel
 yum -y install libcurl-devel
@@ -65,6 +68,7 @@ $ sudo ./pecl install yar-2.0.2 //注意yar-2.0.2版本
 
 ### Centos7 PHP5.6 安装Yar
 #### yar依赖msgpack扩展
+
 ```sh
 wget https://github.com/msgpack/msgpack-php/archive/msgpack-0.5.7.tar.gz
 tar zxvf msgpack-0.5.7.tar.gz
@@ -86,7 +90,8 @@ make && make install
 ```
 
 
-### 报错
+#### 报错
+
 > configure: error: Please reinstall the libcurl distribution - easy.h should be in /include/curl/
 ```sh
 yum -y install libcurl-devel
