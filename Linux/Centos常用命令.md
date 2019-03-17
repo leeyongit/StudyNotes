@@ -1,6 +1,6 @@
 # Centos常用命令
----
-# 常用命令
+
+### 常用命令
 ```sh
 uname -a  # 查看内核/操作系统/CPU信息  
 head -n 1 /etc/issue  #查看操作系统版本  
@@ -10,32 +10,30 @@ ls | xargs rm -f # 删除当前目录下的文件
 lsof -i:port  # 查看端口占用
 du -sh * | sort -nr # 将当前目录下所有文件的大小给列出来,按照从大到小的方式排序
 ```
-# scp命令
+### scp命令
 ```sh
 scp local_file remote_username@remote_ip:remote_folder  # 从本地复制到远程
 scp -r local_folder remote_username@remote_ip:remote_folder # 复制目录命令格式
 ```
 
-# TCP
-
-# 监控网络状态信息
-# 此命令用于显示整个系统目前的网络情况。例如目前的连接、数据包传递数据、或是路由表内容。
+### 监控网络状态信息
+此命令用于显示整个系统目前的网络情况。例如目前的连接、数据包传递数据、或是路由表内容。
 ```sh
 netstat -anp|more
 ```
-# 追踪走向
+### 追踪走向
 ```sh
 traceroute
 ```
-# 查看路由表
+### 查看路由表
 ```sh
 route
 ```
-# 查看apache当前并发访问数：
+### 查看apache当前并发访问数：
 ```sh
 netstat -an | grep ESTABLISHED | wc -l
 ```
-# 查看网络占用端口号
+### 查看网络占用端口号
 ```sh
 netstat -n |grep 8081| awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}' 
 netstat -n |grep 6379| awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'  
