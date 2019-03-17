@@ -164,9 +164,11 @@ nginx日志的配置：
 ```sh
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" $request_time';
 ```
+```sh
 $ cd logstash
 $ mkdir patterns # 可以在grok中通过 patterns_dir 指定，默认是这个位置
 $ vim patterns/nginx
+```
 
 ```sh
 NGINXACCESS %{COMBINEDAPACHELOG} %{QS:http_x_forwarded_for} %{NUMBER:request_time:float}
@@ -197,9 +199,9 @@ output {
 
 }
 ```
---------------------------------------------------------------------------------
+
 安装Ruby(换yum源安装)
---------------------------------------------------------------------------------
+
 ```sh
 yum install centos-release-scl-rh　//会在/etc/yum.repos.d/目录下多出一个CentOS-SCLo-scl-rh.repo源
 yum install rh-ruby23  -y　　　　   //直接yum安装即可　　
@@ -207,22 +209,28 @@ scl  enable  rh-ruby23 bash　　　　 //必要一步
 ruby -v　　　　                     //查看安装版本
 ```
 
---------------------------------------------------------------------------------
 ## 安装kibana
---------------------------------------------------------------------------------
+
 logstash的最新版已经内置kibana，你也可以单独部署kibana。kibana3是纯粹JavaScript+html的客户端，所以可以部署到任意http服务器上。
 ```sh
 cd /elk
 sudo wget https://artifacts.elastic.co/downloads/kibana/kibana-6.2.3-linux-x86_64.tar.gz
 tar -zxvf kibana-6.2.3-linux-x86_64.tar.gz
 cd kibana-6.2.3-linux-x86_64
+```
+
+修改配置文件
+```sh
 vim config/kibana.yml 
-### 
+
 server.name: kibana
 server.host: "0"
 elasticsearch.url: http://elasticsearch:9200 # 修改为ip
 xpack.monitoring.ui.container.elasticsearch.enabled: false
-###
+```
+启动
+```sh
 nohup bin/kibana 1>/dev/null 2>&1 &
 ```
+访问
 http://39.107.158.137:5601
