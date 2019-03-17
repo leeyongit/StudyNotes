@@ -1,6 +1,6 @@
 # Docker 笔记
 
-## Docker 部署 (CentOS 7)
+## Docker 安装 (CentOS 7)
 ```sh
 yum -y install docker-io
 ```
