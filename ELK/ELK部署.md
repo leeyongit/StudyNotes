@@ -27,6 +27,7 @@
 
 [ELK学习系列文章第二章：elasticsearch常见错误与配置简介](https://blog.csdn.net/qq_21387171/article/details/53577115)
 
+下载解压
 ```sh
 cd /home
 sudo mkdir elk
@@ -34,20 +35,25 @@ cd /elk
 sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.zip
 sudo unzip elasticsearch-6.2.3.zip
 ```
-
-elasticsearch解压即可使用非常方便，接下来我们看一下效果，首先启动ES服务，切换到elasticsearch目录，运行bin下的elasticsearch
+增加es用户组、用户, 更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch
 ```sh
 groupadd elsearch
 useradd elsearch -g elsearch -p elasticsearch
-chown -R elsearch:elsearch elasticsearch-6.2.3 # 更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch
+chown -R elsearch:elsearch elasticsearch-6.2.3 
+```
+
+首先启动ES服务，切换到elasticsearch目录，运行bin下的elasticsearch
+```sh
 cd /home/elk/elasticsearch-6.2.3
 nohup su elsearch bin/elasticsearch 1>/dev/null 2>&1 &
 ```
+
 修改ip
 ```sh
 vim config\elasticsearch.yml
 network.host 39.107.158.137
 ```
+
 修改max_map_count值
 ```sh
 sudo sysctl -w vm.max_map_count=262144
