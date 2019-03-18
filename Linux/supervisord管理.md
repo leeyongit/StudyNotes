@@ -30,7 +30,8 @@ supervisorctl reread && supervisorctl update
 supervisorctl
 ```
 
-## logstash
+## ELK
+### logstash
 --path.data=./data data目录必须有写权限
 ```sh
 [program:logstash-indexer]
@@ -44,7 +45,7 @@ redirect_stderr = true
 stdout_logfile=/home/elk/log/logstash-indexer-std.log
 stderr_logfile=/home/elk/log/logstash-indexer-err.log
 ```
-
+### elasticsearch
 ```sh
 [program:elasticsearch-node1]
 command = /home/elk/elasticsearch-6.2.3/bin/elasticsearch
@@ -57,6 +58,7 @@ redirect_stderr = true
 stdout_logfile=/home/elk/log/elasticsearch-node1-std.log
 stderr_logfile=/home/elk/log/elasticsearch-node1-err.log
 ```
+### kibana
 ```sh
 [program:kibana]
 command = /home/elk/kibana-6.2.3/bin/kibana
