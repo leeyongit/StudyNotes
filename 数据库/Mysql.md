@@ -64,3 +64,10 @@ mysql -u用户名 -p密码 数据库名 < 数据库名.sql
 ```sh
 mysql -uabc_f -p abc < abc.sql
 ```
+
+## 问题记录
+1. mysqldump 导出报错
+mysqldump: Got error: 1045: Access denied for user 'jupiter'@'10.141.136.49' (using password: YES) when using LOCK TABLES
+```sh
+mysqldump --single-transaction -h host -u user -p database > database.sql
+```

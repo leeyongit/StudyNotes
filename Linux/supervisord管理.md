@@ -1,5 +1,5 @@
-# supervisord管理
----
+supervisord管理
+===============
 ## 安装 & 启动
 ```sh
 yum install -y epel-release supervisor
