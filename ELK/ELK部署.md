@@ -23,9 +23,8 @@
 
 ## 安装 Elasticsearch
 
-[Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
-
-[ELK学习系列文章第二章：elasticsearch常见错误与配置简介](https://blog.csdn.net/qq_21387171/article/details/53577115)
+- [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
+- [ELK学习系列文章第二章：elasticsearch常见错误与配置简介](https://blog.csdn.net/qq_21387171/article/details/53577115)
 
 下载解压
 ```sh
@@ -67,7 +66,7 @@ curl -X GET http://localhost:9200
 
 ## 安装logstash
 
-[下载 Logstash](https://www.elastic.co/downloads/logstash)
+- [下载 Logstash](https://www.elastic.co/downloads/logstash)
 
 ```sh
 cd /search

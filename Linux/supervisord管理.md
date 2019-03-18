@@ -70,4 +70,4 @@ user = root
 redirect_stderr = true
 stdout_logfile=/home/elk/log/kibana-std.log
 stderr_logfile=/home/elk/log/kibana-err.log
-``
+```
