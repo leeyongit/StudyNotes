@@ -1,10 +1,12 @@
-# npm太慢， 淘宝npm镜像使用方法
+# NodeJs
+
+### npm太慢， 淘宝npm镜像使用方法
 淘宝 npm 地址： http://npm.taobao.org/
-## 临时使用 
+临时使用 
 ```sh
 npm --registry https://registry.npm.taobao.org install express
 ```
-## 持久使用
+持久使用
 ```sh
 npm config set registry https://registry.npm.taobao.org
 ```
@@ -21,7 +23,8 @@ npm install -g cnpm --registry=https://registry.npm.taobao.org
 cnpm install express
 ```
 
-## Laravel Mix的又一个坑：系统找不到指定的路径。
+## 问题记录
+### Laravel Mix的又一个坑：系统找不到指定的路径。
 
 ```sh
 npm install

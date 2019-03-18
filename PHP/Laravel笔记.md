@@ -1,6 +1,10 @@
 # Laravel 笔记
 
 ### 通过Composer的create-project来安装Laravel
+
+    --prefer-dist 会从github 上下载.zip压缩包，并缓存到本地。下次再安装就会从本地加载，大大加速安装速度。但她没有保留 .git文件夹,没有版本信息。适合基于这个package进行开发。
+    --prefer-source 会从github 上clone 源代码，不会在本地缓存。但她保留了.git文件夹，从而可以实现版本控制。适合用于修改源代码。
+
 ```sh
 composer create-project laravel/laravel itapp --prefer-dist
 cd itapp
@@ -21,7 +25,6 @@ source ~/.bash_profile
 ### Laravel 的远程服务器任务处理器 Envoy
 ```sh
 envoy run deploy
-root 1qazxsw234
 ```
 
 ### nginx laravel 配置

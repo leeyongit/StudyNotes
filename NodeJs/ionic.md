@@ -1,5 +1,8 @@
-1.安装npm 、node.js
-2.安装ionic和cordova
+# Ionic
+
+1. 安装npm 、node.js
+2. 安装ionic和cordova
+
 ```sh
 npm install -g cnpm --registry=https://registry.npm.taobao.org
 sudo cnpm install -g cordova ionic
