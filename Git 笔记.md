@@ -101,7 +101,6 @@ git reset –hard origin/master
 git revert HEAD
 ```
 
-
 #### 取消已经暂存的文件。即，撤销先前"git add"的操作
 ```sh
 git reset HEAD <file>...

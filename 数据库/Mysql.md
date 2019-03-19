@@ -21,29 +21,31 @@ set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_
 
 ## linux下 mysql导入导出sql文件
 
-### 一、导出数据库用mysqldump命令（注意mysql的安装路径，即此命令的路径）：
+### mysqldump 导出数据库
 1. 导出数据和表结构：
 mysqldump -u用户名 -p密码 数据库名 > 数据库名.sql
 ```sh
-/usr/local/mysql/bin/ mysqldump -uroot -p abc > abc.sql
+mysqldump -uroot -p dbname > dbname.sql
 ```
-> 敲回车后会提示输入密码
 
-2. 只导出表结构
+2. 导出一个表
+mysqldump -u 用户名 -p 数据库名 表名> 导出的文件名
+```sh
+mysqldump -u dbuser -p dbname users> dbname_users.sql
+```
+
+3. 只导出表结构
 mysqldump -u用户名 -p密码 -d 数据库名 > 数据库名.sql
 ```sh
-/usr/local/mysql/bin/  mysqldump -uroot -p -d abc > abc.sql
+mysqldump -uroot -p -d dbname > dbname.sql
 ```
-> 注：/usr/local/mysql/bin/  --->  mysql的data目录
-
+```sh
+mysqldump -u dbuser -p -d --add-drop-table dbname >d:/dbname_db.sql
+```
+-d 没有数据 
+--add-drop-table 在每个create语句之前增加一个drop table
 
 ### 二、导入数据库
-1. 首先建空数据库
-```sh
-mysql>create database abc;
-```
-2. 导入数据库
-
 #### 方法一：
 
 （1）选择数据库
