@@ -71,3 +71,19 @@ redirect_stderr = true
 stdout_logfile=/home/elk/log/kibana-std.log
 stderr_logfile=/home/elk/log/kibana-err.log
 ```
+
+### flume
+```sh
+[program:flume-fshd-log]
+process_name=%(program_name)s_%(process_num)02d
+command=/root/flume/bin/flume-ng agent --conf-file  /root/flume/conf/kafka.properties -c /root/flume/conf/ --name agent -Dflume.root.logger=DEBUG,console 
+autostart=true
+autorestart=true
+priority=999
+startsecs=5
+startretries=3
+user=root
+redirect_stderr = true
+stdout_logfile=/root/flume/flume-fshd-std.log
+stderr_logfile=/root/flume/flume-fshd-err.log
+```

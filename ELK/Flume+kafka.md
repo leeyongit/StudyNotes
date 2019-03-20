@@ -61,20 +61,22 @@ cp config/server.properties config/server-2.properties
 config/server-1.properties:
     broker.id=1
     listeners=PLAINTEXT://:9093
+    advertised.listeners=PLAINTEXT://39.107.158.137:9092
     log.dir=/tmp/kafka-logs-1
 
 config/server-2.properties:
     broker.id=2
     listeners=PLAINTEXT://:9094
+    advertised.listeners=PLAINTEXT://39.107.158.137:9094
     log.dir=/tmp/kafka-logs-2
 ```
 ### Kafka使用ZooKeeper的，所以你需要先启动ZooKeeper的服务器
 ```sh
-bin/zookeeper-server-start.sh config/zookeeper.properties 1>/dev/null 2>&1 &
+nohup bin/zookeeper-server-start.sh config/zookeeper.properties 1>/dev/null 2>&1 &
 ```
 ### 启动Kafka服务器 3个实例
 ```sh
-bin/kafka-server-start.sh config/server.properties 1>/dev/null 2>&1 &
+nohup bin/kafka-server-start.sh config/server.properties 1>/dev/null 2>&1 &
 bin/kafka-server-start.sh config/server-1.properties 1>/dev/null 2>&1 &
 bin/kafka-server-start.sh config/server-2.properties 1>/dev/null 2>&1 &
 ps aux | grep server-1.properties
@@ -83,7 +85,7 @@ kill -9 pid # 杀进程
 
 ### 新增Topic test
 ```sh
-bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 1 --topic test
+bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic log
 bin/kafka-topics.sh --list --zookeeper localhost:2181 # 要获取Kafka服务器中的主题列表
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test # 发送消息
 ```

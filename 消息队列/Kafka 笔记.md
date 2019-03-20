@@ -25,6 +25,19 @@ Kafka的版本是0.8.2.1。
 - min.insync.replicas：覆盖min.insync.replicas
 - segment.jitter.ms：覆盖log.roll.jitter.{ms,hours}
 
+##  kafka配置中request.required.acks含义
+> Kafka producer的ack有3中机制，初始化producer时的producerconfig可以通过配置request.required.acks不同的值来实现。
+
+0：这意味着生产者producer不等待来自broker同步完成的确认继续发送下一条（批）消息。此选项提供最低的延迟但最弱的耐久性保证（当服务器发生故障时某些数据会丢失，如leader已死，但producer并不知情，发出去的信息broker就收不到）。
+
+1：这意味着producer在leader已成功收到的数据并得到确认后发送下一条message。此选项提供了更好的耐久性为客户等待服务器确认请求成功（被写入死亡leader但尚未复制将失去了唯一的消息）。
+
+-1：这意味着producer在follower副本确认接收到数据后才算一次发送完成。 
+此选项提供最好的耐久性，我们保证没有信息将丢失，只要至少一个同步副本保持存活。
+
+三种机制，性能依次递减 (producer吞吐量降低)，数据健壮性则依次递增。
+
+
 ## kafka-manager 出现错误
 
 > Yikes! Ask timed out on [ActorSelection[Anchor(akka://kafka-manager-system/), Path(/user/kafka-manager)]] after [5000 ms]

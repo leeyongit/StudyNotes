@@ -97,19 +97,31 @@ vim kafka-logstash-es.conf
 
 input {
     kafka {
+        type => "fshd"
         bootstrap_servers => ["39.107.158.137:9092"]
-        client_id => "log"
-        group_id => "log"
+        client_id => "es1"
+        group_id => "es1"
         auto_offset_reset => "latest" # 从最新的偏移量开始消费
         consumer_threads => 5
         decorate_events => true # 此属性会将当前topic、offset、group、partition等信息也带到message中
         topics => ["log"] # 数组类型，可配置多个topic
-        tags => ["log", "kafka_source"]
-        type => "nginx_access"
-        }
+        tags => ["log", "nginx_access"]
+        
+    }
+    kafka {
+        type => "ad"
+        bootstrap_servers => ["39.107.158.137:9092"]
+        client_id => "es2"
+        group_id => "es2"
+        auto_offset_reset => "latest" # 从最新的偏移量开始消费
+        consumer_threads => 5
+        decorate_events => true # 此属性会将当前topic、offset、group、partition等信息也带到message中
+        topics => ["ad_log"] # 数组类型，可配置多个topic
+        tags => ["log", "nginx_access"]
+    }
 }
 filter {
-     if [type] == "nginx_access" {
+    if [type] == "fshd" {
          grok {
             patterns_dir => [ "./patterns" ]
             match => { "message" => "%{NGINXACCESS}" }
@@ -135,14 +147,49 @@ filter {
             all_fields => true
         }
     }
+    if [type] == "ad" {
+        grok {
+            patterns_dir => [ "./patterns/ad-nginx" ]
+            match => { "message" => "%{NGINXACCESS}" }
+            # match => { "message" => "%{COMBINEDAPACHELOG}" }
+            remove_field => ["message"]
+        }
+        date {
+            match => [ "log_timestamp" , "YYYY-MM-dd:HH:mm:ss Z" ]
+        }
+        geoip {
+            source => "clientip"
+        }
+        kv {
+            source => "request_uri"
+            field_split => "&?"
+            value_split => "="
+        }
+        urldecode {
+            all_fields => true
+        }
+        mutate {
+            convert => [ "request_time", "float" ]
+        }
+    }
 
 }
 output {
-    elasticsearch {
-        hosts => ["39.107.158.137:9200"]
-        index => "fshd_nginx_logs-%{+YYYY-MM-dd}"
-        timeout => 300
+    if [type] == "fshd" {
+        elasticsearch {
+            hosts => ["39.107.158.137:9200"]
+            index => "fshd_logs-%{+YYYY-MM-dd}"
+            timeout => 300
+        }
     }
+    if [type] == "ad" {
+        elasticsearch {
+            hosts => ["39.107.158.137:9200"]
+            index => "ad_logs-%{+YYYY-MM-dd}"
+            timeout => 300
+        }
+    }
+    
 }
 ```
 
