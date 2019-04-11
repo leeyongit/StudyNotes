@@ -53,7 +53,15 @@ kafka-manager.zkhosts="zoo1:2181,zoo2:2182,zoo3:2183"
 
 
 ## kafka修改日志保留时间参数（不用重启kafka）
-默认7天 168小时 现在改成5天 
+默认7天 168小时 现在改成1天 
 ```sh
-kafka-configs.sh –zookeeper localhost:2181 –entity-type topics –entity-name log –alter –add-config retention.ms=432000000
+kafka-configs.sh –zookeeper localhost:2181 –entity-type topics –entity-name log –alter –add-config retention.ms=86400
 ```
+
+## ZooKeeper 在硬盘满后，无法再次启动，抛出Last transaction was partial.
+Bug见：https://issues.apache.org/jira/browse/ZOOKEEPER-1621
+首先我的环境是单节点，ZooKeeper的版本是3.4.8。
+因为是单节点，ZooKeeper无法启动影响非常大，多节点也有可能出现同时硬盘都写满的情况，如果问题在线上发生，后果不堪设想。
+折腾了一下，发现，把ZooKeeper安装目录下的data/log/version-2下的，大小为0（异常的）日志，删除掉后，再重启 ，问题解决！
+
+

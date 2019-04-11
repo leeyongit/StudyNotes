@@ -9,6 +9,7 @@ hostname   #查看计算机名
 ls | xargs rm -f # 删除当前目录下的文件
 lsof -i:port  # 查看端口占用
 du -sh * | sort -nr # 将当前目录下所有文件的大小给列出来,按照从大到小的方式排序
+du -d 1 | sort -n -r| awk '{printf("   %.2f %s\t %s \n", $1/1024/1024, "G", $2)}'
 ```
 ### scp命令
 ```sh

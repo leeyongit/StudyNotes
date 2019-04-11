@@ -26,7 +26,8 @@
 - [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)
 - [ELK学习系列文章第二章：elasticsearch常见错误与配置简介](https://blog.csdn.net/qq_21387171/article/details/53577115)
 
-下载解压
+### 下载解压
+
 ```sh
 cd /home
 sudo mkdir elk
@@ -34,7 +35,10 @@ cd /elk
 sudo wget https://artifacts.elastic.co/downloads/elasticsearch/elasticsearch-6.2.3.zip
 sudo unzip elasticsearch-6.2.3.zip
 ```
-增加es用户组、用户, 更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch
+
+### 增加es用户组、用户
+
+更改elasticsearch文件夹及内部文件的所属用户及组为elsearch:elsearch
 ```sh
 groupadd elsearch
 useradd elsearch -g elsearch -p elasticsearch
@@ -47,13 +51,13 @@ cd /home/elk/elasticsearch-6.2.3
 nohup su elsearch bin/elasticsearch 1>/dev/null 2>&1 &
 ```
 
-修改ip
+### 修改ip
 ```sh
-vim config\elasticsearch.yml
+vim config/elasticsearch.yml
 network.host 39.107.158.137
 ```
 
-修改max_map_count值
+### 修改max_map_count值
 ```sh
 sudo sysctl -w vm.max_map_count=262144
 ```
@@ -63,8 +67,14 @@ sudo sysctl -w vm.max_map_count=262144
 curl -X GET http://localhost:9200
 ```
 
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
-## 安装logstash
+## Logstash
+
+### 下载安装
 
 - [下载 Logstash](https://www.elastic.co/downloads/logstash)
 
@@ -87,6 +97,24 @@ hello world! # 输入测试字符串
     "@timestamp" => 2018-04-13T16:29:37.991Z,
     "message" => "hello world!",
     "host" => "otc"
+}
+```
+
+### 配置
+
+配置文件写法
+```sh
+# 日志导入
+input {
+
+}
+# 日志筛选匹配处理
+filter {
+
+}
+# 日志匹配输出
+output {
+
 }
 ```
 
@@ -193,23 +221,38 @@ output {
 }
 ```
 
+### 启动logstash
 
-### 如何执行按指定配置文件执行
+服务管理
+
+    设置服务自启动：systemctl enable logstash
+    启动服务：systemctl start logstash
+    停止服务：systemctl stop logstash
+    重启服务：systemctl restart logstash
+    查看服务状态：systemctl status logstash
+
+如何执行按指定配置文件执行
+
 ```sh
 nohup bin/logstash -f config/kafka-logstash-es.conf --path.data=./data 1>/dev/null 2>&1 &
 ```
-> 参数
--w # 指定线程,默认是 cpu 核数
--f # 指定配置文件
--t # 测试配置文件是否正常
--b # 执行 filter 模块之前最大能积累的日志,数值越大性能越好,同时越占内存
+
+参数:
+* -w  指定线程,默认是 cpu 核数
+* -f  指定配置文件
+* -t  测试配置文件是否正常
+* -b  执行 filter 模块之前最大能积累的日志,数值越大性能越好,同时越占内存
 
 ### Logstash收集nginx日志之使用grok过滤插件解析日志
-> grok作为一个logstash的过滤插件，支持根据模式解析文本日志行，拆成字段。
+
+grok作为一个logstash的过滤插件，支持根据模式解析文本日志行，拆成字段。
+
 nginx日志的配置：
+
 ```sh
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" $request_time';
 ```
+
 ```sh
 $ cd logstash
 $ mkdir patterns # 可以在grok中通过 patterns_dir 指定，默认是这个位置
@@ -223,30 +266,8 @@ NGINXACCESS %{COMBINEDAPACHELOG} %{QS:http_x_forwarded_for} %{NUMBER:request_tim
 COMMONAPACHELOG %{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:verb} %{NOTSPACE:req
 uest}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:response} (?:%{NUMBER:bytes}|-)
 ```
-### 启动Logstash服务
-    设置服务自启动：systemctl enable logstash
-    启动服务：systemctl start logstash
-    停止服务：systemctl stop logstash
-    重启服务：systemctl restart logstash
-    查看服务状态：systemctl status logstash
 
-### 配置文件写法
-```sh
-# 日志导入
-input {
-
-}
-# 日志筛选匹配处理
-filter {
-
-}
-# 日志匹配输出
-output {
-
-}
-```
-
-安装Ruby(换yum源安装)
+### 安装Ruby(换yum源安装)
 
 ```sh
 yum install centos-release-scl-rh　//会在/etc/yum.repos.d/目录下多出一个CentOS-SCLo-scl-rh.repo源
@@ -254,9 +275,14 @@ yum install rh-ruby23  -y　　　　   //直接yum安装即可　　
 scl  enable  rh-ruby23 bash　　　　 //必要一步
 ruby -v　　　　                     //查看安装版本
 ```
+&nbsp; 
+&nbsp; 
+&nbsp; 
+&nbsp; 
 
-## 安装kibana
+## Kibana
 
+### 下载kibana
 logstash的最新版已经内置kibana，你也可以单独部署kibana。kibana3是纯粹JavaScript+html的客户端，所以可以部署到任意http服务器上。
 ```sh
 cd /elk
@@ -265,7 +291,7 @@ tar -zxvf kibana-6.2.3-linux-x86_64.tar.gz
 cd kibana-6.2.3-linux-x86_64
 ```
 
-修改配置文件
+### 修改配置文件
 ```sh
 vim config/kibana.yml 
 
@@ -274,9 +300,11 @@ server.host: "0"
 elasticsearch.url: http://elasticsearch:9200 # 修改为ip
 xpack.monitoring.ui.container.elasticsearch.enabled: false
 ```
-启动
+### 启动kibana
 ```sh
 nohup bin/kibana 1>/dev/null 2>&1 &
 ```
 访问
+```
 http://39.107.158.137:5601
+```
