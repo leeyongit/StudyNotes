@@ -5,6 +5,15 @@ supervisord管理
 yum install -y epel-release supervisor
 supervisord -c /etc/supervisord.conf 
 ```
+## 重载配置
+```sh
+supervisorctl reread && supervisorctl update
+```
+## 终端交互
+```
+supervisorctl
+```
+
 ## 配置例子
 ```sh
 [program:nginx]
@@ -20,14 +29,6 @@ numprocs=8
 redirect_stderr=true                                  ; 如果为true，则stderr的日志会被写入stdout日志文件中默认为false，非必须设置
 stdout_logfile=/path/app.log                          ; 输出日志
 stderr_logfile=/path/app.log                          ; 错误日志
-```
-## 重载配置
-```sh
-supervisorctl reread && supervisorctl update
-```
-## 终端交互
-```
-supervisorctl
 ```
 
 ## ELK

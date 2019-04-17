@@ -91,7 +91,7 @@ composer dumpautoload
 
 ### 启动调度器
 ```sh
-* * * * * php /path-to-your-project/artisan schedule:run >> /dev/null 2>&1
+* * * * * php /home/wwwroot/web.fshd.com/artisan schedule:run >> /dev/null 2>&1
 ```
 
 ### 启动内置服务器

@@ -1,7 +1,5 @@
 OpenResty
 =========
-http://148.72.213.135:8080/
-liyong Ly!(*%1122*)
 
 CentOS
 你可以在你的 CentOS 系统中添加 openresty 仓库，这样就可以便于未来安装或更新我们的软件包（通过 yum update 命令）。运行下面的命令就可以添加我们的仓库：
@@ -24,7 +22,11 @@ PATH=/usr/local/openresty/nginx/sbin:$PATH
 export PATH
 
 nginx -p /root/work/ -c conf/nginx.conf
-
+```
+log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for" "$request_time"  "$upstream_response_time"';
+```
 groupadd www
 useradd -m -s /sbin/nologin -g www www
 -s表示指定用户所用的shell，此处为/sbin/nologin，表示不登录。
@@ -55,11 +57,23 @@ yum --enablerepo=remi,remi-php72 install php-fpm php-common
 ```
 yum --enablerepo=remi,remi-php72 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
 ```
+## 安装swoole
+yum install php-pecl-swoole4 php-pecl-swoole4-devel
+
+## 安装rdkafka
+yum install php-pecl-rdkafka
+
+## 后台
+yum --enablerepo=remi,remi-php72 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-redis php-gd php-mbstring php-mcrypt php-xml
 
 systemctl start php-fpm.service
+systemctl restart php-fpm.service
 systemctl enable php-fpm.service
 
 ## 配置 Nginx 和 PHP 7.2 匹配
+mkdir -p /var/log/nginx
+mkdir -p /var/log/php-fmp
+/usr/sbin/php-fpm --fpm-config php-fpm-goeasy.dev.conf
 ```
 server {
     listen   80;
@@ -85,3 +99,17 @@ server {
     }
 }
 ```
+
+
+## 安装 MariaDB
+
+yum install mariadb-server mariadb -y
+
+安装完成后，我们同样启动服务和配置服务自启动：
+
+systemctl start mariadb
+systemctl enable mariadb
+
+然后, 运行初始化脚本，清除一些默认配置:(这时，需要你提供 MariaDB 的密码, 但这是第一次登陆，没有密码，因此直接按回车)
+
+mysql_secure_installation
