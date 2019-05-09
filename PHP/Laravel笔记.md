@@ -5,9 +5,11 @@
     --prefer-dist 会从github 上下载.zip压缩包，并缓存到本地。下次再安装就会从本地加载，大大加速安装速度。但她没有保留 .git文件夹,没有版本信息。适合基于这个package进行开发。
     --prefer-source 会从github 上clone 源代码，不会在本地缓存。但她保留了.git文件夹，从而可以实现版本控制。适合用于修改源代码。
 
+## 快速创建项目
 ```sh
-composer create-project laravel/laravel itapp --prefer-dist
-cd itapp
+composer create-project --prefer-dist laravel/laravel blog
+composer create-project --prefer-dist laravel/laravel blog 5.6.*
+cd blog
 php -S localhost:8000 -t public/
 ```
 

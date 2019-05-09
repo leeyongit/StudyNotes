@@ -4,6 +4,7 @@
 ```sh
 vim ~/.bash_profile
 export GOPATH=$HOME/Desktop/workspace/golang
+export GOBIN=$GOPATH/bin
 source ~/.bash_profile
 ```
 
@@ -29,4 +30,6 @@ go build -ldflags "-H windowsgui"
 ```sh
 docker run --rm -it -v $GOPATH:/go golang:1.10 bash -c 'cd $GOPATH/src/go-nas && go build'
 ```
+
+
 
