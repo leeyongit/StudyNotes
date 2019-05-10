@@ -69,11 +69,7 @@ yum install php-pecl-swoole4 php-pecl-swoole4-devel
 ## 安装rdkafka
 yum install php-pecl-rdkafka
 
-## 阿里云ecs-admin
-```sh
-yum --enablerepo=remi,remi-php72 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-redis php-gd php-mbstring php-mcrypt php-xml
-```
-
+### 开启服务、重启服务、开机启动
 ```sh
 systemctl start php-fpm.service
 systemctl restart php-fpm.service
