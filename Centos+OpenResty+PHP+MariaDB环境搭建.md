@@ -1,7 +1,7 @@
 Centos+OpenResty+PHP+MariaDB环境搭建
 ==================================
 
-CentOS
+## CentOS yum 安装 OpenResty
 你可以在你的 CentOS 系统中添加 openresty 仓库，这样就可以便于未来安装或更新我们的软件包（通过 yum update 命令）。运行下面的命令就可以添加我们的仓库：
 ```sh
 sudo yum install yum-utils
@@ -20,12 +20,25 @@ sudo yum install openresty-resty
 列出所有 openresty 仓库里头的软件包：
 ```sh
 sudo yum --disablerepo="*" --enablerepo="openresty" list available
-
+```
+**加入PATH路径**
+```
 PATH=/usr/local/openresty/nginx/sbin:$PATH
 export PATH
-
+```
+这样可以直接用`ningx`命令了
+**启动nginx**
+```
+nginx
+# 或全路径启动
+/usr/local/openresty/nginx/sbin/nginx
+```
+# 指定配置文件启动
+```sh
 nginx -p /root/work/ -c conf/nginx.conf
 ```
+**nginx日志格式**
+这个是参考不用配
 ```
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                   '$status $body_bytes_sent "$http_referer" '

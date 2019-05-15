@@ -75,19 +75,19 @@ git reset --hard commit_id
 git reset commit_id
 ```
 
-#### 回退某个文件的版本到上一个版本  
+#### 回退某个文件的版本到上一个版本
 ```sh
 git reset HEAD^ filename
 ```
 
-#### 向前回退到第3个版本  
+#### 向前回退到第3个版本
 ```sh
-git reset –soft HEAD~3  
+git reset –soft HEAD~3
 ```
 
 #### 将本地的状态回退到和远程的一样
-```sh  
-git reset –hard origin/master  
+```sh
+git reset –hard origin/master
 ```
 
 ### git revert
@@ -118,7 +118,7 @@ git merge <name> # 合并某分支到当前分支
 git branch -d <name> # 删除分支
 ```
 
-### git 取消修改，恢复版本 
+### git 取消修改，恢复版本
 取消对文件的修改。还原到最近的版本，废弃本地做的修改。
 ```sh
 git checkout -- <file>
@@ -129,7 +129,9 @@ git checkout -- <file>
 git commit --amend
 ```
 
-
-
-
+### git 解决每次更新代码都要输入用户名密码的解决方案
+```sh
+git config --global credential.helper store
+git pull /git push # (第一次输入，后续就不用再次数据)
+```
 

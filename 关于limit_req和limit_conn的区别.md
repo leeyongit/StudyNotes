@@ -1,18 +1,17 @@
 关于limit_req和limit_conn的区别
 =============================
 
-1. 首先，limit_req和limit_conn两个模块都是为了来限流的，但是两者不在一个层面，为了搞清楚这个，必须先要弄清楚request和connection的区别，因为在很多情况下，我们把他们混淆了。
+**1. 首先，limit_req和limit_conn两个模块都是为了来限流的，但是两者不在一个层面，为了搞清楚这个，必须先要弄清楚request和connection的区别，因为在很多情况下，我们把他们混淆了。**
 so, what is the difference  between connection and request? 
 
-2. connection是连接，即常说的tcp连接，通过三次握手而建立的一个完整状态机。建立一个连接，必须得要三次握手。
-request是指请求，即http请求，（注意，tcp连接是有状态的，而构建在tcp之上的http却是无状态的协议）。
+**2. connection是连接，即常说的tcp连接，通过三次握手而建立的一个完整状态机。建立一个连接，必须得要三次握手。request是指请求，即http请求，（注意，tcp连接是有状态的，而构建在tcp之上的http却是无状态的协议）。**
 
 通过打开一个网页，然后通过wareshark可以看到，一个连接建立后（即三次握手后），在这个连接断开之前（即四次挥手之前），会有很多的http request，这就是他们的区别：
 即一个连接的生命周期中，会存在一个或者多个请求，这是为了加快效率，避免每次请求都要三次握手建立连接，现在的HTTP/1.1协议都支持这种特性，叫做keepalive。
 
 区别：一个连接的生命周期中，会存在一个或者多个请求
 
-3. 那么在Nginx中，对于连接限制模块：limit_conn_module来看：
+**3. 那么在Nginx中，对于连接限制模块：limit_conn_module来看：**
 
 ```
 limit_conn_zone $binanry_remote_addr zone=conn_zone:1m;
@@ -35,7 +34,7 @@ locoation /limit.html {
 ~ ab -n100 -c100 -k http://yousit/limt.html
 这里的-k选秀就是表示keepalive，只开一个连接来发送这100个请求，即使是同时发送，那么server也不会认为你超过了，因为在一个时间你只是建立一个连接，这样这100个请求都会干净利落的处理完成。
 
-4. 再看limit_req_module 
+**4. limit_req_module**
 ```sh
 limit_req_zone $binary_remtoe_addr zone=req_zone:1m rate=1r/s;
 location /limit.html{

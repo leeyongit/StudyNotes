@@ -33,7 +33,7 @@ sudo systemctl enable docker.service
 
 查看运行状态 Loaded行：配置文件的位置，是否设为开机启动
 ```sh
-sudo systemctl status docker.service 
+sudo systemctl status docker.service
 ```
 
 上面的命令相当于在/etc/systemd/system目录添加一个符号链接，指向/usr/lib/systemd/system里面的docker.service文件。
@@ -56,7 +56,7 @@ sudo chmod +x /usr/local/bin/ctop
 
 docker 进入容器
 ```sh
-docker exec -it containerID /bin/bash 
+docker exec -it containerID /bin/bash
 docker exec -it containerID /bin/sh (alpine)
 ```
 
