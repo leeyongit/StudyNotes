@@ -72,6 +72,7 @@ git reset HEAD^
 #### 指定回到某一个版本
 ```sh
 git reset --hard commit_id
+git reset --hard d782dcbea1482afa3272d86f3b6b322715a2852b
 git reset commit_id
 ```
 
@@ -87,7 +88,7 @@ git reset –soft HEAD~3
 
 #### 将本地的状态回退到和远程的一样
 ```sh
-git reset –hard origin/master
+git reset --hard origin/master
 ```
 
 ### git revert

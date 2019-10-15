@@ -42,7 +42,7 @@ sudo unzip elasticsearch-6.2.3.zip
 ```sh
 groupadd elsearch
 useradd elsearch -g elsearch -p elasticsearch
-chown -R elsearch:elsearch elasticsearch-6.2.3 
+chown -R elsearch:elsearch elasticsearch-6.2.3
 ```
 
 首先启动ES服务，切换到elasticsearch目录，运行bin下的elasticsearch
@@ -67,10 +67,10 @@ sudo sysctl -w vm.max_map_count=262144
 curl -X GET http://localhost:9200
 ```
 
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Logstash
 
@@ -102,22 +102,6 @@ hello world! # 输入测试字符串
 
 ### 配置
 
-配置文件写法
-```sh
-# 日志导入
-input {
-
-}
-# 日志筛选匹配处理
-filter {
-
-}
-# 日志匹配输出
-output {
-
-}
-```
-
 新建kafka-logstash-es.conf
 ```sh
 cd config
@@ -126,26 +110,15 @@ vim kafka-logstash-es.conf
 input {
     kafka {
         type => "fshd"
-        bootstrap_servers => ["39.107.158.137:9092"]
-        client_id => "es1"
-        group_id => "es1"
+        bootstrap_servers => ["114.118.13.66:9092,114.118.13.66:9093,114.118.13.66:9094"]
+        client_id => "es_fshd"
+        group_id => "es_fshd"
         auto_offset_reset => "latest" # 从最新的偏移量开始消费
         consumer_threads => 5
         decorate_events => true # 此属性会将当前topic、offset、group、partition等信息也带到message中
-        topics => ["log"] # 数组类型，可配置多个topic
-        tags => ["log", "nginx_access"]
-        
-    }
-    kafka {
-        type => "ad"
-        bootstrap_servers => ["39.107.158.137:9092"]
-        client_id => "es2"
-        group_id => "es2"
-        auto_offset_reset => "latest" # 从最新的偏移量开始消费
-        consumer_threads => 5
-        decorate_events => true # 此属性会将当前topic、offset、group、partition等信息也带到message中
-        topics => ["ad_log"] # 数组类型，可配置多个topic
-        tags => ["log", "nginx_access"]
+        topics => ["fshd_nginx_access_log"] # 数组类型，可配置多个topic
+        tags => ["nginx", "fshd_access"]
+
     }
 }
 filter {
@@ -175,52 +148,20 @@ filter {
             all_fields => true
         }
     }
-    if [type] == "ad" {
-        grok {
-            patterns_dir => [ "./patterns/ad-nginx" ]
-            match => { "message" => "%{NGINXACCESS}" }
-            # match => { "message" => "%{COMBINEDAPACHELOG}" }
-            remove_field => ["message"]
-        }
-        date {
-            match => [ "log_timestamp" , "YYYY-MM-dd:HH:mm:ss Z" ]
-        }
-        geoip {
-            source => "clientip"
-        }
-        kv {
-            source => "request_uri"
-            field_split => "&?"
-            value_split => "="
-        }
-        urldecode {
-            all_fields => true
-        }
-        mutate {
-            convert => [ "request_time", "float" ]
-        }
-    }
-
 }
 output {
     if [type] == "fshd" {
         elasticsearch {
-            hosts => ["39.107.158.137:9200"]
-            index => "fshd_logs-%{+YYYY-MM-dd}"
+            hosts => ["114.118.10.253:9200"]
+            index => "fshd_log-%{+YYYY-MM-dd}"
+            type => "log"
             timeout => 300
         }
+        stdout { codec => rubydebug }
     }
-    if [type] == "ad" {
-        elasticsearch {
-            hosts => ["39.107.158.137:9200"]
-            index => "ad_logs-%{+YYYY-MM-dd}"
-            timeout => 300
-        }
-    }
-    
 }
 ```
-
+HTTPD24_ERRORLOG \[%{HTTPDERROR_DATE:timestamp}\] \[%{WORD:module}:%{LOGLEVEL:loglevel}\] \[pid %{POSINT:pid}:tid %{NUMBER:tid}\]( \(%{POSINT:proxy_errorcode}\)%{DATA:proxy_errormessage}:)?( \[client %{IPORHOST:client}:%{POSINT:clientport}\])? %{DATA:errorcode}: %{GREEDYDATA:message}
 ### 启动logstash
 
 服务管理
@@ -235,6 +176,7 @@ output {
 
 ```sh
 nohup bin/logstash -f config/kafka-logstash-es.conf --path.data=./data 1>/dev/null 2>&1 &
+nohup bin/logstash -f config/kafka-logstash-fshd_php_error_log-es.conf --path.data=./fshd_php_error_data 1>/dev/null 2>&1 &
 ```
 
 参数:
@@ -250,7 +192,9 @@ grok作为一个logstash的过滤插件，支持根据模式解析文本日志�
 nginx日志的配置：
 
 ```sh
-log_format  main  '$remote_addr - $remote_user [$time_local] "$request" $status $body_bytes_sent "$http_referer" "$http_user_agent" "$http_x_forwarded_for" $request_time';
+    log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
+                      '$status $body_bytes_sent "$http_referer" '
+                      '"$http_user_agent" "$http_x_forwarded_for" $request_time "$scheme"';
 ```
 
 ```sh
@@ -260,13 +204,16 @@ $ vim patterns/nginx
 ```
 
 ```sh
-NGINXACCESS %{COMBINEDAPACHELOG} %{QS:http_x_forwarded_for} %{NUMBER:request_time:float}
+NGINXACCESS %{COMBINEDAPACHELOG} %{QS:http_x_forwarded_for} %{NUMBER:request_time:float} %{DATA:scheme}
 ```
 ```sh
 COMMONAPACHELOG %{IPORHOST:clientip} %{USER:ident} %{USER:auth} \[%{HTTPDATE:timestamp}\] "(?:%{WORD:verb} %{NOTSPACE:req
 uest}(?: HTTP/%{NUMBER:httpversion})?|%{DATA:rawrequest})" %{NUMBER:response} (?:%{NUMBER:bytes}|-)
 ```
-
+grok 的 match：
+```
+%{IPORHOST:clientip} - (%{USERNAME:user}|-) \[%{HTTPDATE:log_timestamp}\] "%{WORD:http_method} %{NOTSPACE:request_uri} (?:HTTP\/\d\.\d)" %{NUMBER:http_status} %{NUMBER:body_bytes_send} "%{DATA:http_refer}" "%{DATA:user_agent}" "%{DATA:x_forword_for}" %{NUMBER:action_length_time} "%{DATA:scheme}"
+```
 ### 安装Ruby(换yum源安装)
 
 ```sh
@@ -275,10 +222,10 @@ yum install rh-ruby23  -y　　　　   //直接yum安装即可　　
 scl  enable  rh-ruby23 bash　　　　 //必要一步
 ruby -v　　　　                     //查看安装版本
 ```
-&nbsp; 
-&nbsp; 
-&nbsp; 
-&nbsp; 
+&nbsp;
+&nbsp;
+&nbsp;
+&nbsp;
 
 ## Kibana
 
@@ -293,7 +240,7 @@ cd kibana-6.2.3-linux-x86_64
 
 ### 修改配置文件
 ```sh
-vim config/kibana.yml 
+vim config/kibana.yml
 
 server.name: kibana
 server.host: "0"

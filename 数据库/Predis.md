@@ -61,7 +61,7 @@ $redis -> del ( 'foo' ) ; //true
 type 类型检测,字符串返回string,列表返回 list,set表返回set/zset,hash表返回hash
 ```php
 $redis -> type ( 'foo' ) ; //不存在,返回none
-$redis -> set ( 'str' , 'test' ) ; 
+$redis -> set ( 'str' , 'test' ) ;
 $redis -> type ( 'str' ) ;  //字符串，返回string
 ```
 append 连接到已存在字符串
@@ -117,6 +117,7 @@ $redis -> dbsize ( ) ;
 
 rpush/rpushx 有序列表操作,从队列后插入元素
 > lpush/lpushx 和rpush/rpushx的区别是插入到队列的头部,同上,'x'含义是只对已存在的key进行操作
+
 ```php
 $redis -> rpush ( 'fooList' ,  'bar1' ) ;  //返回一个列表的长度1
 $redis -> lpush ( 'fooList' ,  'bar0' ) ;  //返回一个列表的长度2
@@ -264,7 +265,7 @@ zunionstore/zinterstore 将多个表的并集/交集存入另一个表中
 ```php
 $redis -> zunionstore ( 'zset3' , array ( 'zset1' , 'zset2' , 'zset0' ) ) ;  //将'zset1','zset2','zset0'的并集存入'zset3'
 ```
-其它参数 
+其它参数
 ```php
 $redis -> zunionstore ( 'zset3' , array ( 'zset1' , 'zset2' ) , array ( 'weights'  =>  array ( 5 , 0 ) ) ) ; //weights参数表示权重，其中表示并集后值大于5的元素排在前，大于0的排在后
 $redis -> zunionstore ( 'zset3' , array ( 'zset1' , 'zset2' ) , array ( 'aggregate'  =>  'max' ) ) ; //'aggregate' => 'max'或'min'表示并集后相同的元素是取大值或是取小值
@@ -292,7 +293,7 @@ $redis -> zrank ( 'zset1' , 'ef' ) ; //返回0,因为它是第一个元素;zrevr
 ```
 zremrangebyrank 删除表中指定位置区间的元素
 ```php
-$redis -> zremrangebyrank ( 'zset1' , 0 , 10 ) ;  //删除位置为0-10的元素,返回删除的元素个数2 
+$redis -> zremrangebyrank ( 'zset1' , 0 , 10 ) ;  //删除位置为0-10的元素,返回删除的元素个数2
 ```
 
 ## hash表操作
@@ -322,7 +323,7 @@ $redis -> hsetnx ( 'hash1' , 'key2' , 'v2' ) ;  //true
 ```
 hmset/hmget 存取多个元素到hash表
 ```php
-$redis -> hmset ( 'hash1' , array ( 'key3' => 'v3' , 'key4' => 'v4' ) ) ; 
+$redis -> hmset ( 'hash1' , array ( 'key3' => 'v3' , 'key4' => 'v4' ) ) ;
 $redis -> hmget ( 'hash1' , array ( 'key3' , 'key4' ) ) ;  //返回相应的值 array('v3','v4')
 ```
 hincrby 对指定key进行累加
@@ -424,7 +425,7 @@ $replies  =  $redis -> pipeline ( function ( $pipe )  {
      $pipe -> incrby ( 'counter' ,  30 ) ;
      $pipe -> exists ( 'counter' ) ;
      $pipe -> get ( 'counter' ) ;
-     $pipe -> mget ( 'does_not_exist' ,  'counter' ) ;  
+     $pipe -> mget ( 'does_not_exist' ,  'counter' ) ;
 } ) ;
 print_r ( $replies ) ;
 

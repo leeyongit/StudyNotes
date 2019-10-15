@@ -1,8 +1,7 @@
 Go复合数据类型总结
 ---------------
 
-## Map
----
+### Map
 map是一种key-value的关系，一般都会使用make来初始化内存，有助于减少后续新增操作的内存分配次数。假如一开始定义了话，但没有用make来初始化，会报错的。
 ```go
 package main
@@ -25,8 +24,7 @@ func main(){
 }
 ```
 
-## interface
----
+### interface
 接口的转换遵循以下规则：
 - 普通类型向接口类型的转换是隐式的。
 - 接口类型向普通类型转换需要类型断言
@@ -48,13 +46,13 @@ import "fmt"
 func main() {
     var i32 interface{}
     i32 = int32(1)
-    
+
     var i int
     //i = i32.(int)  // won't work, you need to assert against the exact type in i32
-    
+
     i32_tmp := i32.(int32) // this is called a type assertion
     i = int(i32_tmp)
-    
+
     fmt.Println(i)
 }
 ```

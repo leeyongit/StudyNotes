@@ -3,7 +3,7 @@ Go基本数据类型总结
 - 基本类型：boolean，numeric，string类型的命名实例是预先声明的。
 - 复合类型：array，struct，指针，function，interface，slice，map，channel类型（可以使用type构造）。
 
-## Numeric types
+### Numeric types
 
 ```
 A numeric type represents sets of integer or floating-point values. The predeclared architecture-independent numeric types are:
@@ -26,7 +26,7 @@ There is also a set of predeclared numeric types with implementation-specific si
 uint            either 32 or 64 bits
 int             same size as uint
 uintptr         an unsigned integer large enough to store the uninterpreted bits of a pointer value
-To avoid portability issues all numeric types are distinct except byte, which is an alias for uint8, and rune, which is an alias for int32. Conversions are required when different numeric types are mixed in an expression or assignment. 
+To avoid portability issues all numeric types are distinct except byte, which is an alias for uint8, and rune, which is an alias for int32. Conversions are required when different numeric types are mixed in an expression or assignment.
 For instance, int32 and int are not the same type even though they may have the same size on a particular architecture.
 ```
 
@@ -44,7 +44,7 @@ For instance, int32 and int are not the same type even though they may have the 
 
 所以上面的文档解释了为什么int，int32，int64之间需要进行类型转换才能进行运算。
 
-## String types
+### String types
 ```
 A string type represents the set of string values. A string value is a (possibly empty) sequence of bytes. Strings are immutable: once created, it is impossible to change the contents of a string. The predeclared string type is string.
 The length of a string s (its size in bytes) can be discovered using the built-in function len. The length is a compile-time constant if the string is a constant. A string's bytes can be accessed by integer indices 0 through len(s)-1. It is illegal to take the address of such an element; if s[i] is the i'th byte of a string, &s[i] is invalid.
@@ -53,7 +53,7 @@ The length of a string s (its size in bytes) can be discovered using the built-i
 
 可以使用内置函数len来发现字符串s的长度（以字节为单位的大小）。 如果字符串是常量，则length是编译时常量。 字符串的字节可以通过整数索引0到len（s）-1来访问。 取这种元素的地址是非法的; 如果s [i]是字符串的第i个字节，则＆s [i]无效。
 
-## Map Types
+### Map Types
 ```go
 make(map[string]int)
 make(map[string]int, 100)
@@ -61,54 +61,3 @@ The initial capacity does not bound its size: maps grow to accommodate the numbe
 ```
 初始容量不限制其大小：map增长以适应存储在其中的项目数，除了nil map。 nil map等价于空map，不能添加元素。
 
-## int，int32，int64相互转换
-int转换成int32，int64
-```go
-// int转换成int32
-i32 = int32(i)
-// int转换成int64
-i64 = int64(i)
-```
-int32，int64转换成int
-```go
-// int32转换成int
-i = int(int32)
-// int64转换成int
-i = int(int64)
-```
-
-## int和string相互转换
-int，int32，int64转换成string
-```go
-// 通过fmt.Sprintf方法转换（%d代表Integer，i可以是int，int32，int64类型）
-str1 := fmt.Sprintf("%d", i)
-// 通过strconv.Itoa方法转换（i是int类型）
-str2 := strconv.Itoa(i)
-// 通过strconv.FormatInt方法转换（i可以是int，int32，int64类型）
-str3 := strconv.FormatInt(int64(i), 10)
-```
-fmt.Sprintf
-```go
-// Sprint formats using the default formats for its operands and returns the resulting string.
-// Spaces are added between operands when neither is a string.
-func Sprint(a ...interface{}) string {
-    p := newPrinter()
-    p.doPrint(a)
-    s := string(p.buf)
-    p.free()
-    return s
-}
-```
-
-## string转换成int，int32，int64
-```go
-// string转换成int64
-strInt64, _ := strconv.ParseInt(str, 10, 64)
-// string转换成int32
-strInt32, _ := strconv.ParseInt(str, 10, 32)
-// 这里strInt32实际上还是int64类型的，只是截取了32位，所以最终还是要强转一下变成int32类型，如果不强转成int32是会编译报错的
-var realInt32 int32 = 0
-realInt32 := int32(strInt32)
-// string转换成int
-strInt, err := strconv.Atoi(str)
-```

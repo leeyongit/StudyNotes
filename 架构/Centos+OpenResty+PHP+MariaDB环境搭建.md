@@ -23,11 +23,15 @@ sudo yum --disablerepo="*" --enablerepo="openresty" list available
 ```
 **加入PATH路径**
 ```
+vim ~/.bash_profile 
 PATH=/usr/local/openresty/nginx/sbin:$PATH
 export PATH
+source ~/.bash_profile
+
 ```
 这样可以直接用`ningx`命令了
 **启动nginx**
+
 ```
 nginx
 # 或全路径启动
@@ -58,10 +62,12 @@ mkdir -p /home/{wwwroot,userdata}
 chown -R www:www /home/wwwroot
 ```
 ## 安装 PHP v7.2
+https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/7/php72/x86_64/repoview/
 首先，安装额外包括 PHP v7.2 的 CentOS repo :
 ```
 wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-rpm -Uvh remi-release-7.rpm
+wget http://rpms.remirepo.net/enterprise/7/remi/x86_64/remi-release-7.6-2.el7.remi.noarch.rpm
+rpm -Uvh remi-release-7.rpm [--force --nodeps]
 ```
 使 php72 repository 生效（默认不生效）:
 ```
@@ -74,13 +80,19 @@ yum --enablerepo=remi,remi-php72 install php-fpm php-common
 ```
 安装通用模块:
 ```
-yum --enablerepo=remi,remi-php72 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml
+yum --enablerepo=remi,remi-php72 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml php-pecl-zip
 ```
 ## 安装swoole
+```
 yum install php-pecl-swoole4 php-pecl-swoole4-devel
+```
 
 ## 安装rdkafka
+```shell
 yum install php-pecl-rdkafka
+```
+
+
 
 ### 开启服务、重启服务、开机启动
 ```sh
@@ -93,6 +105,7 @@ systemctl enable php-fpm.service
 mkdir -p /var/log/nginx
 mkdir -p /var/log/php-fmp
 /usr/sbin/php-fpm --fpm-config php-fpm-goeasy.dev.conf
+
 ```s
 server {
     listen   80;
