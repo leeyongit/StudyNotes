@@ -1,27 +1,29 @@
 # Mysql 笔记
 
-### Mysql 允许远程连接
-```sql
-GRANT ALL PRIVILEGES ON *.* TO'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
-flush privileges;
-```
-
-### SQL组成：
+#### SQL组成：
 
 - DDL：数据库模式定义语言，关键字：create
 - DML：数据操纵语言，关键字：Insert、delete、update
 - DCL：数据库控制语言 ，关键字：grant、remove
 - DQL：数据库查询语言，关键字：select
 
-### MySQL的sql_mode解析与设置
+#### MySQL的sql_mode解析与设置
 
-```sql
+```mysql
 set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
 ```
 
-## linux下 mysql导入导出sql文件
+#### Mysql 允许远程连接
 
-### mysqldump 导出数据库
+```mysql
+GRANT ALL PRIVILEGES ON *.* TO'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
+flush privileges;
+```
+
+### 
+
+### 一、导出数据库
+
 1. 导出数据和表结构：
 mysqldump -u用户名 -p密码 数据库名 > 数据库名.sql
 ```sh
@@ -67,7 +69,7 @@ mysql -u用户名 -p密码 数据库名 < 数据库名.sql
 mysql -uabc_f -p abc < abc.sql
 ```
 
-## 问题记录
+### 问题记录
 1. mysqldump 导出报错
 mysqldump: Got error: 1045: Access denied for user 'jupiter'@'10.141.136.49' (using password: YES) when using LOCK TABLES
 ```sh
