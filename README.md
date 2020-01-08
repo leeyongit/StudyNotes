@@ -37,6 +37,7 @@
 - [10分钟搭建Kubernetes容器集群平台（kubeadm）](https://blog.51cto.com/lizhenliang/2296100)
 - [k8s by kubeadm 国内网络环境搭建指南](https://github.com/nanmu42/k8s-by-kubeadm)
 - [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
+- [k8s实践(一)：Centos7.6部署k8s(v1.14.2)集群](https://blog.51cto.com/3241766/2405624)
 - [minikube 安装过程附带报错解决办法](https://segmentfault.com/a/1190000020478007)
 
 
