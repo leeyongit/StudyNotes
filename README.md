@@ -9,6 +9,7 @@
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
 
 ## Golang 学习
+- [如何写 go 代码](https://studygolang.com/articles/2561)
 - [从 0 到 1 学习 Go 语言](https://www.oschina.net/translate/learning-go-from-zero-to-hero)
 - [golang database/sql 包的使用](https://blog.csdn.net/embinux/article/details/84031620)
 - [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
@@ -19,9 +20,6 @@
 - [如何使用goapp写你的后台管理系统](https://www.cnblogs.com/hotion/p/11665837.html)
 - [kafka的go版本api使用](https://blog.csdn.net/qq_32292967/article/details/78675116)
 - [go中的main函数和init函数](https://blog.csdn.net/rznice/article/details/18987047)
-- [Go database/sql 教程](https://zhgxun.github.io/2017/07/19/go-database/)
-- [golang学习之旅：使用go语言操作mysql数据库](https://studygolang.com/articles/3022)
-- [如何写 go 代码](https://studygolang.com/articles/2561)
 - [Go net/http包](https://studygolang.com/articles/9467)
 - [2017年超有价值的Golang文章](https://colobu.com/2017/12/28/top-golang-articles-of-2017/)
 - [Go文件操作大全](https://colobu.com/2016/10/12/go-file-operations/)
