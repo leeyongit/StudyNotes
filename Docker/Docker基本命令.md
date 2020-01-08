@@ -1,3 +1,5 @@
+
+
 # Docker 笔记
 
 #### Docker 安装 (CentOS 7)
@@ -16,24 +18,11 @@ EOF
 
 #### 常用命令
 
-重新加载配置文件
 ```sh
-sudo systemctl daemon-reload
-```
-
-重启相关服务
-```sh
-sudo systemctl restart docker
-```
-
-开机自启动
-```sh
-sudo systemctl enable docker.service
-```
-
-查看运行状态 Loaded行：配置文件的位置，是否设为开机启动
-```sh
-sudo systemctl status docker.service
+sudo systemctl daemon-reload # 重新加载配置文件
+sudo systemctl restart docker # 重启相关服务
+sudo systemctl enable docker.service # 开机自启动
+sudo systemctl status docker.service # 查看运行状态 Loaded行：配置文件的位置，是否设为开机启动
 ```
 
 上面的命令相当于在/etc/systemd/system目录添加一个符号链接，指向/usr/lib/systemd/system里面的docker.service文件。
@@ -42,7 +31,7 @@ sudo systemctl status docker.service
 **安装Docker Compose**
 
 ```sh
-$ curl -L https://github.com/docker/compose/releases/download/1.16.1/docker-compose-`uname -s`-`uname -m` > ./docker-compose
+$ curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` > ./docker-compose
 $ sudo mv ./docker-compose /usr/bin/docker-compose
 $ sudo chmod +x /usr/bin/docker-compose
 ```
@@ -56,27 +45,22 @@ sudo chmod +x /usr/local/bin/ctop
 
 #### 常用Docker命令
 
-docker 进入容器
 ```sh
-docker exec -it containerID /bin/bash
+docker attach containerID # 连接到正在运行中的容器
+docker exec -it containerID /bin/bash # 使用docker exec进入Docker容器
 docker exec -it containerID /bin/sh (alpine)
+
+sudo docker cp host_path containerID:container_path # 从主机复制到容器
+sudo docker cp containerID:container_path host_path # 从容器复制到主机
+
+docker tag ImageId REPOSITORY:TAG（仓库：标签） # 给镜像打标签
+
+docker save ImageId > web.tar # 保存镜像
+docker load -i web.tar    # 导入镜像 --input , -i : 指定导入的文件
+docker commit -a="作者"  -m="提交的描述信息"  容器id   要创建的目标镜像名:[标签名]
+docker push NAME[:TAG] # 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库
 ```
 
-docker 打包和导入
-```sh
-docker save ImageId > /home/web.tar
-docker load --input /home/web.tar
-```
-
-从主机复制到容器
-```sh
-sudo docker cp host_path containerID:container_path
-```
-
-从容器复制到主机
-```sh
-sudo docker cp containerID:container_path host_path
-```
 
 退出容器
 ```sh
@@ -95,20 +79,6 @@ docker rmi -f $(docker images -a -q)
 ```sh
 docker system df
 docker system prune
-```
-
-### Docker 部署
-
-Docker 部署 xunsearch
-```sh
-docker pull hightman/xunsearch
-docker run -d --restart=always --name xunsearch -p 8383:8383 -p 8384:8384 -v /data/docker/xunsearch/data:/usr/local/xunsearch/data hightman/xunsearch:latest
-```
-
-Docker 部署 redis
-```sh
- docker run --name fshd-redis -d -p 6379:6379 -v /data/docker/redis/fshd_data:/data redis
- docker run --name ad-redis -d -p 6389:6379 -v /data/docker/redis/ad_data:/data redis
 ```
 
 

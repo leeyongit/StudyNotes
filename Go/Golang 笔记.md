@@ -1,14 +1,18 @@
 # Golang 学习笔记
 
-**Mac 下 GOPATH 设定**
+**Mac下配置.bash_profile（环境变量）**
+
 ```sh
 vim ~/.bash_profile
 export GOPATH=$HOME/Desktop/workspace/golang
 export GOBIN=$GOPATH/bin
+export PATH=$PATH:$GOPATH/bin
+export GOPROXY=https://goproxy.io
 source ~/.bash_profile
 ```
 
 **安装交叉编译工具链编译windows和linux下的C/C++**
+
 ```sh
 brew install FiloSottile/musl-cross/musl-cross
 brew install mingw-w64

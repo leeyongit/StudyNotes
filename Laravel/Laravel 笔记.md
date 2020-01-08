@@ -66,8 +66,6 @@ php artisan queue:work redis --sleep=3 --tries=3
 php artisan queue:work --daemon --quiet --queue=default --delay=3 --sleep=3 --tries=3
 ```
 
-
-
 ### Composer
 ```sh
 composer create-project laravel/laravel folder_name
@@ -89,3 +87,10 @@ php artisan serve
 
 DB:select toArray() 对象转数组的方法
 $resultArray = json_decode(json_encode($result), true);
+
+用DB自带的getQueryLog方法直接打印：
+```php
+DB::connection()->enableQueryLog();  // 开启QueryLog
+\App\User::find(1);
+dump(DB::getQueryLog());
+```

@@ -1,5 +1,4 @@
-docker-kafka-manager安装
-========================
+# docker-kafka-manager安装
 
 1. 下载kafka-manager镜像：
 ```sh

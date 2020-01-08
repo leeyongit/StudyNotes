@@ -52,7 +52,7 @@ binlog-do-db：指定需要同步的数据库
 
 ```ini
 [root@server156 ~]# nano /etc/my.cnf
-  GNU nano 2.0.9                                File: /etc/my.cnf                                                             
+  GNU nano 2.0.9                                File: /etc/my.cnf
 
 # For advice on how to change settings please see
 # http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html

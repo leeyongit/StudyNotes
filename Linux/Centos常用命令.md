@@ -20,19 +20,6 @@ scp -r local_folder remote_username@remote_ip:remote_folder # 复制目录命令
 
 
 
-第一步：列出所有已挂载磁盘 命令： disk -h
-
-fdisk -l 查看磁盘情况
-
-
-
-格式化分区
-mkfs.ext3 /dev/vdb1
-挂载分区
-mount /dev/vdb /data
-设置开机自动挂载：
-echo '/dev/vdb /data ext3 defaults 0 0' >> /etc/fstab
-
 
 ### 监控网络状态信息
 此命令用于显示整个系统目前的网络情况。例如目前的连接、数据包传递数据、或是路由表内容。
@@ -100,4 +87,38 @@ head -5 /var/log/messages # 查询日志的前5行
 tail -5 /var/log/messages # 查询日志的最新5行
 sed -n '5,10p' /var/log/messages # 查询日志的5到10行
 ```
+
+### 磁盘挂载
+
+第一步：列出所有已挂载磁盘 命令：
+
+```sh
+ disk -h
+```
+
+查看磁盘情况
+
+```sh
+fdisk -l 
+```
+
+格式化分区
+
+```sh
+mkfs.ext3 /dev/vdb1
+```
+
+挂载分区
+
+```sh
+mount /dev/vdb /data
+```
+
+设置开机自动挂载：
+
+```sh
+echo '/dev/vdb /data ext3 defaults 0 0' >> /etc/fstab
+```
+
+
 
