@@ -17,6 +17,23 @@
 - [go-micro 框架初探](https://segmentfault.com/a/1190000017572032?utm_source=tag-newest)
 - [Golang信号处理和优雅退出守护进程](https://www.jianshu.com/p/ae72ad58ecb6)
 - [如何使用goapp写你的后台管理系统](https://www.cnblogs.com/hotion/p/11665837.html)
+- [kafka的go版本api使用](https://blog.csdn.net/qq_32292967/article/details/78675116)
+- [go中的main函数和init函数](https://blog.csdn.net/rznice/article/details/18987047)
+- [Go database/sql 教程](https://zhgxun.github.io/2017/07/19/go-database/)
+- [golang学习之旅：使用go语言操作mysql数据库](https://studygolang.com/articles/3022)
+- [如何写 go 代码](https://studygolang.com/articles/2561)
+- [Go net/http包](https://studygolang.com/articles/9467)
+- [2017年超有价值的Golang文章](https://colobu.com/2017/12/28/top-golang-articles-of-2017/)
+- [Go文件操作大全](https://colobu.com/2016/10/12/go-file-operations/)
+- [gRPC的那些事 - streaming](https://colobu.com/2017/04/06/dive-into-gRPC-streaming/)
+- [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
+- [grpc 笔记](https://learnku.com/articles/23573/grpc-notes)
+- [gRPC之metadata(译)](http://ralphbupt.github.io/2017/05/27/gRPC%E4%B9%8Bmetadata/)
+- [gRPC双向数据流的交互控制](https://www.jianshu.com/p/5158d6686769)
+- [通过Websocket与gRPC交互](https://www.jianshu.com/p/b325a2848275)
+- [通过Nginx实现gRPC服务的负载均衡](https://www.jianshu.com/p/611d586f58cd)
+- [Golang系列（五）之Golang指针](https://blog.csdn.net/huwh_/article/details/77879970)
+
 
 ## Java
 - [How2J](https://how2j.cn/)
@@ -41,7 +58,6 @@
 - [minikube 安装过程附带报错解决办法](https://segmentfault.com/a/1190000020478007)
 
 
-vim /etc/sysconfig/kubelet
 
 
 ## 技巧
