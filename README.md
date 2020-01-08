@@ -33,6 +33,16 @@
 ## Git
 - [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
 
+## K8S
+- [10分钟搭建Kubernetes容器集群平台（kubeadm）](https://blog.51cto.com/lizhenliang/2296100)
+- [k8s by kubeadm 国内网络环境搭建指南](https://github.com/nanmu42/k8s-by-kubeadm)
+- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
+- [minikube 安装过程附带报错解决办法](https://segmentfault.com/a/1190000020478007)
+
+
+vim /etc/sysconfig/kubelet
+
+
 ## 技巧
 1. Windows下如何查看某个端口被谁占用
 ```sh
