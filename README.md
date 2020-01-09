@@ -1,7 +1,16 @@
 # Notes
 学习笔记
 
+## Golang图书
+
+| [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/)   |
+| ------------------------------------------------------------ |
+| [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
+
+
+
 ## Interview
+
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
 
 ## 数据结构与算法
@@ -11,6 +20,7 @@
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
 
 ## Golang 学习
+- [GO知识图谱](https://www.processon.com/view/link/5a9ba4c8e4b0a9d22eb3bdf0#map)
 - [如何写 go 代码](https://studygolang.com/articles/2561)
 - [从 0 到 1 学习 Go 语言](https://www.oschina.net/translate/learning-go-from-zero-to-hero)
 - [golang database/sql 包的使用](https://blog.csdn.net/embinux/article/details/84031620)
@@ -23,15 +33,12 @@
 - [kafka的go版本api使用](https://blog.csdn.net/qq_32292967/article/details/78675116)
 - [go中的main函数和init函数](https://blog.csdn.net/rznice/article/details/18987047)
 - [Go net/http包](https://studygolang.com/articles/9467)
-- [2017年超有价值的Golang文章](https://colobu.com/2017/12/28/top-golang-articles-of-2017/)
 - [Go文件操作大全](https://colobu.com/2016/10/12/go-file-operations/)
 - [gRPC的那些事 - streaming](https://colobu.com/2017/04/06/dive-into-gRPC-streaming/)
 - [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
-- [grpc 笔记](https://learnku.com/articles/23573/grpc-notes)
-- [gRPC之metadata(译)](http://ralphbupt.github.io/2017/05/27/gRPC%E4%B9%8Bmetadata/)
+- [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
+- [GRPC的metadata使用](https://blog.csdn.net/hjxzb/article/details/88980186)
 - [gRPC双向数据流的交互控制](https://www.jianshu.com/p/5158d6686769)
-- [通过Websocket与gRPC交互](https://www.jianshu.com/p/b325a2848275)
-- [通过Nginx实现gRPC服务的负载均衡](https://www.jianshu.com/p/611d586f58cd)
 - [Golang系列（五）之Golang指针](https://blog.csdn.net/huwh_/article/details/77879970)
 
 
