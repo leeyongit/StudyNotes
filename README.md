@@ -23,7 +23,7 @@
 - [phprpc](https://github.com/kaiyulee/phprpc)<small>The PHP RPC Micro Service Framework</small>
 - [使用SpringBoot+Dubbo搭建微服务笔记](https://blog.csdn.net/qq_22152261/article/details/80300597)
 
-#### zookeeper
+## zookeeper
   - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
   - [php-zookeeper](https://github.com/andreiz/php-zookeeper)
   - [ZooKeeper集群安装配置](https://yq.aliyun.com/articles/698320?spm=a2c4e.11163080.searchblog.71.1d992ec1Q6J2b9)
@@ -68,8 +68,7 @@
  - [SpringBoot的web项目启动方式](https://blog.csdn.net/qq_30945875/article/details/83151042)
  - [精通 Spring Boot 42 讲](https://gitbook.cn/gitchat/column/5b86228ce15aa17d68b5b55a/topic/5b864c65e15aa17d68b5db58)
 
-### MySQL
----
+## MySQL
  - [程序员，知道Mysql中ACID的原理吗？](https://zhuanlan.zhihu.com/p/65281198)
  - [MySQL中SQL优化和架构设计](http://blog.csdn.net/leeyongit/article/details/18132951)
  - [MySQL性能优化的最佳21条经验 ](http://blog.csdn.net/leeyongit/article/details/8507578)
