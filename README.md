@@ -1,12 +1,12 @@
 # Notes
 学习笔记
 
-## 图书
 
-| [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/)   |
+| 电子书  |
 | ------------------------------------------------------------ |
-| [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
+| [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/) |
 | [微服务：从设计到部署](https://docshome.gitbooks.io/microservices/content/) |
+| [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
 
 ## Interview
 
