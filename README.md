@@ -9,7 +9,7 @@
 | [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
 
 ## Interview
-
+ - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
 
 ## 微服务
@@ -106,7 +106,7 @@
   - [基于ZooKeeper和Thrift构建动态RPC调用](https://blog.csdn.net/likewindy/article/details/51352179)
   - [Zookeeper知识点](https://www.cnblogs.com/cjsblog/p/9682648.html)
 
-#### Kafka
+## Kafka
 - [PHP下kafka的实践](https://segmentfault.com/a/1190000015765348)
 - [PHP 处理kafka消息实例](http://www.dahouduan.com/2017/09/18/php-consume-kafka/)
 - [Kafka（一）Kafka是什么及基本概念](https://blog.51cto.com/littledevil/2134686)
@@ -130,6 +130,20 @@
 - [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
 - [k8s实践(一)：Centos7.6部署k8s(v1.14.2)集群](https://blog.51cto.com/3241766/2405624)
 - [minikube 安装过程附带报错解决办法](https://segmentfault.com/a/1190000020478007)
+
+
+#### ReactNative
+ - [从 1 到完美，用 js 和 react-native 写一个 APP](https://segmentfault.com/a/1190000016272845)
+ - [react-native 初体验 - 使用 javascript 来写 iOS app](https://segmentfault.com/a/1190000005170648)
+ - [分享 50 个完整的 React Native 项目](https://blog.csdn.net/Marno__/article/details/71809757)
+ - [55 ReactNative Examples](https://react.rocks/tag/ReactNative?show=40)
+
+## Dart & Flutter
+ - [一文了解Dart语法](https://juejin.im/post/5c52a386f265da2de25b5c36#heading-26)
+ - [细说Flutter-MacOS下搭建Flutter开发环境](https://juejin.im/post/5c638662f265da2da23d0e1f)
+ - [使用 Flutter 快速构建美观又高性能的移动应用](https://www.bilibili.com/video/av27857568/)
+ - [FlutterExampleApps](https://github.com/iampawan/FlutterExampleApps)
+
 
 ## CentOS
  - [CentOS常用环境、软件](https://spldeolin.com/posts/centos-softwares/)
