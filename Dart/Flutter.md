@@ -1,6 +1,6 @@
-#Flutter
+# Flutter
 
-####flutter配置国内镜像
+#### flutter配置国内镜像
 
 ```sh
 vim ~/.bash_profile
@@ -25,14 +25,14 @@ flutter doctor -v
 flutter channel
 # 切换分支：
 # 切换beta分支
-flutter channel beta 
+flutter channel beta
 # 切换master分支
 flutter channel master
 
 # 【更新】
-# 同时更新Flutter SDK和依赖包: 
+# 同时更新Flutter SDK和依赖包:
 # 最好在项目的包含pubspec.yaml文件的目录执行：
-flutter upgrade 
+flutter upgrade
 # 获取pubspec.yaml文件中列出的所有依赖包：
 flutter packages get
 # 获取pubspec.yaml文件中列出的所有依赖包的最新版本
