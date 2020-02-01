@@ -41,12 +41,12 @@ flutter packages upgrade
 
 
 
-###Flutter填坑
+### Flutter填坑
 
 **Waiting for another flutter command to release the startup lock**
-
+```sh
 rm -rf /Users/liyong/development/flutter/bin/cache/lockfile
-
+```
 **This is taking an unexpectedly long time.**
 
 打开Flutter SDK：/Users/liyong/development/flutter/packages/flutter_tools/gradle/flutter.gradle
