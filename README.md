@@ -9,8 +9,9 @@
 | [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
 
 ## Interview
- - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
+- [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
+- [Java学习+面试指南](https://github.com/Snailclimb/JavaGuide) <small>一份涵盖大部分Java程序员所需要掌握的核心知识</small>
 
 ## 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
@@ -86,12 +87,14 @@
 
 ## Apache Thrift ™
 - [Thrift PHP Tutorial](https://thrift.apache.org/tutorial/php)
+- [Thrift使用指南](http://dongxicheng.org/search-engine/thrift-guide/)
 - [RPC框架-Thrift的使用](https://blog.csdn.net/rlanffy/article/details/51873022)
 - [Thrift使用-php](https://blog.csdn.net/xjc200808/article/details/51135934)
 - [Thrift在php框架laravel中的应用](http://ju.outofmemory.cn/entry/272744)
 - [RPC 框架 thrift 在 PHP 结合 Laravel 使用](https://icharle.com/thriftrpcphplaravel.html)
 - [RPC 框架之 thrift 学习笔记之一](https://icharle.com/rpcthrift.html)
 - [RPC 框架之 thrift 学习笔记之二](https://icharle.com/rpcthrifttwo.html)
+- [Thrift多种语言Rpc调用实战](https://www.jianshu.com/p/62948d6e5db9)
 
 ## zookeeper
   - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)

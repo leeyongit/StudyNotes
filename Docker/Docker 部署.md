@@ -35,8 +35,8 @@ docker run -d --restart=always --name xunsearch -p 8383:8383 -p 8384:8384 \
 
 ### Docker 部署 redis
 ```sh
- docker run --name fshd-redis -d -p 6379:6379 -v /data/docker/redis/fshd_data:/data redis
- docker run --name ad-redis -d -p 6389:6379 -v /data/docker/redis/ad_data:/data redis
+ docker run --name fshd-redis -d -p 6379:6379 -v /data/docker/redis/fshd_data:/data redis --requirepass "fshd_@2020_6379"
+ docker run --name ad-redis -d -p 6389:6379 -v /data/docker/redis/ad_data:/data redis --requirepass "fshd_@2020_6389"
 ```
 ### Docker 部署Mysql
 
