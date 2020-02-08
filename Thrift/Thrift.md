@@ -34,7 +34,7 @@ Thrift的模块设计非常好，在每一个层次都可以根据自己的需�
 
 Thrift类型系统的目标是使编程者能使用完全在Thrift中定义的类型，而不论他们使用的是哪种编程语言。Thrift类型系统没有引入任何特殊的动态类型或包装器对象，也不要求开发者编写任何对象序列化或传输的代码。Thrift IDL文件在逻辑上，是开发者对他们的数据结构进行注解的一种方法，该方法告诉代码生成器怎样在语言之间安全传输对象，所需的额外信息量最小。
 
-- Base Types（基本类型）
+- #### Base Types（基本类型）
 
 ```
 bool 布尔值，真或假
@@ -48,7 +48,7 @@ string 与编码无关的文本或二进制字符串
 
 许多语言中都没有无符号整数类型，且无法防止某些语言（如Python）的开发者把一个负值赋给一个整型变量，这会导致程序无法预料的行为。从设计角度讲，无符号整型鲜少用于数学目的，实际中更长用作关键词或标识符。这种情况下，符号是无关紧要的，可用有符号整型代替。
 
-- Structs（结构体）
+- #### Structs（结构体）
 
 Thrift结构体定义了一个用在多种语言之间的通用对象。定义一个Thrift结构体的基本语法与C结构体定义非常相似。域可由一个整型域标识符（在该结构体的作用域内是唯一的），以及可选的默认值来标注。
 
@@ -60,7 +60,7 @@ struct Phone {
 }
 ```
 
-- enum(枚举）
+- #### enum(枚举）
 
 ```
 enum Operation {
@@ -71,19 +71,19 @@ enum Operation {
  }
 ```
 
-- Containers（容器）
+- #### Containers（容器）
 
 Thrift容器是强类型的，映射为通用编程语言中最常使用的容器。使用C++模板类来标注。有三种可用类型：
 
 ```
-list<type>:映射为STL vector，Java ArrayList，或脚本语言中的native array。。
-set<type>: 映射为为STL set，Java HashSet，Python中的set，或PHP/Ruby中的native dictionary。
-Map<type1,type2>：映射为STL map，Java HashMap，PHP associative array，或Python/Ruby dictionary。
+list<type>:元素类型为t的有序表，容许元素重复。映射为STL vector，Java ArrayList，或脚本语言中的native array。。
+set<type>: 元素类型为t的无序表，不容许元素重复.映射为为STL set，Java HashSet，Python中的set，或PHP/Ruby中的native dictionary。
+Map<type1,type2>：键类型为type1，值类型为type2的kv对，键不容许重复。映射为STL map，Java HashMap，PHP associative array，或Python/Ruby dictionary。
 ```
 
 在目标语言中，定义将产生有read和write两种方法的类型，使用Thrift TProtocol对象对对象进行序列化和传输。
 
-- Exceptions（异常）
+- #### Exceptions（异常）
 
 异常在语法和功能上都与结构体相同，唯一的区别是它们使用exception关键词，而非struct关键词进行声明。 生成的对象继承自各目标编程语言中适当的异常基类，以便与任何给定语言中的本地异常处理无缝地整合。
 
@@ -94,7 +94,7 @@ exception InvalidOperation {
 }
 ```
 
-- Services（服务）
+- #### Services（服务）
 
 使用Thrift类型定义服务。对一个服务的定义在语法上等同于在面向对象编程中定义一个接口（或一个纯虚抽象类）。Thrift编译器生成实现该接口的客户与服务器存根。服务的定义如下：
 

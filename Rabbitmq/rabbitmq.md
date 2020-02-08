@@ -20,11 +20,7 @@ chkconfig rabbitmq-server on
 ```sh
 ./rabbitmqctl status
 ```
-管理页面
-
-> http://192.168.191.11:15672
-guest  guest
-
+管理页面 http://192.168.191.11:15672 guest  guest
 
 
 #### php 的rabbitmq 扩展模块amqp安装
