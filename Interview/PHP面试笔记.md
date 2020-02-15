@@ -26,66 +26,68 @@ PHP面试题
 **只显示两者重复的行：comm -1 -2 file1 file2**
 只显示两者不重复的行：comm -3 file1 file2 | sed 's/^\t//' 后面的sed是将以\t开头的\t去掉：
 
-### 三、php的生命周期
 
-PHP 生命周期关键词
 
-1. MINIT（module init 模块初始化）
-
-- 启动 PHP 输出、初始化垃圾回收器
-- 启动 Zend 引擎、注册 Zend 核心扩展、Zend 标准常量
-- 解析 PHP.ini，映射 PHP.ini 相关配置
-- 注册静态、动态编译的扩展
-- 回调各扩展定义的 module starup 钩子函数
-
-用一句话来说，就是初始化类、常量、扩展等 PHP 所用到的资源
-
-2. RINIT（request init 请求初始化）
-
-PHP 初始化脚本执行的基本环境，SAPI 将控制权交给 PHP，激活 Zend 引擎，初始化执行器
-
-3. PHP 脚本执行
-
-Zend 引擎接管控制权，将 PHP 脚本编译成 Opcodes，并顺序执行
-
-4. RSHUTDOWN (request shutdown 请求结束)
-
-PHP 脚本执行完之后进入请求结束阶段，PHP 启动清理程序，这个阶段，将 flush 输出内容，发送 http 响应内容，关闭 PHP 执行器
-
-5. MSHUTDOWN(module shutdown 模块关闭)
-
-这个阶段主要是进行资源的清理、php 各模块的关闭操作，同时，将回调各扩展的 module shutdown 钩子函数
-
-### 四、php的垃圾回收机制(zval)
-[PHP垃圾回收机制](https://www.jianshu.com/p/e39ce8aafe52)
-
-5. memcache 和redis的内存分布原理 (lru算法)
+**有哪些数据结构？**
+顺序存储、链表存储、索引存储、散列存储常用的数据结构：
+数组
+栈（先进后出、线性表）
+队列（先进先出、后进后出、线性表）
+链表（每个节点包括两个部分：一个存储数据元素的数据域、另一个存储下一个节点地址的指针域）
+树
+图
+堆（是一种动态的树形结构）
+哈希表（散列表）
 
 7. 手写单例
+单例模式：保证一个类仅有一个实例，并提供一个访问它的全局访问方法。
+```php
+<?php
+class Mysql {
+    // 该属性用来保存实例
+    private static $conn;
+    // 构造函数为private, 防止创建对象
+    private function __construct() {
+        $this->conn = mysqli_connect("localhost","root","password","dbname");
+    }
+    // 创建一个用来实例化的方法
+    public static function getInstance() {
+        if (!(self::$conn instanceof self)) {
+            self::$conn = new self;
+        }
+        return self::$conn;
+    }
+    public function __clone() {
+        trigger_error('Clone is not allowed!');
+    }
+}
+// 只能这样取的实例，不能new和clone
+$mysql = Mysql::getInstance();
+```
 
-8. 手写快速排序
 
-9. memcache的hash一致性原理
 
-10. 分析nginx中的access.log 查找出 某个时间段内ip地址 请求次数最高的 `awk '{print $7} |sort|uniq -c |sort -n '`
+10. 分析nginx中的access.log 查找出 某个时间段内ip地址 请求次数最高的
+```sh
+awk '{print $1}' access.log |sort|uniq -c|sort -k1nr|head -n 1
+```
+awk默认按空格进行切分，$1为ip位置
+sort 参数：
+    -n: numeric-sort，根据字符串数值进行排序
+    -r: reverse，反向输出排序结果
+    -k N: key，以第N列进行排序
+uniq -c：可以统计重复行出现的次数
 
 11. 讲述php-fpm的运行原理
+php-fpm是一种master（主）/worker（子）多进程架构。master进程主要负责CGI及PHP环境初始化、事件监听、子进程状态等等，worker进程负责处理php请求。
+从FPM接收到请求，到处理完毕，其具体的流程如下：
+（1）FPM的master进程接收到请求。
+（2）master进程根据配置指派特定的worker进程进行请求处理，如果没有可用进程，返回错误，这也是我们配合Nginx遇到502错误比较多的原因。
+（3）worker进程处理请求，如果超时，返回504错误。
+（4）请求处理结束，返回结果。
 
-12. 讲述一个请求在执行过程中 进过了哪些流程(网络-dns-负载nginx-应该程序)
 
-13. mysql索引原理
 
-14. mysql事务的 4个一致性 和 隔离性(脏读 和可重读)
-
-15. nginx调优
-
-16. mysql的聚集索引和非聚集索引
-
-17. nginx的几种负载方式
-
-18. Nginx中的epoll 和select, poll模式的区别
-
-19. php-fpm的2中通信模式  tcp socket 和 unix socket
 
 20. tcp的三次握手，能不能二次握手 为什么
 

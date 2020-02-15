@@ -3,7 +3,7 @@ Mysql5.6主从复制
 主服务IP：192.168.1.117 从服务IP：192.168.1.118
 
 1. 修改主服务my.cnf，重启mysql服务
-```shell
+```
    [mysqld]
    innodb_buffer_pool_size = 512M
    log_bin = mysqlmaster-bin.log
@@ -11,14 +11,14 @@ Mysql5.6主从复制
 ```
 
 2. 修改从服务my.cnf，重启mysql服务
-```shell
+```sql
   [mysqld]
   innodb_buffer_pool_size = 512M
   log_bin = mysqlslave-bin.log
   server_id = 118  #大于主服务server_id
 ```
 配置从实例的 server-id 和要同步的数据库。
-```shell
+```sql
 [mysqld]
 server-id               =  123456789              //服务 ID，主从实例 server-id 需不同。
 log_bin                 =  /var/log/mysql/mysql-bin.log
@@ -30,7 +30,7 @@ replicate-ignore-db     =  information_schema     // 不需要同步的数据库
 replicate-ignore-db     =  performance_schema     // 不需要同步的数据库
 ```
 配置 GTID 同步模式，binlog 格式为 row，以兼容主实例。
-```sh
+```sql
 #GTID
 gtid_mode=on
 enforce_gtid_consistency=on

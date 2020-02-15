@@ -98,6 +98,7 @@
 
 ## zookeeper
   - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
+  - [ZooKeeper 初探：安装、使用](http://ningg.top/zookeeper-getting-started/)
   - [php-zookeeper](https://github.com/andreiz/php-zookeeper)
   - [ZooKeeper集群安装配置](https://yq.aliyun.com/articles/698320?spm=a2c4e.11163080.searchblog.71.1d992ec1Q6J2b9)
   - [php zookeeper你需要知道的细节](https://www.onmpw.com/tm/xwzj/prolan_227.html)

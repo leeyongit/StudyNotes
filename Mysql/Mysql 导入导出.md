@@ -1,26 +1,5 @@
-# Mysql 笔记
-
-#### SQL组成：
-
-- DDL：数据库模式定义语言，关键字：create
-- DML：数据操纵语言，关键字：Insert、delete、update
-- DCL：数据库控制语言 ，关键字：grant、remove
-- DQL：数据库查询语言，关键字：select
-
-#### MySQL的sql_mode解析与设置
-
-```mysql
-set global sql_mode='STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_AUTO_CREATE_USER,NO_ENGINE_SUBSTITUTION';
-```
-
-#### Mysql 允许远程连接
-
-```mysql
-GRANT ALL PRIVILEGES ON *.* TO'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
-flush privileges;
-```
-
-### 
+Mysql 导入导出
+---
 
 ### 一、导出数据库
 
@@ -44,7 +23,7 @@ mysqldump -uroot -p -d dbname > dbname.sql
 ```sh
 mysqldump -u dbuser -p -d --add-drop-table dbname >d:/dbname_db.sql
 ```
--d 没有数据 
+-d 没有数据
 --add-drop-table 在每个create语句之前增加一个drop table
 
 ### 二、导入数据库
