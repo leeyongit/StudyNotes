@@ -7,6 +7,7 @@
 | [微服务：从设计到部署](https://docshome.gitbooks.io/microservices/content/) |
 | [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/) |
 | [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
+| [Go RPC 开发指南](https://smallnest.gitbooks.io/go-rpc-programming-guide/content/) |
 
 ## Interview
 - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
