@@ -29,7 +29,7 @@
  - [Laravel 精选资源大全](http://laravelacademy.org/post/153.html)
  - [laravel5.5+dingo+JWT开发后台API](https://segmentfault.com/a/1190000016942328?utm_source=tag-newest)
  - [Laravel5.5 api token 用法](http://www.dahouduan.com/2017/09/18/laravel55-api-token/)
-
+ - [JWT 完整使用详解](https://learnku.com/articles/10885/full-use-of-jwt)
 
 ## Swoole
 - [Swoole来实现实时异步任务队列](https://yq.aliyun.com/articles/44247?spm=a2c4e.11153940.blogrightarea42644.20.59d8539cz7FLDv)
