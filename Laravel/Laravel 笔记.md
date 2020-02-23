@@ -47,16 +47,17 @@ php artisan config:clear
 ```
 
 ### 生成文件
+```php
 php artisan make:controller IndexController 创建控制器
 php artisan make:controller ResourceController --resource  生成基本路由方法
----
+
 php artisan make:model 模型文件名
 php artisan make:model Models/Member 创建模型 分目录的
----
+
 php artisan make:provider TestServiceProvider 创建服务提供者
 php artisan make:job SendReminderEmail 生成任务类
 php artisan make:command SendEmails 生成命令
-
+```
 ### 队列相关
 ```sh
 php artisan queue:restart # 重启队列

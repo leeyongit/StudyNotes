@@ -13,9 +13,11 @@
 - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
 - [Java学习+面试指南](https://github.com/Snailclimb/JavaGuide) <small>一份涵盖大部分Java程序员所需要掌握的核心知识</small>
+- [《吊打面试官》系列](https://my.oschina.net/javaFamily?tab=popular)
 
 ## 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
+- [有效的微服务：10 个最佳实践](https://mp.weixin.qq.com/s/jO3-fJGh8WqtSz4tdcZj5Q)
 - [Go Micro 文档](https://micro.mu/docs/cn/go-micro.html)
 - [Micro 中文示例、教程、资料，源码解读](https://github.com/micro-in-cn/tutorials)
 - [go 微服务，api网关使用gin](https://github.com/YinYongTao/gin-micro)
@@ -25,11 +27,14 @@
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
 
+## PHP
+ - [php firebase/php-jwt token验证](https://blog.csdn.net/cjs5202001/article/details/80228937)
+
 ## Laravel
  - [Laravel 精选资源大全](http://laravelacademy.org/post/153.html)
  - [laravel5.5+dingo+JWT开发后台API](https://segmentfault.com/a/1190000016942328?utm_source=tag-newest)
  - [Laravel5.5 api token 用法](http://www.dahouduan.com/2017/09/18/laravel55-api-token/)
- - [JWT 完整使用详解](https://learnku.com/articles/10885/full-use-of-jwt)
+
 
 ## Swoole
 - [Swoole来实现实时异步任务队列](https://yq.aliyun.com/articles/44247?spm=a2c4e.11153940.blogrightarea42644.20.59d8539cz7FLDv)
@@ -66,6 +71,7 @@
  - [SpringCloud 教程](https://www.cnblogs.com/jinjiyese153/category/1182033.html)
  - [SpringBoot的web项目启动方式](https://blog.csdn.net/qq_30945875/article/details/83151042)
  - [精通 Spring Boot 42 讲](https://gitbook.cn/gitchat/column/5b86228ce15aa17d68b5b55a/topic/5b864c65e15aa17d68b5db58)
+ - [SpringBoot入门教程(一)详解intellij idea搭建SpringBoot](https://www.cnblogs.com/toutou/p/9650939.html)
 
 ## MySQL
  - [程序员，知道Mysql中ACID的原理吗？](https://zhuanlan.zhihu.com/p/65281198)
@@ -155,6 +161,8 @@
  - [CentOS 7 安装 LNMP 环境（PHP7 + MySQL5.7 + Nginx1.10）](https://segmentfault.com/a/1190000009012613)
  - [CentOS 7安装最新 PHP 7.2，MySQL 5.7和Nginx](https://www.daguanren.cc/post/php_nginx_mysql_installation_guide.html)
  - [PHP 7.2 on CentOS/RHEL 7.5 via Yum](https://webtatic.com/packages/php72/)
+ - [Centos 7安装MySQL Server5.7](https://www.daguanren.cc/post/mysql_installation_guide.html#toc-29f)
+ - [Centos 7下配置MySQL Server5.7主从同步](https://www.daguanren.cc/post/sync_master_slave_mysql.html)
 
 
 ## 技巧
