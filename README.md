@@ -8,6 +8,7 @@
 | [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/) |
 | [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
 | [Go RPC 开发指南](https://smallnest.gitbooks.io/go-rpc-programming-guide/content/) |
+| [Kubernetes Handbook——Kubernetes中文指南/云原生应用架构实践手册](https://jimmysong.io/kubernetes-handbook/)|
 
 ## Interview
 - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
@@ -73,6 +74,7 @@
  - [精通 Spring Boot 42 讲](https://gitbook.cn/gitchat/column/5b86228ce15aa17d68b5b55a/topic/5b864c65e15aa17d68b5db58)
  - [SpringBoot入门教程(一)详解intellij idea搭建SpringBoot](https://www.cnblogs.com/toutou/p/9650939.html)
 
+
 ## MySQL
  - [程序员，知道Mysql中ACID的原理吗？](https://zhuanlan.zhihu.com/p/65281198)
  - [MySQL中SQL优化和架构设计](http://blog.csdn.net/leeyongit/article/details/18132951)
@@ -136,14 +138,15 @@
 - [Git撤销&回滚操作](https://blog.csdn.net/ligang2585116/article/details/71094887)
 
 ## K8S
-- [10分钟搭建Kubernetes容器集群平台（kubeadm）](https://blog.51cto.com/lizhenliang/2296100)
-- [k8s by kubeadm 国内网络环境搭建指南](https://github.com/nanmu42/k8s-by-kubeadm)
+- [基于阿里云镜像站安装kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
+- [30分钟带你搭建一套Dashboard的kubernetes（K8S）集群](https://zhuanlan.zhihu.com/p/92923128)
 - [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
 - [k8s实践(一)：Centos7.6部署k8s(v1.14.2)集群](https://blog.51cto.com/3241766/2405624)
 - [minikube 安装过程附带报错解决办法](https://segmentfault.com/a/1190000020478007)
+ - [Centos7.6部署k8s v1.16.4高可用集群(主备模式)](https://www.kubernetes.org.cn/6632.html)
 
 
-#### ReactNative
+## ReactNative
  - [从 1 到完美，用 js 和 react-native 写一个 APP](https://segmentfault.com/a/1190000016272845)
  - [react-native 初体验 - 使用 javascript 来写 iOS app](https://segmentfault.com/a/1190000005170648)
  - [分享 50 个完整的 React Native 项目](https://blog.csdn.net/Marno__/article/details/71809757)
@@ -163,6 +166,7 @@
  - [PHP 7.2 on CentOS/RHEL 7.5 via Yum](https://webtatic.com/packages/php72/)
  - [Centos 7安装MySQL Server5.7](https://www.daguanren.cc/post/mysql_installation_guide.html#toc-29f)
  - [Centos 7下配置MySQL Server5.7主从同步](https://www.daguanren.cc/post/sync_master_slave_mysql.html)
+
 
 
 ## 技巧
