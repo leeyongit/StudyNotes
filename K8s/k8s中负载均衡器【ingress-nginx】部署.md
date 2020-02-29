@@ -34,13 +34,9 @@ ingress-nginx-controller
 部署
 ```sh
 kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/nginx-0.25.0/deploy/static/mandatory.yaml
-
-
-
-docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.25.0
-docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.25.0 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.25.0
+# docker pull registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.25.0
+# docker tag registry.cn-hangzhou.aliyuncs.com/google_containers/nginx-ingress-controller:0.25.0 quay.io/kubernetes-ingress-controller/nginx-ingress-controller:0.25.0
 ```
-
 
 检查服务
 ```sh
