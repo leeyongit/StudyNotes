@@ -142,6 +142,9 @@
 - [30分钟带你搭建一套Dashboard的kubernetes（K8S）集群](https://zhuanlan.zhihu.com/p/92923128)
 - [k8s实践(一)：Centos7.6部署k8s(v1.14.2)集群](https://blog.51cto.com/3241766/2405624)
 - [K8S 部署 ingress-nginx (一) 原理及搭建](https://www.cnblogs.com/klvchen/p/9903480.html)
+- [使用 k8s 部署你的第一个应用: Pod，Deployment 与 Service](https://juejin.im/post/5db8c2b46fb9a020256692dc)
+- [如何从集群外访问Kubernetes Pod](https://ieevee.com/tech/2020/01/06/access-pods.html)
+- [MetalLB：穷人的LoadBalancer](https://ieevee.com/tech/2019/06/30/metallb.html)
 - [Harbor仓库搭建及简单使用](https://blog.csdn.net/qq_40378034/article/details/90752212)
 
 
