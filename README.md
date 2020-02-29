@@ -140,10 +140,8 @@
 ## K8S
 - [基于阿里云镜像站安装kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
 - [30分钟带你搭建一套Dashboard的kubernetes（K8S）集群](https://zhuanlan.zhihu.com/p/92923128)
-- [Kubernetes Dashboard](https://github.com/kubernetes/dashboard)
 - [k8s实践(一)：Centos7.6部署k8s(v1.14.2)集群](https://blog.51cto.com/3241766/2405624)
-- [minikube 安装过程附带报错解决办法](https://segmentfault.com/a/1190000020478007)
- - [Centos7.6部署k8s v1.16.4高可用集群(主备模式)](https://www.kubernetes.org.cn/6632.html)
+- [Harbor仓库搭建及简单使用](https://blog.csdn.net/qq_40378034/article/details/90752212)
 
 
 ## ReactNative

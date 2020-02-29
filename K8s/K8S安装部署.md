@@ -171,6 +171,8 @@ kubeadm join 10.10.50.151:6443 --token g3d6wt.m63nfwk55sgaosuv \
 kubectl get nodes
 kubectl get pods --all-namespaces
 ```
+打印node中日志 journalctl -f
+
 ### （可选）让主节点也可以运行Pod
 Kubernetes默认不在主节点上运行Pod，这里可以让调度器不再遵从这个策略。
 这会提高资源利用率，代价是会降低主节点的安全性。
@@ -180,6 +182,7 @@ kubectl taint nodes --all node-role.kubernetes.io/master-
 
 ### 启动从节点，加入集群
 增加node到集群里
+重新加入需要执行 `kubeadm reset`
 ```sh
 // master初始化后的命令
 kubeadm join 10.10.50.151:6443 --token uhvtb6.gdgzxibdqzcx1bp1 \
@@ -192,6 +195,10 @@ master节点查看node状态
 NAME           STATUS   ROLES    AGE   VERSION
 10-10-50-151   Ready    master   35m   v1.17.3
 ```
+### 删除节点
+kubectl  delete nodes node1
+### 在被删除的node节点清空集群信息
+kubeadm reset
 
 部署webui dashboard
 下载官方的yaml文件:
@@ -215,6 +222,13 @@ k8s.gcr.io/kubernetes-dashboard-amd64:v1.10.1
 115 - containerPort: 8443
 116 protocol: TCP
 ```
+或 `sed -i 's/k8s.gcr.io/registry.cn-hangzhou.aliyuncs.com\/kuberneters/g' kubernetes-dashboard.yaml`
+
+### 外网访问
+```sh
+sed -i '/targetPort:/a\ \ \ \ \ \ nodePort: 30001\n\ \ type: NodePort' kubernetes-dashboard.yaml
+```
+配置NodePort，外部通过https://NodeIp:NodePort 访问Dashboard，此时端口为30001
 第二个是添加一个type,指定端口类型为 NodePort，这样外界可以通过地址 nodeIP:nodePort 访问 dashboard,kubernetes-dashboard.yaml配置文件158行:
 ```yaml
 148 # ------------------- Dashboard Service ------------------- #
@@ -262,5 +276,59 @@ eyJhbGciOiJSUzI1NiIsImtpZCI6IiJ9.eyJpc3MiOiJrdWJlcm5ldGVzL3NlcnZpY2VhY2NvdW50Iiw
 3）将获取到的token放在令牌里
 通过https访问ui `https://106.75.7.152:31416`
 
+## 集群测试
 
+1. 部署应用
+1.1 命令方式
+```sh
+> kubectl run httpd-app --image=httpd --replicas=3
+kubectl run --generator=deployment/apps.v1 is DEPRECATED and will be removed in a future version. Use kubectl run --generator=run-pod/v1 or kubectl create instead.
+deployment.apps/httpd-app created
+```
+通过命令行方式部署apache服务
 
+1.2 配置文件方式
+```sh
+cat >> nginx.yml << EOF
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: nginx
+spec:
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      restartPolicy: Always
+      containers:
+      - name: nginx
+        image: nginx:latest
+EOF
+```
+```sh
+> kubectl apply -f nginx.yml
+deployment.extensions/nginx created
+```
+2. 状态查看
+2.1 查看节点状态
+```sh
+kubectl get nodes
+```
+2.2 查看pod状态
+```sh
+kubectl get pod --all-namespaces
+```
+2.3 查看副本数
+```sh
+kubectl get deployments
+```
+2.4 查看deployment详细信息
+```sh
+kubectl describe deployments
+```
+2.5 查看集群基本组件状态
+```sh
+kubectl get cs
+```
