@@ -44,6 +44,7 @@
 ## Golang
 - [GO知识图谱](https://www.processon.com/view/link/5a9ba4c8e4b0a9d22eb3bdf0#map)
 - [如何写 go 代码](https://studygolang.com/articles/2561)
+- [如何写出优雅的 Golang 代码](https://www.jianshu.com/p/596eaebd6e54)
 - [从 0 到 1 学习 Go 语言](https://www.oschina.net/translate/learning-go-from-zero-to-hero)
 - [golang database/sql 包的使用](https://blog.csdn.net/embinux/article/details/84031620)
 - [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
@@ -169,6 +170,8 @@
  - [Centos 7安装MySQL Server5.7](https://www.daguanren.cc/post/mysql_installation_guide.html#toc-29f)
  - [Centos 7下配置MySQL Server5.7主从同步](https://www.daguanren.cc/post/sync_master_slave_mysql.html)
 
+## 疑难杂症
+- [Axios跨域处理方案（开发环境）](https://www.jianshu.com/p/9938aff0a0fc)
 
 
 ## 技巧
