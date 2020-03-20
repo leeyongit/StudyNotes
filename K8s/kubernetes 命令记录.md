@@ -25,7 +25,8 @@ kubectl get pod -n kube-system
 ```
 查看pod描述：
 ```yaml
-kubectl describe pod XXX -n kube-system
+
+ XXX -n kube-system
 ```
 查看pod 日志 （如果pod有多个容器需要加-c 容器名）
 ```yaml

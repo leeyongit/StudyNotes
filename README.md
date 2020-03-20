@@ -34,7 +34,6 @@
 ## Laravel
  - [Laravel 精选资源大全](http://laravelacademy.org/post/153.html)
  - [laravel5.5+dingo+JWT开发后台API](https://segmentfault.com/a/1190000016942328?utm_source=tag-newest)
- - [Laravel5.5 api token 用法](http://www.dahouduan.com/2017/09/18/laravel55-api-token/)
 
 
 ## Swoole
