@@ -28,14 +28,6 @@
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
 
-## PHP
- - [php firebase/php-jwt token验证](https://blog.csdn.net/cjs5202001/article/details/80228937)
-
-## Laravel
- - [Laravel 精选资源大全](http://laravelacademy.org/post/153.html)
- - [laravel5.5+dingo+JWT开发后台API](https://segmentfault.com/a/1190000016942328?utm_source=tag-newest)
-
-
 ## Swoole
 - [Swoole来实现实时异步任务队列](https://yq.aliyun.com/articles/44247?spm=a2c4e.11153940.blogrightarea42644.20.59d8539cz7FLDv)
 - [Laravel如何优雅的使用Swoole](https://blog.csdn.net/jhope/article/details/86480422)
