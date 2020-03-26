@@ -85,7 +85,7 @@ Context:    http, server, location
 ```
 设置拒绝请求的返回值。值只能设置 400 到 599 之间。
 
-#### ngx_http_limit_conn_module 参数配置
+#### ngx_htt  p_limit_conn_module 参数配置
 这个模块用来限制单个IP的请求数。并非所有的连接都被计数。只有在服务器处理了请求并且已经读取了整个请求头时，连接才被计数。
 ```yaml
 Syntax: limit_conn zone number;
