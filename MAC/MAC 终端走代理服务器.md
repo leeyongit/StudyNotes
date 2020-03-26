@@ -12,4 +12,3 @@ export all_proxy=socks5://127.0.0.1:1080 # 配置http和https访问
 unset http_proxy  # 取消http 代理访问
 ```
 
-/usr/local/php5-7.2.9-20180821-074958/lib/php/extensions/no-debug-non-zts-20170718/redis.so
