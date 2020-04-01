@@ -1,7 +1,5 @@
-CentOS 7安装最新 PHP 7.2，MySQL 5.7和Nginx 
+CentOS 7安装最新 PHP 7.2，MySQL 5.7和Nginx
 ==================================
-
-
 
 ##  安装 OpenResty
 
@@ -26,7 +24,7 @@ sudo yum --disablerepo="*" --enablerepo="openresty" list available
 ```
 **加入PATH路径**
 ```sh
-vim ~/.bash_profile 
+vim ~/.bash_profile
 PATH=/usr/local/openresty/nginx/sbin:$PATH
 export PATH
 source ~/.bash_profile
@@ -47,7 +45,7 @@ nginx -p /root/work/ -c conf/nginx.conf
 ```
 **nginx日志格式**
 这个是参考不用配
-```nginx
+```sh
 log_format  main  '$remote_addr - $remote_user [$time_local] "$request" '
                   '$status $body_bytes_sent "$http_referer" '
                   '"$http_user_agent" "$http_x_forwarded_for" "$request_time"  "$upstream_response_time"';
@@ -96,8 +94,6 @@ yum install php-pecl-swoole4 php-pecl-swoole4-devel
 yum install php-pecl-rdkafka
 ```
 
-
-
 ### Php-fpm 开启服务、重启服务、开机启动
 ```sh
 systemctl start php-fpm.service
@@ -142,9 +138,6 @@ rlimit_files = 51200
 rlimit_core = 0
 catch_workers_output = yes
 ```
-
-
-
 
 
 ## 配置 Nginx 和 PHP 7.2 匹配

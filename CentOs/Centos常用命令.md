@@ -12,14 +12,12 @@ lsof -i:port  # 查看端口占用
 du -sh * | sort -nr # 将当前目录下所有文件的大小给列出来,按照从大到小的方式排序
 du -d 1 | sort -n -r| awk '{printf("   %.2f %s\t %s \n", $1/1024/1024, "G", $2)}'
 ```
+
 ### scp命令
 ```sh
 scp local_file remote_username@remote_ip:remote_folder  # 从本地复制到远程
 scp -r local_folder remote_username@remote_ip:remote_folder # 复制目录命令格式
 ```
-
-
-
 
 ### 监控网络状态信息
 此命令用于显示整个系统目前的网络情况。例如目前的连接、数据包传递数据、或是路由表内容。
@@ -99,7 +97,7 @@ sed -n '5,10p' /var/log/messages # 查询日志的5到10行
 查看磁盘情况
 
 ```sh
-fdisk -l 
+fdisk -l
 ```
 
 格式化分区
