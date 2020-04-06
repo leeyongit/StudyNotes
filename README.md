@@ -8,6 +8,7 @@
 | [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/) |
 | [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
 | [Go RPC 开发指南](https://smallnest.gitbooks.io/go-rpc-programming-guide/content/) |
+| [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/) |
 | [Kubernetes Handbook——Kubernetes中文指南/云原生应用架构实践手册](https://jimmysong.io/kubernetes-handbook/)|
 
 ## Interview
