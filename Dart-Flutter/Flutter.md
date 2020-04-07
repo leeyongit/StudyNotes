@@ -1,6 +1,7 @@
-# Flutter
+Flutter
+---
 
-#### flutter配置国内镜像
+## flutter配置国内镜像
 
 ```sh
 vim ~/.bash_profile
@@ -9,9 +10,7 @@ export FLUTTER_STORAGE_BASE_URL=https://storage.flutter-io.cn
 source ~/.bash_profile
 ```
 
-android.useAndroidX=true
-
-#### flutter常用命令
+## flutter常用命令
 
 ```sh
 # 【flutter环境信息】
@@ -39,9 +38,7 @@ flutter packages get
 flutter packages upgrade
 ```
 
-
-
-### Flutter填坑
+## Flutter填坑
 
 **Waiting for another flutter command to release the startup lock**
 ```sh

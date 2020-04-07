@@ -1,7 +1,6 @@
 Mysql 问题解决
 ---
-
-#### 1. MySQL的sql_mode解析与设置
+### 1. MySQL的sql_mode解析与设置
 因为在MySQL中使用group by 是总是出现1055的错误，这就导致了必须去查看是什么原因了，查询了相关的资料，现在将笔记记录下来，以便后面可以参考使用：
 sql_mode:简而言之就是：它定义了你MySQL应该支持的sql语法，对数据的校验等等
 select @@sql_mode:使用该命令我们可以查看我们当前数据库的sql_mode
@@ -41,7 +40,7 @@ sql_mode= STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY
 
  在严格模式，不接受月或日部分为0的日期。如果使用IGNORE选项，我们为类似的日期插入'0000-00-00'。在非严格模式，可以接受该日期，但会生成警告。
 
-#### 2. Mysql 允许远程连接
+### 2. Mysql 允许远程连接
 
 ```mysql
 GRANT ALL PRIVILEGES ON *.* TO'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;

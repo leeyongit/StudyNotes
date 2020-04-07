@@ -8,7 +8,6 @@
    sudo docker pull gogs/gogs
    ```
 
-
 2. 创建本地目录存放数据
 
     ```sh

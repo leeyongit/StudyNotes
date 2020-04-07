@@ -3,7 +3,7 @@ Mysql数据库之Binlog日志使用总结(必看篇)
 
 binlog二进制日志对于mysql数据库的重要性有多大，在此就不多说了。下面根据本人的日常操作经历，并结合网上参考资料，对binlog日志使用做一梳理：
 
-一、binlog日志介绍
+## 一、binlog日志介绍
 1）什么是binlog
 binlog日志用于记录所有更新了数据或者已经潜在更新了数据（例如，没有匹配任何行的一个DELETE）的所有语句。语句以“事件”的形式保存，它描述数据更改。
 
@@ -62,7 +62,7 @@ mysql> flush logs;     //产生一个新的binlog日志文件
 ```
 
 
-mysql binlog日志自动清理及手动删除案例说明：
+### mysql binlog日志自动清理及手动删除案例说明：
 
 当开启MySQL数据库主从时，会产生大量如mysql-bin.00000* log的文件，这会大量耗费您的硬盘空间。
 mysql-bin.000001
@@ -169,7 +169,7 @@ alter table tt7 engine=innodb/*!*/;
 2）重新启动mysql服务的时候
 特别提示，mysql每次启动都会重新生成一个类似mysql-bin.00000n的文件，如果你的mysql每天都要重新启动一次的话，这时候你就要特别注意不要选错日志文件了。
 
-二、binlog日志格式介绍
+## 二、binlog日志格式介绍
 
 （1）Mysql binlog日志有三种格式，分别是Statement、MiXED、ROW
 
@@ -271,7 +271,7 @@ error_code=0:错误码
 
 Xid:事件指示提交的XA事务
 
-三、mysql日志（重点binlog日志）的优化说明
+## 三、mysql日志（重点binlog日志）的优化说明
 MySQL系统的伸缩性很强，既可以在充足的硬件资源环境下高效运行，也可以在极少资源环境下很好的运行，
 但不管怎样，尽可能充足的硬件资源对MySQL的性能提升总是有帮助的。
 

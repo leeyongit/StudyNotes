@@ -1,7 +1,6 @@
-# docker安装中文版Gitlab服务端
-
+Docker安装中文版Gitlab服务端
+---
 1.pull中文版镜像：
-
 ```sh
 docker pull beginor/gitlab-ce:11.3.0-ce.0
 ```

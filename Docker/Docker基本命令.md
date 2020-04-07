@@ -1,8 +1,6 @@
-
-
-# Docker 笔记
-
-#### Docker 安装 (CentOS 7)
+Docker 笔记
+---
+### Docker 安装 (CentOS 7)
 ```sh
 yum -y install docker-io
 ```
@@ -16,7 +14,7 @@ $ sudo tee /etc/docker/daemon.json <<-'EOF'
 EOF
 ```
 
-#### 常用命令
+### 常用命令
 
 ```sh
 sudo systemctl daemon-reload # 重新加载配置文件
@@ -24,11 +22,10 @@ sudo systemctl restart docker # 重启相关服务
 sudo systemctl enable docker.service # 开机自启动
 sudo systemctl status docker.service # 查看运行状态 Loaded行：配置文件的位置，是否设为开机启动
 ```
-
 上面的命令相当于在/etc/systemd/system目录添加一个符号链接，指向/usr/lib/systemd/system里面的docker.service文件。
 这是因为开机时，Systemd只执行/etc/systemd/system目录里面的配置文件。这也意味着，如果把修改后的配置文件放在该目录，就可以达到覆盖原始配置的效果。
 
-**安装Docker Compose**
+### 安装Docker Compose
 
 ```sh
 $ curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` > ./docker-compose
@@ -36,14 +33,14 @@ $ sudo mv ./docker-compose /usr/bin/docker-compose
 $ sudo chmod +x /usr/bin/docker-compose
 ```
 
-安装 ctop 工具可以帮助查看容器在主机的使用情况。
+### 安装 ctop 工具可以帮助查看容器在主机的使用情况。
 
 ```sh
 sudo wget https://github.com/bcicen/ctop/releases/download/v0.7.1/ctop-0.7.1-linux-amd64 -O /usr/local/bin/ctop
 sudo chmod +x /usr/local/bin/ctop
 ```
 
-#### 常用Docker命令
+### 常用Docker命令
 
 ```sh
 docker attach containerID # 连接到正在运行中的容器

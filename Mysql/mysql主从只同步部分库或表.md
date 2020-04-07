@@ -12,13 +12,13 @@ binlog-ignore-db 二进制日志中忽略数据库 （多数据库用逗号，�
 1）binlog-do-db=YYY 需要同步的数据库，不在内的不同步。（不添加这行表示同步所有）
 
 2）binlog-ignore-db = mysql  这是不记录binlog，来达到从库不同步mysql库，以确保各自权限
-```mysql
+```
 binlog-ignore-db = performance_schema
 binlog-ignore-db = information_schema
 ```
 
 ### slave端
-```mysql
+```
 replicate-do-db    设定需要复制的数据库（多数据库使用逗号，隔开）
 replicate-ignore-db 设定需要忽略的复制数据库 （多数据库使用逗号，隔开）
 replicate-do-table  设定需要复制的表
@@ -27,5 +27,7 @@ replicate-wild-do-table 同replication-do-table功能一样，但是可以通配
 replicate-wild-ignore-table 同replication-ignore-table功能一样，但是可以加通配符
 ```
 增加通配符的两个配置
+```
 replicate-wild-do-table=db_name.%   只复制哪个库的哪个表
 replicate-wild-ignore-table=mysql.%   忽略哪个库的哪个表
+```

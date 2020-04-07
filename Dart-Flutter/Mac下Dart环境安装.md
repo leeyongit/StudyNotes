@@ -1,6 +1,7 @@
-# Mac下Dart环境安装
+Mac下Dart环境安装
+---
 
-### 安装dart
+## 安装dart
 
 只针对开发版进行安装
 
@@ -9,7 +10,7 @@
  brew install dart --devel
 ```
 
-### hello world
+## hello world
 
 运行代码：
 
@@ -19,7 +20,7 @@ void main(){
 }
 ```
 
-### 环境变量的配置
+## 环境变量的配置
 
 ```sh
 #Dart的配置
