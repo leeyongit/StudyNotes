@@ -10,6 +10,9 @@
 | [Go RPC 开发指南](https://smallnest.gitbooks.io/go-rpc-programming-guide/content/) |
 | [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/) |
 | [Kubernetes Handbook——Kubernetes中文指南/云原生应用架构实践手册](https://jimmysong.io/kubernetes-handbook/)|
+| [Elasticsearch权威指南](https://es.xiaoleilu.com/010_Intro/00_README.html) |
+| [OpenResty 最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/index.html) |
+| [Nginx 中文官方文档](https://wizardforcel.gitbooks.io/nginx-doc/content/) |
 
 ## Interview
 - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
@@ -66,6 +69,7 @@
  - [SpringBoot的web项目启动方式](https://blog.csdn.net/qq_30945875/article/details/83151042)
  - [精通 Spring Boot 42 讲](https://gitbook.cn/gitchat/column/5b86228ce15aa17d68b5b55a/topic/5b864c65e15aa17d68b5db58)
  - [SpringBoot入门教程(一)详解intellij idea搭建SpringBoot](https://www.cnblogs.com/toutou/p/9650939.html)
+ - [SpringBoot 入门教程](https://www.cnblogs.com/toutou/p/9650939.html)
 
 
 ## MySQL
@@ -111,6 +115,10 @@
   - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
   - [基于ZooKeeper和Thrift构建动态RPC调用](https://blog.csdn.net/likewindy/article/details/51352179)
   - [Zookeeper知识点](https://www.cnblogs.com/cjsblog/p/9682648.html)
+
+## Elasticsearch
+- [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
+- [Elasticsearch推荐插件篇(head,sense,marvel)](https://www.cnblogs.com/xing901022/p/5962722.html)
 
 ## Kafka
 - [PHP下kafka的实践](https://segmentfault.com/a/1190000015765348)
