@@ -1,6 +1,6 @@
 # Docker 部署
 
-## Docker 部署Nginx + PHP开发环境
+### Docker 部署Nginx + PHP开发环境
 1. 拉取镜像
 ```sh
 docker pull 20.10.1.32:5000/ifensi-app:v0.2

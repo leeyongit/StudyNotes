@@ -15,7 +15,7 @@
 
 ## 2. 实现原理
 
-`react-native` 在 APP 内启动并维护了一个 `js` UI 进程（有可能还有 `js` background 进程），然后把 `js` UI 进程中的组件及其样式映射到 APP 的原生 UI 层，这样 `js` UI 进程中组件的更新就立刻反应到 APP UI 进程中，而其他逻辑和数据等的状态都维持在 `js` UI 进程中。这样便达到了用 `js` 和前端技术写原生 APP 的功能。 
+`react-native` 在 APP 内启动并维护了一个 `js` UI 进程（有可能还有 `js` background 进程），然后把 `js` UI 进程中的组件及其样式映射到 APP 的原生 UI 层，这样 `js` UI 进程中组件的更新就立刻反应到 APP UI 进程中，而其他逻辑和数据等的状态都维持在 `js` UI 进程中。这样便达到了用 `js` 和前端技术写原生 APP 的功能。
 
 对应 `web` 来看，`react-native` 程序只有两个部分，`style` 和 `js`，而 `js` 部分则分为组件和 `api`。
 
@@ -85,11 +85,11 @@ const styles = StyleSheet.create({
 尽管 `react-native` 提供了使用 `js` 和前端技术写原生 APP 的强大功能，但并不是说就可以用 `react-native` 代替 `java, kotlin` 写 `android` APP、`objective-c, swift` 写 `ios` APP 了，它只是提供了一个选择。
 
 其实，从上面的实现原理中，基本上可以看出 `react-native` APP 是有很明显的劣势的：
- 
+
 - 性能不及原生的 APP
 - 自由度也不及原来的 APP，因为被约束的 `react-native` 模式中
-- `apk, ipa` 文件变大了 
- 
+- `apk, ipa` 文件变大了
+
 但 `react-native` 也有很强大的优势：
 
 - 开发简单、快速，入门坎比较低
@@ -144,7 +144,7 @@ react-native run-android
 
 ```
 # 打包 android APP 所需的 js bundle 文件
-react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/ 
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
 
 # 打包 apk
 # 按照正常的 android 打包方式进行
