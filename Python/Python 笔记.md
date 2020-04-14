@@ -1,6 +1,21 @@
-Python 笔记
-==========
+# Python 笔记
 
+## 镜像
+- `http://pypi.douban.com/` 豆瓣
+- `http://pypi.hustunique.com/` 华中理工大学
+- `http://pypi.tuna.tsinghua.edu.cn/simple/` 清华大学
+- `http://mirrors.aliyun.com.pypi/simple/` 阿里云
+
+使用镜像来安装包指
+```python
+pip install pillow -i http://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.tuna.tsinghua.edu.cn
+```
+--trusted-host和之后的是为了防止出现不信任的报错更改超时时间
+```python
+pip --default-timeout=500 install -U pillow
+```
+超时时间默认为100，改大点就好（这里我改成了500）
+pip3 --default-timeout=500 install mysql-connector -i http://pypi.tuna.tsinghua.edu.cn/simple/ --trusted-host pypi.tuna.tsinghua.edu.cn
 ## 环境配置
 ### venv虚拟环境安装配置
 ```sh
