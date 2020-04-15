@@ -1,5 +1,5 @@
 PHP 问题解决
-===========
+---
 1. php56版本部分ajax错误HTTP_RAW_POST_DATA is deprecated头部错误原因
 解决方案：
 
