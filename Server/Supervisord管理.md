@@ -1,9 +1,9 @@
-supervisord管理
-===============
+Supervisord管理
+---
 ## 安装 & 启动
 ```sh
 yum install -y epel-release supervisor
-supervisord -c /etc/supervisord.conf 
+supervisord -c /etc/supervisord.conf
 ```
 ## 重载配置
 ```sh
@@ -41,7 +41,7 @@ autostart = true
 autorestart = true
 startsecs = 5
 startretries = 3
-user = elsearch 
+user = elsearch
 redirect_stderr = true
 stdout_logfile=/home/elk/log/logstash-indexer-std.log
 stderr_logfile=/home/elk/log/logstash-indexer-err.log
@@ -67,7 +67,7 @@ autostart = true
 autorestart = true
 startsecs = 5
 startretries = 3
-user = root 
+user = root
 redirect_stderr = true
 stdout_logfile=/home/elk/log/kibana-std.log
 stderr_logfile=/home/elk/log/kibana-err.log
@@ -77,7 +77,7 @@ stderr_logfile=/home/elk/log/kibana-err.log
 ```sh
 [program:flume-fshd-log]
 process_name=%(program_name)s_%(process_num)02d
-command=/root/flume/bin/flume-ng agent --conf-file  /root/flume/conf/kafka.properties -c /root/flume/conf/ --name agent -Dflume.root.logger=DEBUG,console 
+command=/root/flume/bin/flume-ng agent --conf-file  /root/flume/conf/kafka.properties -c /root/flume/conf/ --name agent -Dflume.root.logger=DEBUG,console
 autostart=true
 autorestart=true
 priority=999

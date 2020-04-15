@@ -8,7 +8,7 @@ Shell脚本编程30分钟入门
     cd ~
     mkdir shell_tut
     cd shell_tut
-    
+
     for ((i=0; i<10; i++)); do
         touch test_$i.txt
     done
@@ -181,10 +181,10 @@ shell只定义了一个非常简单的编程语言，所以，如果你的脚本
 ```sh
     your_name="qinjx"
     echo $your_name
-    
+
     your_name="alibaba"
     echo $your_name
-```   
+```
 这样写是合法的，但注意，第二次赋值的时候不能写$your_name="alibaba"，使用变量的时候才加美元符。
 
 ## 注释
@@ -195,11 +195,11 @@ sh里没有多行注释，只能每一行加一个#号。就像这样：
 ```sh
     #--------------------------------------------
     # 这是一个自动打ipa的脚本，基于webfrogs的ipa-build书写：https://github.com/webfrogs/xcode_shell/blob/master/ipa-build
-    
+
     # 功能：自动为etao ios app打包，产出物为14个渠道的ipa包
     # 特色：全自动打包，不需要输入任何参数
     #--------------------------------------------
-    
+
     ##### 用户配置区 开始 #####
     #
     #
@@ -221,7 +221,7 @@ sh里没有多行注释，只能每一行加一个#号。就像这样：
 
 - 单引号里的任何字符都会原样输出，单引号字符串中的变量是无效的
 - 单引号字串中不能出现单引号（对单引号使用转义符后也不行）
- 
+
 ### 双引号
 ```sh
     your_name='qinjx'
@@ -232,11 +232,11 @@ sh里没有多行注释，只能每一行加一个#号。就像这样：
 
 ### 字符串操作
 #### 拼接字符串
-```sh    
+```sh
     your_name="qinjx"
     greeting="hello, "$your_name" !"
     greeting_1="hello, ${your_name} !"
-    
+
     echo $greeting $greeting_1
 ```
 #### 获取字符串长度：
@@ -288,23 +288,23 @@ sh里没有多行注释，只能每一行加一个#号。就像这样：
 ```sh
     if condition
     then
-        command1 
+        command1
         command2
         ...
-        commandN 
+        commandN
     fi
 ```
 写成一行（适用于终端命令提示符）：
 
     if `ps -ef | grep ssh`;  then echo hello; fi
-    
+
 末尾的fi就是if倒过来拼写，后面还会遇到类似的
 
 #### if else
 ```sh
     if condition
     then
-        command1 
+        command1
         command2
         ...
         commandN
@@ -354,7 +354,7 @@ sh里没有多行注释，只能每一行加一个#号。就像这样：
     do
         command
     done
-```    
+```
 #### 无限循环
 ```sh
     while :

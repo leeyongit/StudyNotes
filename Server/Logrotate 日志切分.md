@@ -19,7 +19,7 @@ Logrotate是基于CRON来运行的，其脚本是/etc/cron.daily/logrotate，日
 ```sh
 [root@liyong ~]# cat /etc/cron.daily/logrotate
 #!/bin/sh
- 
+
 /usr/sbin/logrotate /etc/logrotate.conf >/dev/null 2>&1
 EXITVALUE=$?
 if [ $EXITVALUE != 0 ]; then
@@ -134,7 +134,7 @@ size = 100M 或 size 100M
         /bin/kill -USR1 `cat /run/nginx.pid 2>/dev/null` 2>/dev/null || true
     endscript
 }
-# Centos 7 
+# Centos 7
 /var/log/nginx/*.log {
         daily
         missingok
@@ -153,7 +153,7 @@ size = 100M 或 size 100M
 
 ```
 
-kill -HUP pid 
+kill -HUP pid
 pid 是进程标识。如果想要更改配置而不需停止并重新启动服务，请使用该命令。在对配置文件作必要的更改后，发出该命令以动态更新服务配置。
 
 ### 确认logrotate运行正常
