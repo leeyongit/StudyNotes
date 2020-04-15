@@ -1,30 +1,5 @@
-Rabbitmq 笔记
------------
-提供可靠性消息投递模式（confirm）、返回模式（return）
-
-rabbitmq安装
-```sh
-yum install rabbitmq-server
-chkconfig rabbitmq-server on
-/usr/lib/rabbitmq/bin/rabbitmq-plugins list
-```
-启动web插件 rabbitmq_management
-```sh
-/usr/lib/rabbitmq/bin/rabbitmq-plugins enable rabbitmq_management
-```
-启动
-```sh
-/usr/lib/rabbitmq/bin/rabbitmq-server -detached
-```
-查看服务状态
-```sh
-./rabbitmqctl status
-```
-管理页面 http://192.168.191.11:15672 guest  guest
-
-
-#### php 的rabbitmq 扩展模块amqp安装
-
+Rabbitmq 扩展模块amqp安装
+---
 1. 安装rabbitmq-c-0.7.1
 ```
 cd /usr/local
@@ -50,5 +25,3 @@ make&&make install
 ```sh
 pecl config-set "/Applications/MAMP/bin/php/php7.2.10/conf/php.ini"
 ```
-
-

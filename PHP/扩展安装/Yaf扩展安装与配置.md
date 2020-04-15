@@ -1,8 +1,8 @@
-PHP 命令
+Yaf安装与配置
 ---
 ### 安装
 1.下载Yaf包
-```sh
+```php
 git clone https://github.com/laruence/yaf.git
 ```
 2. 查找php bin目录
