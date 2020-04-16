@@ -7,7 +7,7 @@ wget https://github.com/alanxz/rabbitmq-c/releases/download/v0.7.1/rabbitmq-c-0.
 tar -xzvf   rabbitmq-c-0.7.1.tar.gz
 cd rabbitmq-c-0.7.1
 ./configure --prefix=/usr/local/rabbitmq-c-0.7.1
-make&&make install
+make && make install
 ```
 生产.so文件位置
 ```sh
