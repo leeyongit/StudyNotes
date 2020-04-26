@@ -7,8 +7,8 @@ yum install php-devel php-pear httpd-devel
 yum -y install libcurl-devel
 pecl install msgpack
 pecl install yar
-/注意PHP7,要使用yar-2.0.2
-$ sudo ./pecl install yar-2.0.2 //注意yar-2.0.2版本
+# 注意PHP7,要使用yar-2.0.2
+$ sudo ./pecl install yar-2.0.2 # 注意yar-2.0.2版本
 ```
 
 ### Centos7 PHP5.6 安装Yar
