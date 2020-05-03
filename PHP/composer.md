@@ -19,11 +19,18 @@ composer config --list // 可以看到默认是多长时间
 composer config -g process-timeout 600
 ```
 
+
 **安装composer包**
 
 ```
 composer require firebase/php-jwt
 composer require elasticsearch/elasticsearch
+```
+
+### Composer
+```sh
+composer dump-autoload // 自动加载功能
+composer show // 罗列所有扩展包括版本信息
 ```
 
 

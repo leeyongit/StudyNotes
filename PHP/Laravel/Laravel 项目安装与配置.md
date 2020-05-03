@@ -42,13 +42,7 @@ location / {
 
 ### 启动调度器
 ```sh
-* * * * * php /home/wwwroot/web.fshd.com/artisan schedule:run >> /dev/null 2>&1
-```
-
-### Composer
-```sh
-composer dump-autoload // 自动加载功能
-composer show // 罗列所有扩展包括版本信息
+* * * * * php /home/wwwroot/web/artisan schedule:run >> /dev/null 2>&1
 ```
 
 ### 技巧

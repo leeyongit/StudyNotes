@@ -1,18 +1,5 @@
 # Notes
-学习笔记
-
-
-| 电子书  |
-| ------------------------------------------------------------ |
-| [微服务：从设计到部署](https://docshome.gitbooks.io/microservices/content/) |
-| [Go语言圣经（中文版）](https://docs.hacknode.org/gopl-zh/) |
-| [Go语言高级编程(Advanced Go Programming)](https://chai2010.gitbooks.io/advanced-go-programming-book/content/) |
-| [Go RPC 开发指南](https://smallnest.gitbooks.io/go-rpc-programming-guide/content/) |
-| [深入解析Go](https://tiancaiamao.gitbooks.io/go-internals/content/zh/) |
-| [Kubernetes Handbook——Kubernetes中文指南/云原生应用架构实践手册](https://jimmysong.io/kubernetes-handbook/)|
-| [Elasticsearch权威指南](https://es.xiaoleilu.com/010_Intro/00_README.html) |
-| [OpenResty 最佳实践](https://moonbingbing.gitbooks.io/openresty-best-practices/content/index.html) |
-| [Nginx 中文官方文档](https://wizardforcel.gitbooks.io/nginx-doc/content/) |
+> 学习笔记
 
 ## Interview
 - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>

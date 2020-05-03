@@ -1,8 +1,8 @@
 Rabbitmq 笔记
------------
+---
 提供可靠性消息投递模式（confirm）、返回模式（return）
 
-rabbitmq安装
+## rabbitmq安装
 ```sh
 yum install rabbitmq-server
 chkconfig rabbitmq-server on
