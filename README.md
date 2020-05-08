@@ -2,6 +2,8 @@
 > 学习笔记
 
 ## Interview
+- [Interview](https://hadyang.github.io/interview/)
+- [笔试面试知识整理](https://hit-alibaba.github.io/interview)
 - [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
 - [Java学习+面试指南](https://github.com/Snailclimb/JavaGuide) <small>一份涵盖大部分Java程序员所需要掌握的核心知识</small>
@@ -11,7 +13,6 @@
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
 - [有效的微服务：10 个最佳实践](https://mp.weixin.qq.com/s/jO3-fJGh8WqtSz4tdcZj5Q)
 - [go 微服务，api网关使用gin](https://github.com/YinYongTao/gin-micro)
-- [phprpc](https://github.com/kaiyulee/phprpc)<small>The PHP RPC Micro Service Framework</small>
 
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
@@ -137,6 +138,7 @@
 - [如何从集群外访问Kubernetes Pod](https://ieevee.com/tech/2020/01/06/access-pods.html)
 - [MetalLB：穷人的LoadBalancer](https://ieevee.com/tech/2019/06/30/metallb.html)
 - [Harbor仓库搭建及简单使用](https://blog.csdn.net/qq_40378034/article/details/90752212)
+- [Helm 从入门到实践](https://www.jianshu.com/p/4bd853a8068b)
 
 
 ## ReactNative
