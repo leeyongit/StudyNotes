@@ -42,7 +42,47 @@ sql_mode= STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY
 
 ### 2. Mysql 允许远程连接
 
-```mysql
+```sh
 GRANT ALL PRIVILEGES ON *.* TO'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
 flush privileges;
+```
+
+### 3. MySql事务- Lock wait timeout exceeded; try restarting transaction问题解决
+背景：现网报环境很慢，提交没有响应。
+日志：Lock wait timeout exceeded; try restarting transaction
+产生原因：
+当事务A对记录1进行更新或者删除操作的请求未commit时，另一个事务B也对记录1进行更新或者删除操作，此时事务B回等待前一个事务A提交事务，释放行锁，如果这个时间超过mysql设置的超时时间，则会产生“LOCK WAIT”事务。
+解决方法:
+1.查看数据库当前的进程
+```sql
+mysql> show  processlist;
+```
+看一下有无正在执行的慢SQL记录线程。
+2.查看当前的事务
+```sql
+#当前运行的所有事务
+mysql> SELECT * FROM information_schema.INNODB_TRX;
+
+#当前出现的锁
+mysql> SELECT * FROM information_schema.INNODB_LOCKs;
+
+#锁等待的对应关系
+mysql> SELECT * FROM information_schema.INNODB_LOCK_waits;
+```
+解释：看事务表INNODB_TRX，里面是否有正在锁定的事务线程，看看ID是否在show processlist里面的sleep线程中，如果是，就证明这个sleep的线程事务一直没有commit或者rollback而是卡住了，我们需要手动kill掉。
+
+搜索的结果是在事务表发现了很多任务，这时候最好都kill掉
+
+3.批量删除事务表中的事务
+我这里用的方法是：通过information_schema.
+```sql
+mysql>  select concat('KILL ',id,';') from information_schema.processlist where user='root';
++------------------------+
+| concat('KILL ',id,';') |
++------------------------+
+| KILL 10508;            |
+| KILL 10521;            |
+| KILL 10297;            |
++------------------------+
+18 rows in set (0.00 sec)
 ```
