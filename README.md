@@ -13,7 +13,6 @@
 ## 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
 - [有效的微服务：10 个最佳实践](https://mp.weixin.qq.com/s/jO3-fJGh8WqtSz4tdcZj5Q)
-- [go 微服务，api网关使用gin](https://github.com/YinYongTao/gin-micro)
 
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
@@ -22,8 +21,12 @@
   - [一文读懂MQTT协议](https://www.jianshu.com/p/5c42cb0ed1e9)
   - [MQTT：QoS服务质量 0,1,2（Quality of Service 0, 1 & 2）](https://blog.csdn.net/acongge2010/article/details/79157945)
 
+## Nginx
+ - [Nginx 工作原理](https://www.cnblogs.com/xiangsikai/p/8438772.html)
+ - [Nginx 限流配置](https://www.cnblogs.com/biglittleant/p/8979915.html)
+ - [Nginx 的两种限流方式](https://toutiao.io/posts/r9wf3f/preview)
 
-## Swoole
+## PHP
 - [Swoole来实现实时异步任务队列](https://yq.aliyun.com/articles/44247?spm=a2c4e.11153940.blogrightarea42644.20.59d8539cz7FLDv)
 - [Laravel如何优雅的使用Swoole](https://blog.csdn.net/jhope/article/details/86480422)
 
@@ -94,7 +97,7 @@
 - [RPC 框架之 thrift 学习笔记之二](https://icharle.com/rpcthrifttwo.html)
 - [Thrift多种语言Rpc调用实战](https://www.jianshu.com/p/62948d6e5db9)
 
-## zookeeper
+## Zookeeper
   - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
   - [ZooKeeper 初探：安装、使用](http://ningg.top/zookeeper-getting-started/)
   - [php-zookeeper](https://github.com/andreiz/php-zookeeper)

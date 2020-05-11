@@ -2,22 +2,10 @@
 
 ## Step 1 — Master数据库服务器配置
 
-```sh
+```yaml
 [root@server155 ~]# nano /etc/my.cnf
-  GNU nano 2.0.9                                File: /etc/my.cnf
-
-# For advice on how to change settings please see
-# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
 
 [mysqld]
-#
-# Remove leading # and set to the amount of RAM for the most important data
-# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
-# innodb_buffer_pool_size = 128M
-#
-# Remove leading # to turn on a very important data integrity option: logging
-# changes to the binary log between backups.
-# log_bin
 log-bin=mysql-bin
 server-id=155
 binlog-ignore-db=information_schema
@@ -25,17 +13,10 @@ binlog-ignore-db=information_schema
 binlog-ignore-db=performance_schema
 binlog-ignore-db=mysql
 binlog-do-db=daguanrendb
-#
-# Remove leading # to set options mainly useful for reporting servers.
-# The server defaults are faster for transactions and fast SELECTs.
-# Adjust sizes as needed, experiment to find the optimal values.
-# join_buffer_size = 128M
-# sort_buffer_size = 2M
-# read_rnd_buffer_size = 2M
+
 datadir=/var/lib/mysql
 socket=/var/lib/mysql/mysql.sock
 
-# Disabling symbolic-links is recommended to prevent assorted security risks
 symbolic-links=0
 
 log-error=/var/log/mysqld.log
@@ -50,23 +31,10 @@ binlog-do-db：指定需要同步的数据库
 
 ## Step 2 — Slave数据库服务器配置
 
-```sh
+```yaml
 [root@server156 ~]# nano /etc/my.cnf
-  GNU nano 2.0.9                                File: /etc/my.cnf
-
-# For advice on how to change settings please see
-# http://dev.mysql.com/doc/refman/5.7/en/server-configuration-defaults.html
 
 [mysqld]
-#
-# Remove leading # and set to the amount of RAM for the most important data
-# cache in MySQL. Start at 70% of total RAM for dedicated server, else 10%.
-# innodb_buffer_pool_size = 128M
-#
-# Remove leading # to turn on a very important data integrity option: logging
-# changes to the binary log between backups.
-# log_bin
-#
 log-bin=mysql-bin
 server-id=156
 binlog-ignore-db=information_schema
