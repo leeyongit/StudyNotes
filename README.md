@@ -27,8 +27,12 @@
  - [Nginx 的两种限流方式](https://toutiao.io/posts/r9wf3f/preview)
 
 ## PHP
+- [laravel的生命周期](https://juejin.im/post/5d8db0426fb9a04dde1458a2)
+- [Redis-PHP实战篇——常用的使用场景](https://juejin.im/post/5dc4db2cf265da4d495c5062)
 - [Swoole来实现实时异步任务队列](https://yq.aliyun.com/articles/44247?spm=a2c4e.11153940.blogrightarea42644.20.59d8539cz7FLDv)
 - [Laravel如何优雅的使用Swoole](https://blog.csdn.net/jhope/article/details/86480422)
+- [Laravel + Elasticsearch 实现中文搜索](https://juejin.im/post/5e359c47f265da3e0c4c8069#heading-2)
+- [laravel中配置以及使用MongoDB](https://juejin.im/post/5d0c7e6c518825326e5f3e0b)
 
 ## Golang
 - [GO知识图谱](https://www.processon.com/view/link/5a9ba4c8e4b0a9d22eb3bdf0#map)
@@ -128,11 +132,6 @@
 - [PHP 下基于 php-amqp 扩展的 RabbitMQ 简单用例 (四) -- Push API 和 Pull API](https://www.cnblogs.com/fxyy/p/10590812.html)
 - [PHP 连接 Rabbitmq 实例代码](http://www.dahouduan.com/2017/11/23/php-rabbitmq-demo/)
 
-## Git
-- [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
-- [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
-- [Git撤销&回滚操作](https://blog.csdn.net/ligang2585116/article/details/71094887)
-
 ## K8S
 - [基于阿里云镜像站安装kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
 - [30分钟带你搭建一套Dashboard的kubernetes（K8S）集群](https://zhuanlan.zhihu.com/p/92923128)
@@ -157,6 +156,17 @@
  - [使用 Flutter 快速构建美观又高性能的移动应用](https://www.bilibili.com/video/av27857568/)
  - [FlutterExampleApps](https://github.com/iampawan/FlutterExampleApps)
 
+## JavaScript
+ - [深入理解Javascript系列](http://www.cnblogs.com/TomXu/archive/2011/12/15/2288411.html) - <small>汤姆大叔的博客</small>
+ - [Javascript面向对象基础](http://coolshell.cn/articles/6441.html) - <small>酷壳</small>
+ - [AJAX 跨域请求 - JSONP获取JSON数据](http://justcoding.iteye.com/blog/1366102)
+ - [学习Javascript闭包（Closure）](http://www.ruanyifeng.com/blog/2009/08/learning_javascript_closures.html)
+ - [JS中的prototype](http://www.cnblogs.com/yjf512/archive/2011/06/03/2071914.html)
+
+## Git
+- [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
+- [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
+- [Git撤销&回滚操作](https://blog.csdn.net/ligang2585116/article/details/71094887)
 
 ## CentOS
  - [CentOS常用环境、软件](https://spldeolin.com/posts/centos-softwares/)
