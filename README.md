@@ -9,6 +9,7 @@
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
 - [Java学习+面试指南](https://github.com/Snailclimb/JavaGuide) <small>一份涵盖大部分Java程序员所需要掌握的核心知识</small>
 - [《吊打面试官》系列](https://my.oschina.net/javaFamily?tab=popular)
+- [【推荐】最新200篇：技术文章整理](https://segmentfault.com/a/1190000018855112)
 
 ## 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
@@ -16,10 +17,15 @@
 
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
+- [数据结构与算法](https://www.cnblogs.com/sunshineliulu/category/1139260.html)
+- [PHP数据结构与算法_专题_脚本之家](https://www.jb51.net/Special/614.htm)
+- [PHP冒泡排序（Bubble Sort）算法详解](https://segmentfault.com/a/1190000007412640)
 
 ## 网络协议
   - [一文读懂MQTT协议](https://www.jianshu.com/p/5c42cb0ed1e9)
   - [MQTT：QoS服务质量 0,1,2（Quality of Service 0, 1 & 2）](https://blog.csdn.net/acongge2010/article/details/79157945)
+  - [一篇搞懂TCP、HTTP、Socket、Socket连接池](https://segmentfault.com/a/1190000014044351)
+  - [“三次握手，四次挥手”你真的懂吗？](https://www.modb.pro/db/23063)
 
 ## Nginx
  - [Nginx 工作原理](https://www.cnblogs.com/xiangsikai/p/8438772.html)

@@ -23,7 +23,8 @@ php artisan make:controller ResourceController --resource  生成基本路由方
 php artisan make:model 模型文件名
 php artisan make:model Models/Member 创建模型 分目录的
 ```
-```
+
+```php
 php artisan make:provider TestServiceProvider 创建服务提供者
 php artisan make:job SendReminderEmail 生成任务类
 php artisan make:command SendEmails 生成命令
