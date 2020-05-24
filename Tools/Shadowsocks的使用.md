@@ -1,6 +1,6 @@
-Shadowsocks的使用
-================
-### 服务器端：
+# Shadowsocks的使用
+
+## 服务器端：
 一般 CentOS 系统默认自带 python(系统要用，比如 yum 工具就是 python 写的)，但是经验看一般都不带 pip 工具，需要手动安装。
 1. 安装扩展源EPEL
 
@@ -31,7 +31,7 @@ sudo ssserver -p 8586 -k fshd2019 -m rc4-md5 -d start
 加密方式有多种选择，我写的是rc4-md5。
 参考https://github.com/shadowsocks/shadowsocks
 
-### 客户端：
+## 客户端：
 点击http://sourceforge.net/projects/shadowsocksgui/，即可下载客户端。
 安装完毕后，打开ShadowsocksX应用，配置一个服务器。
 地址填写你的服务器地址，端口填写你上面命令的端口号，加密方式选择上面填写的加密方式，创建即可。

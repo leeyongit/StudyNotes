@@ -1,8 +1,8 @@
-grpc-go 的安装和使用
-==================
+# grpc-go 的安装和使用
+
 简单来讲 gRPC 是一个 基于 HTTP/2 协议设计的 RPC 框架，它采用了 Protobuf 作为 IDL (接口定义语言)
 
-#### grpc-go 安装
+## grpc-go 安装
 
 1. 使用 go get 安装代码库
 ```bash

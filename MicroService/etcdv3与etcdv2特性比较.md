@@ -1,5 +1,5 @@
-etcdv3与etcdv2特性比较
----
+# etcdv3与etcdv2特性比较
+
 1. 客户端通信方式
 etcdv3的客户端使用gRPC与server进行通信，通信的消息协议使用protobuf进行约定，代替了v2版本的HTTP-json格式，使用二进制替代文
 本，更加节省空间。同时gRPC使用的是HTTP/2协议，同一个连接可以同时处理多个请求，不必像HTTP1.1协议中，多个请求需要建立多个连接

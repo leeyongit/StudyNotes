@@ -1,11 +1,8 @@
+# Thrift多种语言Rpc调用
 
+## 支持的数据传输格式、数据传输方式和服务模型
 
-Thrift
-======
-
-### **支持的数据传输格式、数据传输方式和服务模型** 
-
-#### （1）支持的传输格式
+###（1）支持的传输格式
 
 TBinaryProtocol – 二进制格式.
 TCompactProtocol – 压缩格式
@@ -13,7 +10,7 @@ TJSONProtocol – JSON格式
 TSimpleJSONProtocol –提供JSON只写协议, 生成的文件很容易通过脚本语言解析。
 TDebugProtocol – 使用易懂的可读的文本格式，以便于debug
 
-#### （2） 支持的数据传输方式
+###（2） 支持的数据传输方式
 
 TSocket –阻塞式socket
 THttpTransport –采用HTTP传输协议进行数据传输
@@ -31,16 +28,16 @@ TBufferedTransport –对某个transport对象操作的数据进行buffer,即从
 
 在网络阻塞严重的时候，网络层没有足够的内存来进行写操作，这时候就会出现写不成功的情况，阻塞情况下会尽可能(有可能被中断)等待到数据全部发送完毕， 对于非阻塞的情况就是一次写多少算多少,没有中断的情况下也还是会出现write 到一部分的情况.
 
-#### （3）支持的服务模型
+###（3）支持的服务模型
 
 TSimpleServer – 简单的单线程服务模型，常用于测试
 TThreadedServer – 多线程服务模型使用标准的阻塞式IO,每个请求创建一个线程
 TThreadPoolServer – 多线程服务模型，使用标准的阻塞式IO。
-TNonblockingServer – 多线程服务模型，使用非阻塞式IO（需使用TFramedTransport数据传输方式） 
+TNonblockingServer – 多线程服务模型，使用非阻塞式IO（需使用TFramedTransport数据传输方式）
 
-### **Thrift安装与部署**
+## Thrift安装与部署
 
-#### **1. Thrift安装**
+### 1. Thrift安装
 
 ```sh
 brew install thrift
@@ -48,13 +45,13 @@ brew install thrift
 
 通过在命令行调用 **thrift -version**确定安装成功
 
-#### **2.  Thrift部署**
+### 2.  Thrift部署
 
 ```sh
 thrift -r --gen php tutorial.thrift
 ```
 
-#### **3. 编写IDL文件**
+### 3. 编写IDL文件
 
 ```protobuf
 //example.thrift
@@ -70,7 +67,7 @@ service format_data {
 }
 ```
 
-#### 4. go server的实现
+### 4. go server的实现
 
 1.在根目录里创建example.thrift 文件
 2.执行命令
@@ -148,7 +145,7 @@ func main()  {
    比较简单的生成方式是
 
 ```undefined
-thrift -r --gen php thrift/example.thrift 
+thrift -r --gen php thrift/example.thrift
 ```
 
 这样生成的方式会将所有类都糅合进一个文件，所以我们也可以这样

@@ -1,12 +1,12 @@
-react-native 初体验 - 使用 javascript 来写 iOS app
----
-### 快速开始
+# react-native 初体验 - 使用 javascript 来写 iOS app
+
+## 快速开始
 ```sh
 npm install -g react-native-cli
 react-native init AwesomeProject
 ```
 
-### 运行iOS应用
+## 运行iOS应用
 ```sh
 cd AwesomeProject
 cnpm install
