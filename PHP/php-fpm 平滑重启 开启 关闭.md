@@ -1,6 +1,8 @@
-php-fpm 平滑重启 开启 关闭
----
-INT, TERM
+# php-fpm 平滑重启 开启 关闭
+
+## Linux 中断信号
+INT 2 中断（同 Ctrl + C）
+TERM 15 终止
 QUIT 平滑终止
 USR1 重新打开日志文件
 USR2 平滑重载所有worker进程并重新载入配置和二进制模块
@@ -10,7 +12,7 @@ USR2 平滑重载所有worker进程并重新载入配置和二进制模块
 启动
 ```
 /usr/sbin/php-fpm
-/usr/sbin/php-fpm --fpm-config /etc/php-fpm.d/php-fshd.fensihudong.com.conf
+/usr/sbin/php-fpm --fpm-config /etc/php-fpm.d/doname.conf
 ```
 查看php-fpm进程数：
 ```

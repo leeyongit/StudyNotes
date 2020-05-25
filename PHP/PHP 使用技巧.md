@@ -1,6 +1,6 @@
-PHP 笔记
----
-1. PHP中的数组到底占用多大的空间？
+# PHP 使用技巧
+
+## 1. PHP中的数组到底占用多大的空间？
 [PHP数组到底占用多少内存空间](http://www.ituring.com.cn/article/498349)
 构造一个含有100000个不重复的整型元素的数组并且测量其占用的内存数量，实现代码如下：
 ```php
@@ -12,7 +12,7 @@ $array = range(1, 100000);
 echo memory_get_usage() - $startMemory, ' bytes';
 ```
 
-2. php利用array_search与array_column实现二维数组查找
+## 2. php利用array_search与array_column实现二维数组查找
 利用array_search与array_column实现二维数组查找，不用自己写个循环，减少工作量。
 ```php
 $userdb = array(
@@ -43,7 +43,8 @@ $found_key = array_search(40489, array_column($userdb, 'uid'));
  */
 var_dump($found_key);
 ```
-3. PHP高效导出Excel(CSV)
+
+## 3. PHP高效导出Excel(CSV)
 CSV，是Comma Separated Value（逗号分隔值）的英文缩写，通常都是纯文本文件。
 如果你导出的Excel没有什么高级用法的话，只是做导出数据用那么建议使用本方法,要比PHPexcel要高效的多。
 二十万数据导出大概需要2到3秒。
