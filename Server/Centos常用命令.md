@@ -9,17 +9,30 @@ cat /proc/cpuinfo  #查看CPU信息
 hostname   #查看计算机名
 ls | xargs rm -f # 删除当前目录下的文件
 lsof -i:port  # 查看端口占用
-du -sh * | sort -nr # 将当前目录下所有文件的大小给列出来,按照从大到小的方式排序
-du -d 1 | sort -n -r| awk '{printf("   %.2f %s\t %s \n", $1/1024/1024, "G", $2)}'
+
 ```
 
+### 查看使用空间
+
+```sh
+du -sh * | sort -nr # 将当前目录下所有文件的大小给列出来,按照从大到小的方式排序
+du -h -d1 # 只查看一级目录统计的空间占用
+du -d 1 | sort -n -r| awk '{printf("   %.2f %s\t %s \n", $1/1024/1024, "G", $2)}' # 格式化为G按从大到小排序
+```
+
+
+
 ### scp命令
+
 ```sh
 scp local_file remote_username@remote_ip:remote_folder  # 从本地复制到远程
 scp -r local_folder remote_username@remote_ip:remote_folder # 复制目录命令格式
 ```
 
+
+
 ### 监控网络状态信息
+
 此命令用于显示整个系统目前的网络情况。例如目前的连接、数据包传递数据、或是路由表内容。
 ```sh
 netstat -anp|more

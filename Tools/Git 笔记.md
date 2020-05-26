@@ -34,11 +34,8 @@ git remote add origin git@github.com:leeyongit/go-files.git
 git push -u origin master
 ```
 
-
-
 ## Git常用命令整理
 ```sh
-
 git reflog                      # 查看命令历史
 ```
 ### Git 日志

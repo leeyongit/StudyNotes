@@ -28,20 +28,21 @@ START_HOURS_RANGE=23-24 # 表示程序在23时至24时之间会启动
 @monthly          45                 cron.monthly     nice run-parts /etc/cron.monthly
 ```
 
-period  - 这是任务的频率，以天来指定，或者是@daily 、@weekly、@monthly 代表每天、每周、每月一次， 你也可以使用数字：1 - 每天、7 - 每周、30- 每月，或者N - 几天。
-delay   - 这是在执行一个任务前等待的分钟数。
-job-id  - 这是写在日志文件中任务的独特名字。
-command - 这是要执行的命令或 shell 脚本。
+- period  - 这是任务的频率，以天来指定，或者是@daily 、@weekly、@monthly 代表每天、每周、每月一次， 你也可以使用数字：1 - 每天、7 - 每周、30- 每月，或者N - 几天。
+- delay   - 这是在执行一个任务前等待的分钟数。
+- job-id  - 这是写在日志文件中任务的独特名字。
+- command - 这是要执行的命令或 shell 脚本。
 
-## 如何看示列文件
+**如何看示列文件**
+
 > ls -l /var/spool/anacron/
 
 ## cron 以及 anacron 的比较
 cron 和 anacron 主要的区别在于 cron 能在那些持续运行的机器上有效地运行，而 anacron 是针对那些会在一天内或者一周内会关机的机器。
 
-cron:
+**cron:**
 它是守候进程 适合服务器 可以让你分钟级运行计划任务 关机时不会执行计划任务 普通用户和root用户都可以使用
-anacron:
+**anacron:**
 它不是守候进程 适合桌面/笔记本电脑 只能让你一天为基础来运行计划任务 如果计划任务到期，机器是关的，那么它会在机器下次开机后执行计划任务 只有root用户可以使用（使用特定的配置启动普通任务）
 
 由于Cron是Linux的内置服务，可以用以下的方法启动.关闭这个服务:

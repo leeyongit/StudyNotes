@@ -31,7 +31,7 @@ stdout_logfile=/path/app.log                          ; 输出日志
 stderr_logfile=/path/app.log                          ; 错误日志
 ```
 
-## ELK
+## ELK例子
 ### logstash
 --path.data=./data data目录必须有写权限
 ```sh

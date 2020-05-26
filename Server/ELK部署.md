@@ -20,6 +20,10 @@
 
 对于日志来说，最常见的需求就是收集、查询、显示，正对应logstash、elasticsearch、kibana的功能。
 
+**日志/消息整体流向Flume => kafka => logstash => elasticsearch => kibana**
+
+
+
 ## 安装 Elasticsearch
 
 - [Download Elasticsearch](https://www.elastic.co/downloads/elasticsearch)

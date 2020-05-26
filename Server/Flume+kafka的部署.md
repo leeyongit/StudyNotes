@@ -1,4 +1,4 @@
-# 日志/消息整体流向Flume => kafka => logstash => elasticsearch => kibana
+# Flume+kafka的部署
 
 ## 安装JDK
 ### 用yum安装JDK
@@ -12,20 +12,24 @@ yum search java|grep jdk
 yum install java-1.8.0-openjdk
 ```
 安装完之后，默认的安装目录是在:
-/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
+> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
 ### 设置java的环境变量
-vi /etc/profile
-```sh
-#set java environment
-JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
-JRE_HOME=$JAVA_HOME
-CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
-PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
-```
-export JAVA_HOME JRE_HOME CLASS_PATH PATH
-### 让修改生效
-source /etc/profile
 
+```sh
+vi /etc/profile
+```
+    #set java environment
+    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
+    JRE_HOME=$JAVA_HOME
+    CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
+    PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin
+```sh
+export JAVA_HOME JRE_HOME CLASS_PATH PATH
+```
+### 让修改生效
+```sh
+source /etc/profile
+```
 ## 安装Flume
 
 从官网下载Flume 二进制安装包，解压安装：
