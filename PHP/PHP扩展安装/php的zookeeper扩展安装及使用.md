@@ -23,12 +23,12 @@ $ java -version
 1. 下载
 ```
 $ cd /opt
-$ wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.4.13/zookeeper-3.4.13.tar.gz
+$ wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.6.1/apache-zookeeper-3.6.1-bin.tar.gz
 ```
 2. 解压
 ```
-$ tar zxvf zookeeper-3.4.13.tar.gz
-mv zookeeper-3.4.13 zookeeper
+$ tar zxvf zookeeper-3.6.1.tar.gz
+mv zookeeper-3.6.1 zookeeper
 ```
 3. 生成配置文件
 ```
@@ -36,31 +36,24 @@ cd zookeeper/
 $ cp conf/zoo_sample.cfg conf/zoo.cfg
 ```
 4. 启动
+```sh
+$ bin/zkServer.sh start # 启动
+$ bin/zkServer.sh stop  # 停止
+$ bin/zkServer.sh restart # 重启
 ```
-$ bin/zkServer.sh start
-```
-停止
-```
-$ bin/zkServer.sh stop
-```
-重启
-```
-$ bin/zkServer.sh restart
-```
-
-## 安装libzookeeper
-cd src/c
-./configure --prefix=/usr/local/zookeeper-lib/
-make && make install
 
 ## 安装php-zookeeper
+```sh
 wget https://pecl.php.net/get/zookeeper-0.6.4.tgz
 tar -zxvf zookeeper-0.6.4.tgz
 cd zookeeper-0.6.4
 phpize
 ./configure --with-php-config=/usr/bin/php-config --with-libzookeeper-dir=/usr/local/zookeeper-lib/
 make && make install
-extension=zookeeper.so
+sudo vim /etc/php.ini 添加：extension=zookeeper.so
+```
+
+## php例子
 
 ```php
 // 获取单条配置

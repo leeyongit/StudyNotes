@@ -14,10 +14,10 @@ wget www.rabbitmq.com/releases/rabbitmq-server/v3.6.5/rabbitmq-server-3.6.5-1.no
 ```
 ## 3 配置 vim /etc/hosts 以及 /etc/hostname (Linux防火墙)
 ```
-127.0.0.1 maozhongyu
+127.0.0.1 rabbitmq
 ```
-/etc/hostname 如下 写个maozhongyu
-linux命令 hostname 显示 maozhongyu 可能存在没生效。
+/etc/hostname 如下 写个rabbitmq
+linux命令 hostname 显示 rabbitmq 可能存在没生效。
 
 ## 4 配置文件：
 ```
@@ -31,24 +31,3 @@ vim /usr/lib/rabbitmq/lib/rabbitmq_server-3.6.5/ebin/rabbit.app
 ## 5 管理插件：rabbitmq-plugins enable rabbitmq_management
  访问地址：http://ip:15672/
 
-安装php rabbit 扩展
-```
-composer require bschmitt/laravel-amqp
-```
-https://packagist.org/packages/bschmitt/laravel-amqp
-https://github.com/bschmitt/laravel-amqp
-```php
-// 生产
-\Bschmitt\Amqp\Facades\Amqp::publish('routing-key', 'message1111222' , ['queue' => 'queue-name']);
-
-// 消费
-\Bschmitt\Amqp\Facades\Amqp::consume('queue-name', function ($message, $resolver) {
-
-      var_dump($message->body);
-
-      $resolver->acknowledge($message);
-
-      $resolver->stopWhenProcessed();
-
-  });
-```

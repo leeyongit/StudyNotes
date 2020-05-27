@@ -1,4 +1,4 @@
-Rabbitmq 笔记
+Rabbitmq yum安装
 ---
 提供可靠性消息投递模式（confirm）、返回模式（return）
 

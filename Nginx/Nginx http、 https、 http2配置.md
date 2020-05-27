@@ -2,8 +2,8 @@ nginx http、 https、 http2配置
 ---
 nginx版本：1.12.2
 ```sh
- // 首先找到nginx.conf
- // 查看nginx.conf 路径
+ # 首先找到nginx.conf
+ # 查看nginx.conf 路径
  nginx -t
 ```
 *注：以下配置重启才能生效
