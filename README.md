@@ -172,6 +172,7 @@
 ## Git
 - [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 - [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
+- [Git 的基本操作、开发流程、实用技巧总结](https://cloud.tencent.com/developer/article/1005850)
 - [Git撤销&回滚操作](https://blog.csdn.net/ligang2585116/article/details/71094887)
 
 ## CentOS

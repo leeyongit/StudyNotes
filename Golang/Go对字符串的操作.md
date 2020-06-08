@@ -1,7 +1,6 @@
-Go对字符串的操作
--------------
+# Go对字符串的操作
 
-### strings包方法
+## strings包方法
 ```go
 // 转换
 func ToUpper(s string) string
@@ -86,7 +85,7 @@ func (r *Replacer) WriteString(w io.Writer, s string) (n int, err error)
 ```
 上述的方式一和方式三都能实现此需求，但是方式三因为在strings包中没找到按照字符串索引位置截取的方法，所以在网上找到了一个自己实现的SubString截取字符串的方法。下面是具体的方法实现，更多字符串用法可以查看参考文章中的内容。
 
-### 字符串的截取
+## 字符串的截取
 
 ```go
 //截取字符串 start 起点下标 length 需要截取的长度

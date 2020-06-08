@@ -1,5 +1,4 @@
-golang 正确获取绝对路径的方法
----
+# golang 正确获取绝对路径的方法
 
 Golang编译出来之后是独立的可执行程序，路径的问题经常让人头疼，正确获取绝对路径非常重要， 方法如下：
 ```go
@@ -7,7 +6,7 @@ package main
 
 import (
     "fmt"
-    "os"
+    "os"#
     "os/exec"
     "path/filepath"
     "strings"

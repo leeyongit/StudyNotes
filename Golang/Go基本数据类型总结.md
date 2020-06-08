@@ -1,9 +1,9 @@
-Go基本数据类型总结
----------------
+# Go基本数据类型总结
+
 - 基本类型：boolean，numeric，string类型的命名实例是预先声明的。
 - 复合类型：array，struct，指针，function，interface，slice，map，channel类型（可以使用type构造）。
 
-### Numeric types
+## Numeric types
 
 ```
 A numeric type represents sets of integer or floating-point values. The predeclared architecture-independent numeric types are:
@@ -44,7 +44,7 @@ For instance, int32 and int are not the same type even though they may have the 
 
 所以上面的文档解释了为什么int，int32，int64之间需要进行类型转换才能进行运算。
 
-### String types
+## String types
 ```
 A string type represents the set of string values. A string value is a (possibly empty) sequence of bytes. Strings are immutable: once created, it is impossible to change the contents of a string. The predeclared string type is string.
 The length of a string s (its size in bytes) can be discovered using the built-in function len. The length is a compile-time constant if the string is a constant. A string's bytes can be accessed by integer indices 0 through len(s)-1. It is illegal to take the address of such an element; if s[i] is the i'th byte of a string, &s[i] is invalid.
@@ -53,7 +53,7 @@ The length of a string s (its size in bytes) can be discovered using the built-i
 
 可以使用内置函数len来发现字符串s的长度（以字节为单位的大小）。 如果字符串是常量，则length是编译时常量。 字符串的字节可以通过整数索引0到len（s）-1来访问。 取这种元素的地址是非法的; 如果s [i]是字符串的第i个字节，则＆s [i]无效。
 
-### Map Types
+## Map Types
 ```go
 make(map[string]int)
 make(map[string]int, 100)

@@ -33,6 +33,33 @@ git push -u origin master
 git remote add origin git@github.com:leeyongit/go-files.git
 git push -u origin master
 ```
+## 新增 commit
+```
+// 添加文件到缓存区，然后提交到本地仓库
+git add files
+git commit -m '提交备注'
+```
+## 撤销 commit
+```
+// 会将提交记录回滚，代码不回滚
+git reset b14bb52
+
+// 会将提交记录和代码全部回滚
+git reset --hard b14bb52
+
+// 将部分代码文件回滚
+git checkout -- files
+```
+## 合并 commit
+合并 commit，本质上合并两份不同状态下的代码。
+```
+// Git 提供了两种合并 commit 的方式
+git merge master
+git rebase master
+```
+那么 git rebase 和 git merge 到底有什么区别呢？
+merge是两个分支处理冲突后，新增一个 commit 追加到master上。
+rebase是将someFeature分支上的commit记录追加到主分支上，值得注意的是，这个时候他的commit其实已经发生变化。
 
 ## Git常用命令整理
 ```sh
@@ -96,7 +123,8 @@ git branch -d <name> # 删除分支
 git checkout --track origin/dev # 远程建立了dev分支本地获取对应分支
 ```
 
-修改最后一次提交。用于修改上一次的提交信息，或漏提交文件等情况。
+## 修改最后一次提交
+用于修改上一次的提交信息，或漏提交文件等情况。
 
 ```sh
 git commit --amend
