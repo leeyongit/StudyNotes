@@ -11,7 +11,53 @@
 - [《吊打面试官》系列](https://my.oschina.net/javaFamily?tab=popular)
 - [【推荐】最新200篇：技术文章整理](https://segmentfault.com/a/1190000018855112)
 
-## 微服务
+## 系统设计
+### Apache Thrift ™
+- [Thrift PHP Tutorial](https://thrift.apache.org/tutorial/php)
+- [Thrift使用指南](http://dongxicheng.org/search-engine/thrift-guide/)
+- [RPC框架-Thrift的使用](https://blog.csdn.net/rlanffy/article/details/51873022)
+- [Thrift使用-php](https://blog.csdn.net/xjc200808/article/details/51135934)
+- [Thrift在php框架laravel中的应用](http://ju.outofmemory.cn/entry/272744)
+- [RPC 框架 thrift 在 PHP 结合 Laravel 使用](https://icharle.com/thriftrpcphplaravel.html)
+- [RPC 框架之 thrift 学习笔记之一](https://icharle.com/rpcthrift.html)
+- [RPC 框架之 thrift 学习笔记之二](https://icharle.com/rpcthrifttwo.html)
+- [Thrift多种语言Rpc调用实战](https://www.jianshu.com/p/62948d6e5db9)
+
+### Zookeeper
+  - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
+  - [ZooKeeper 初探：安装、使用](http://ningg.top/zookeeper-getting-started/)
+  - [php-zookeeper](https://github.com/andreiz/php-zookeeper)
+  - [ZooKeeper集群安装配置](https://yq.aliyun.com/articles/698320?spm=a2c4e.11163080.searchblog.71.1d992ec1Q6J2b9)
+  - [php zookeeper你需要知道的细节](https://www.onmpw.com/tm/xwzj/prolan_227.html)
+  - [简单理解Zookeeper的Leader选举](https://blog.csdn.net/chengyuqiang/article/details/79190061)
+  - [Zookeeper知识点整理](https://segmentfault.com/a/1190000012730375)
+  - [可能是全网把 ZooKeeper 概念讲的最清楚的一篇文章](https://zhuanlan.zhihu.com/p/44348274)
+  - [徒手教你使用zookeeper编写服务发现](https://zhuanlan.zhihu.com/p/34156758)
+  - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
+  - [基于ZooKeeper和Thrift构建动态RPC调用](https://blog.csdn.net/likewindy/article/details/51352179)
+  - [Zookeeper知识点](https://www.cnblogs.com/cjsblog/p/9682648.html)
+
+### Elasticsearch
+- [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
+- [Elasticsearch推荐插件篇(head,sense,marvel)](https://www.cnblogs.com/xing901022/p/5962722.html)
+
+### Kafka
+- [PHP下kafka的实践](https://segmentfault.com/a/1190000015765348)
+- [PHP 处理kafka消息实例](http://www.dahouduan.com/2017/09/18/php-consume-kafka/)
+- [Kafka（一）Kafka是什么及基本概念](https://blog.51cto.com/littledevil/2134686)
+- [Kafka（二）Kafka集群搭建](https://blog.51cto.com/littledevil/2134694)
+
+### RabbitMQ
+- [RabbitMQ 从入门到放弃系列笔记（一）：核心概念及术语](https://laravelacademy.org/post/7401.html)
+- [全网最全RabbitMQ总结](https://www.toutiao.com/i6781284630222864903/)
+- [Mac部署 PHP、RabbitMQ](https://blog.csdn.net/u012460314/article/details/82467952)
+- [PHP 下基于 php-amqp 扩展的 RabbitMQ 简单用例 (四) -- Push API 和 Pull API](https://www.cnblogs.com/fxyy/p/10590812.html)
+- [PHP 连接 Rabbitmq 实例代码](http://www.dahouduan.com/2017/11/23/php-rabbitmq-demo/)
+
+### 认证授权
+ - [php firebase/php-jwt token验证](https://blog.csdn.net/cjs5202001/article/details/80228937)
+
+### 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
 - [有效的微服务：10 个最佳实践](https://mp.weixin.qq.com/s/jO3-fJGh8WqtSz4tdcZj5Q)
 
@@ -95,48 +141,6 @@
 - [Redis及缓存雪崩、缓存穿透](https://zhuanlan.zhihu.com/p/58265935)
 - [Redis 内存分析方法](https://www.alibabacloud.com/help/zh/doc-detail/50037.htm)
 - [Redis 21问](https://www.toutiao.com/i6740616409446875659/)
-
-## Apache Thrift ™
-- [Thrift PHP Tutorial](https://thrift.apache.org/tutorial/php)
-- [Thrift使用指南](http://dongxicheng.org/search-engine/thrift-guide/)
-- [RPC框架-Thrift的使用](https://blog.csdn.net/rlanffy/article/details/51873022)
-- [Thrift使用-php](https://blog.csdn.net/xjc200808/article/details/51135934)
-- [Thrift在php框架laravel中的应用](http://ju.outofmemory.cn/entry/272744)
-- [RPC 框架 thrift 在 PHP 结合 Laravel 使用](https://icharle.com/thriftrpcphplaravel.html)
-- [RPC 框架之 thrift 学习笔记之一](https://icharle.com/rpcthrift.html)
-- [RPC 框架之 thrift 学习笔记之二](https://icharle.com/rpcthrifttwo.html)
-- [Thrift多种语言Rpc调用实战](https://www.jianshu.com/p/62948d6e5db9)
-
-## Zookeeper
-  - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
-  - [ZooKeeper 初探：安装、使用](http://ningg.top/zookeeper-getting-started/)
-  - [php-zookeeper](https://github.com/andreiz/php-zookeeper)
-  - [ZooKeeper集群安装配置](https://yq.aliyun.com/articles/698320?spm=a2c4e.11163080.searchblog.71.1d992ec1Q6J2b9)
-  - [php zookeeper你需要知道的细节](https://www.onmpw.com/tm/xwzj/prolan_227.html)
-  - [简单理解Zookeeper的Leader选举](https://blog.csdn.net/chengyuqiang/article/details/79190061)
-  - [Zookeeper知识点整理](https://segmentfault.com/a/1190000012730375)
-  - [可能是全网把 ZooKeeper 概念讲的最清楚的一篇文章](https://zhuanlan.zhihu.com/p/44348274)
-  - [徒手教你使用zookeeper编写服务发现](https://zhuanlan.zhihu.com/p/34156758)
-  - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
-  - [基于ZooKeeper和Thrift构建动态RPC调用](https://blog.csdn.net/likewindy/article/details/51352179)
-  - [Zookeeper知识点](https://www.cnblogs.com/cjsblog/p/9682648.html)
-
-## Elasticsearch
-- [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
-- [Elasticsearch推荐插件篇(head,sense,marvel)](https://www.cnblogs.com/xing901022/p/5962722.html)
-
-## Kafka
-- [PHP下kafka的实践](https://segmentfault.com/a/1190000015765348)
-- [PHP 处理kafka消息实例](http://www.dahouduan.com/2017/09/18/php-consume-kafka/)
-- [Kafka（一）Kafka是什么及基本概念](https://blog.51cto.com/littledevil/2134686)
-- [Kafka（二）Kafka集群搭建](https://blog.51cto.com/littledevil/2134694)
-
-## RabbitMQ
-- [RabbitMQ 从入门到放弃系列笔记（一）：核心概念及术语](https://laravelacademy.org/post/7401.html)
-- [全网最全RabbitMQ总结](https://www.toutiao.com/i6781284630222864903/)
-- [Mac部署 PHP、RabbitMQ](https://blog.csdn.net/u012460314/article/details/82467952)
-- [PHP 下基于 php-amqp 扩展的 RabbitMQ 简单用例 (四) -- Push API 和 Pull API](https://www.cnblogs.com/fxyy/p/10590812.html)
-- [PHP 连接 Rabbitmq 实例代码](http://www.dahouduan.com/2017/11/23/php-rabbitmq-demo/)
 
 ## K8S
 - [基于阿里云镜像站安装kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
