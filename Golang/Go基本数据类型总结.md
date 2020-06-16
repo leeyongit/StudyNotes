@@ -53,11 +53,5 @@ The length of a string s (its size in bytes) can be discovered using the built-i
 
 可以使用内置函数len来发现字符串s的长度（以字节为单位的大小）。 如果字符串是常量，则length是编译时常量。 字符串的字节可以通过整数索引0到len（s）-1来访问。 取这种元素的地址是非法的; 如果s [i]是字符串的第i个字节，则＆s [i]无效。
 
-## Map Types
-```go
-make(map[string]int)
-make(map[string]int, 100)
-The initial capacity does not bound its size: maps grow to accommodate the number of items stored in them, with the exception of nil maps. A nil map is equivalent to an empty map except that no elements may be added.
-```
-初始容量不限制其大小：map增长以适应存储在其中的项目数，除了nil map。 nil map等价于空map，不能添加元素。
+
 

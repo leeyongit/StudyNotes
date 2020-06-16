@@ -20,6 +20,7 @@ make  | makeslice, makechan, makemap, makemap_small...
 Process -> Thread(LWP, lightweight process) -> Goroutine (一种lightweight userspace thread)
 不断共享，不断减少切换成本的过程
 Go协程是有栈协程
+GPM模型
 
 ## 内存与GC
 

@@ -1,6 +1,13 @@
 # Go复合数据类型总结
 
-## Map
+## Map Types
+```go
+make(map[string]int)
+make(map[string]int, 100)
+The initial capacity does not bound its size: maps grow to accommodate the number of items stored in them, with the exception of nil maps. A nil map is equivalent to an empty map except that no elements may be added.
+```
+初始容量不限制其大小：map增长以适应存储在其中的项目数，除了nil map。 nil map等价于空map，不能添加元素。
+
 map是一种key-value的关系，一般都会使用make来初始化内存，有助于减少后续新增操作的内存分配次数。假如一开始定义了话，但没有用make来初始化，会报错的。
 ```go
 package main
