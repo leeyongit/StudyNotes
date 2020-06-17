@@ -1,4 +1,4 @@
-# predis
+# Predis常用命令
 predis是php连接redis的操作库，由于它完全使用php编写，大量使用命名空间以及闭包等功能，只支持php5.3以上版本，故实测性能一般，每秒25000次读写，相信改换c语言编写的php扩展后性能会大幅提升(比如使用C扩展phpredis https://github.com/owlient/phpredis)。
 将session数据存放到redis也很简单:
 ```sh

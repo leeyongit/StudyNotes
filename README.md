@@ -1,5 +1,5 @@
 # StudyNotes
-> 学习笔记
+> 个人学习、实践笔记
 
 ## Interview
 - [剑指Offer - PHP](https://learnku.com/docs/jianzhioffer)
