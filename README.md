@@ -1,4 +1,4 @@
-# Notes
+# StudyNotes
 > 学习笔记
 
 ## Interview
