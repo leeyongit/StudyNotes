@@ -1,5 +1,4 @@
-PHP操作Redis常用命令
----
+# PHP操作Redis常用命令
 ## 连接
 ```php
 $redis = new Redis;

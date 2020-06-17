@@ -1,5 +1,5 @@
-Nginx基本配置与参数说明
----
+# Nginx基本配置与参数说明
+
 ```sh
 #运行用户
 user nobody;

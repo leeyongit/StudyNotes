@@ -1,5 +1,5 @@
-nginx http、 https、 http2配置
----
+# nginx http、 https、 http2配置
+
 nginx版本：1.12.2
 ```sh
  # 首先找到nginx.conf
