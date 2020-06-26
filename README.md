@@ -10,6 +10,7 @@
 - [Java学习+面试指南](https://github.com/Snailclimb/JavaGuide) <small>一份涵盖大部分Java程序员所需要掌握的核心知识</small>
 - [《吊打面试官》系列](https://my.oschina.net/javaFamily?tab=popular)
 - [【推荐】最新200篇：技术文章整理](https://segmentfault.com/a/1190000018855112)
+- [PHP面试总结](https://segmentfault.com/a/1190000016353193)
 
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
