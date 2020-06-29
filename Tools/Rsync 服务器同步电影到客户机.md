@@ -1,12 +1,12 @@
-rsync 服务器同步电影到客户机
-========================
-**服务端修改配置文件**
+# rsync 服务器同步电影到客户机
+
+## 服务
+服务端修改配置文件
 
 ```sh
 vim /etc/rsyncd.conf
 ```
-
-**服务端修改配置文件 /etc/rsyncd.conf**
+服务端修改配置文件 /etc/rsyncd.conf
 
 ```yaml
 [share_video]
@@ -21,13 +21,12 @@ timeout = 120
 ```
 
 启动服务
-
 ```sh
 rm /var/run/rsyncd.pid
 /usr/bin/rsync --daemon
 ```
 
-**客户端**
+## 客户端
 
 ```sh
 rsync -avz --progress root@192.168.0.117:/volume1/fshd/nas/video/  /volume1/fshd/nas/video/
