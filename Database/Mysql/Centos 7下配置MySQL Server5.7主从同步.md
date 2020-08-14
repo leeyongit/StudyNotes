@@ -2,7 +2,7 @@
 
 ## Step 1 — Master数据库服务器配置
 
-```yaml
+```sh
 [root@server155 ~]# nano /etc/my.cnf
 
 [mysqld]
@@ -31,7 +31,7 @@ binlog-do-db：指定需要同步的数据库
 
 ## Step 2 — Slave数据库服务器配置
 
-```yaml
+```sh
 [root@server156 ~]# nano /etc/my.cnf
 
 [mysqld]
@@ -63,7 +63,7 @@ slave-net-timeout=60
 
 赋予从库权限帐号，允许用户在主库上读取日志，赋予10.0.1.156也就是Slave机器有File权限，只赋予Slave机器有File权限还不行，还要给它REPLICATION SLAVE的权限才可以。
 
-```sql
+```mysql
 mysql> GRANT FILE ON *.* TO 'root'@'10.0.1.156' IDENTIFIED BY 'Daguanren.cc@2017';
 
 mysql> GRANT REPLICATION SLAVE ON *.* TO 'root'@'10.0.1.156' IDENTIFIED BY 'Daguanren.cc@2017';

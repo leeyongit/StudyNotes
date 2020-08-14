@@ -4,7 +4,7 @@ Mysql 问题解决
 因为在MySQL中使用group by 是总是出现1055的错误，这就导致了必须去查看是什么原因了，查询了相关的资料，现在将笔记记录下来，以便后面可以参考使用：
 sql_mode:简而言之就是：它定义了你MySQL应该支持的sql语法，对数据的校验等等
 select @@sql_mode:使用该命令我们可以查看我们当前数据库的sql_mode
-```sql
+```ini
 mysql> select @@sql_mode;
 +-------------------------------------------------------------------------------------------------------------------------------------------+
 | @@sql_mode                                                                                                                                |
@@ -42,7 +42,7 @@ sql_mode= STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY
 
 ### 2. Mysql 允许远程连接
 
-```sh
+```mysql
 GRANT ALL PRIVILEGES ON *.* TO'root'@'%' IDENTIFIED BY 'root' WITH GRANT OPTION;
 flush privileges;
 ```
@@ -54,12 +54,13 @@ flush privileges;
 当事务A对记录1进行更新或者删除操作的请求未commit时，另一个事务B也对记录1进行更新或者删除操作，此时事务B回等待前一个事务A提交事务，释放行锁，如果这个时间超过mysql设置的超时时间，则会产生“LOCK WAIT”事务。
 解决方法:
 1.查看数据库当前的进程
+
 ```sql
 mysql> show  processlist;
 ```
 看一下有无正在执行的慢SQL记录线程。
 2.查看当前的事务
-```sql
+```mysql
 #当前运行的所有事务
 mysql> SELECT * FROM information_schema.INNODB_TRX;
 
@@ -75,7 +76,7 @@ mysql> SELECT * FROM information_schema.INNODB_LOCK_waits;
 
 3.批量删除事务表中的事务
 我这里用的方法是：通过information_schema.
-```sql
+```mysql
 mysql>  select concat('KILL ',id,';') from information_schema.processlist where user='root';
 +------------------------+
 | concat('KILL ',id,';') |

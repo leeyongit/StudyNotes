@@ -9,7 +9,6 @@ cat /proc/cpuinfo  #查看CPU信息
 hostname   #查看计算机名
 ls | xargs rm -f # 删除当前目录下的文件
 lsof -i:port  # 查看端口占用
-
 ```
 
 ### 查看使用空间

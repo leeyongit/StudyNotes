@@ -122,7 +122,7 @@ git merge <name> # 合并某分支到当前分支
 git branch -d <name> # 删除分支
 git checkout --track origin/dev # 远程建立了dev分支本地获取对应分支
 ```
-app/models/store/StoreCart.php
+
 ## 修改最后一次提交
 用于修改上一次的提交信息，或漏提交文件等情况。
 

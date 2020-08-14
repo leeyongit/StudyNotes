@@ -75,37 +75,50 @@ mysql-bin.000005
 删除这些binlog日志有三种解决方法：
 1.关闭mysql主从，关闭binlog；
 实例操作如下：
+
+```ini
 [root@huqniupc ~]# vim /etc/my.cnf  //注释掉log-bin和binlog_format
+
 # Replication Master Server (default)
+
 # binary logging is required for replication
+
 # log-bin=mysql-bin
+
 # binary logging format - mixed recommended
+
 # binlog_format=mixed
+```
+
 然后重启数据库
 
 2.开启mysql主从，设置expire_logs_days；
 实例操作如下：
+```ini
 [root@huqniupc ~]# vim /etc/my.cnf //修改expire_logs_days,x是自动删除的天数，一般将x设置为短点，如10
 expire_logs_days = x //二进制日志自动删除的天数。默认值为0,表示“没有自动删除”
 此方法需要重启mysql
-
+```
 当然也可以不重启mysql,开启mysql主从，直接在mysql里设置expire_logs_days
+```mysql
 > show binary logs;
 > show variables like '%log%';
 > set global expire_logs_days = 10;
-
+```
 
 3.手动清除binlog文件，(比如Mysql> PURGE MASTER LOGS TO ‘MySQL-bin.010′;）
 实例操作如下：
+```sh
 [root@huqniupc ~]# /usr/local/mysql/bin/mysql -u root -p
 > PURGE MASTER LOGS BEFORE DATE_SUB(CURRENT_DATE, INTERVAL 10 DAY);  //删除10天前的MySQL binlog日志,附录2有关于PURGE MASTER LOGS手动删除用法及示例
 > show master logs;
-
+```
 也可以重置master，删除所有binlog文件：
+```sh
 # /usr/local/mysql/bin/mysql -u root -p
 > reset master; //附录3有清除binlog时，对从mysql的影响说明
+```
 
----------------------------------------------------------------
 PURGE MASTER LOGS手动删除用法及示例,MASTER和BINARY是同义词
 > PURGE {MASTER | BINARY} LOGS TO 'log_name'
 > PURGE {MASTER | BINARY} LOGS BEFORE 'date'
@@ -115,12 +128,13 @@ PURGE MASTER LOGS手动删除用法及示例,MASTER和BINARY是同义词
 > PURGE MASTER LOGS TO 'MySQL-bin.010'; //清除MySQL-bin.010日志
 > PURGE MASTER LOGS BEFORE '2008-06-22 13:00:00';  //清除2008-06-22 13:00:00前binlog日志
 > PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 3 DAY); //清除3天前binlog日志BEFORE，变量的date自变量可以为'YYYY-MM-DD hh:mm:ss'格式。
------------------------------------------------------
+
 5）清除binlog时，对从mysql的影响
 如果有一个活跃的slave从属服务器，该服务器当前正在读取您正在试图删除的日志之一，则本语句不会起作用，而是会失败，并伴随一个错误；不过如果slave从属服务器是关闭的（或master-slave主从关系关闭），并且碰巧清理了其想要读取的日志之一，则slave从属服务器启动后不能复制；当从属服务器正在复制时，本语句可以安全运行，不需要停止它们。
 
 6）binglog的查看
 通过mysqlbinlog命令可以查看binlog的内容
+```ini
 [root@localhost ~]# mysqlbinlog /home/mysql/binlog/binlog.000003 | more
 /*!40019 SET @@session.max_insert_delayed_threads=0*/;
 /*!50003 SET @OLD_COMPLETION_TYPE=@@COMPLETION_TYPE,COMPLETION_TYPE=0*/;
@@ -137,7 +151,7 @@ insert into tt7 select * from tt7/*!*/;
 #120330 17:54:46 server id 1 end_log_pos 388 Query thread_id=3 exec_time=28 error_code=0
 SET TIMESTAMP=1333101286/*!*/;
 alter table tt7 engine=innodb/*!*/;
-
+```
 解析binlog格式：
 
 位置
@@ -197,14 +211,15 @@ Mixed日志说明：
 
 （2）binlog基本配制与格式设定
 1）基本配制
-binlog日志格式可以通过mysql的my.cnf文件的属性binlog_format指定。如以下：
-binlog_format = MIXED              //binlog日志格式
-log_bin =目录/mysql-bin.log       //binlog日志名
-expire_logs_days = 7                 //binlog过期清理时间
-max_binlog_size 100m              //binlog每个日志文件大小
 
-binlog-do-db=需要备份的数据库名，如果备份多个数据库，重复设置这个选项即可
-binlog-ignore-db=不需要备份的数据库苦命，如果备份多个数据库，重复设置这个选项即可
+> binlog日志格式可以通过mysql的my.cnf文件的属性binlog_format指定。如以下：
+> binlog_format = MIXED              //binlog日志格式
+> log_bin =目录/mysql-bin.log       //binlog日志名
+> expire_logs_days = 7                 //binlog过期清理时间
+> max_binlog_size 100m              //binlog每个日志文件大小
+>
+> binlog-do-db=需要备份的数据库名，如果备份多个数据库，重复设置这个选项即可
+> binlog-ignore-db=不需要备份的数据库苦命，如果备份多个数据库，重复设置这个选项即可
 
 2）Binlog日志格式选择
 Mysql默认是使用Statement日志格式，推荐使用MIXED.
@@ -216,7 +231,7 @@ mysql对于日志格式的选定原则:如果是采用 INSERT，UPDATE，DELETE 
 （3）Mysql Binlog日志分析
 
 通过MysqlBinlog指令查看具体的mysql日志，如下:
-```sql
+```ini
 ///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 SET TIMESTAMP=1350355892/*!*/;
@@ -251,11 +266,19 @@ BEGIN
 
 2.sqlevent起点
 
-#at 1643330 :为事件的起点，是以1643330字节开始。
+```ini
+at 1643330 :为事件的起点，是以1643330字节开始。
+```
+
+
 
 3.sqlevent 发生的时间点
 
-#121016 10:51:32:是事件发生的时间，
+```ini
+121016 10:51:32:是事件发生的时间，
+```
+
+
 
 4.serverId
 
@@ -293,7 +316,7 @@ MySQL的日志主要包括错误日志（ErrorLog），更新日志（UpdateLog�
 2）Binlog 相关参数及优化策略
 我们首先看看Binlog的相关参数，通过执行如下命令可以获得关于Binlog的相关参数。
 当然，其中也显示出了“innodb_locks_unsafe_for_binlog”这个Innodb存储引擎特有的与Binlog相关的参数：
-```sql
+```ini
 mysql> show variables like '%binlog%';
 +-----------------------------------------+----------------------+
 | Variable_name              | Value        |
@@ -339,21 +362,22 @@ MySQL的复制（Replication），实际上就是通过将Master端的Binlog通�
 
 MySQL中Binlog的产生量是没办法改变的，只要我们的Query改变了数据库中的数据，那么就必须将该Query所对应的Event记录到Binlog中。那我们是不是就没有办法优化复制了呢？当然不是，在MySQL复制环境中，实际上是是有8个参数可以让我们控制需要复制或者需要忽略而不进行复制的DB或者Table的，分别为：
 
-Binlog_Do_DB：设定哪些数据库（Schema）需要记录Binlog；
-
-Binlog_Ignore_DB：设定哪些数据库（Schema）不要记录Binlog；
-
-Replicate_Do_DB：设定需要复制的数据库（Schema），多个DB用逗号（“,”）分隔；
-
-Replicate_Ignore_DB：设定可以忽略的数据库（Schema）；
-
-Replicate_Do_Table：设定需要复制的Table；
-
-Replicate_Ignore_Table：设定可以忽略的Table；
-
-Replicate_Wild_Do_Table：功能同Replicate_Do_Table，但可以带通配符来进行设置；
-
-Replicate_Wild_Ignore_Table：功能同Replicate_Ignore_Table，可带通配符设置；
+> Binlog_Do_DB：设定哪些数据库（Schema）需要记录Binlog；
+>
+> Binlog_Ignore_DB：设定哪些数据库（Schema）不要记录Binlog；
+>
+> Replicate_Do_DB：设定需要复制的数据库（Schema），多个DB用逗号（“,”）分隔；
+>
+> Replicate_Ignore_DB：设定可以忽略的数据库（Schema）；
+>
+> Replicate_Do_Table：设定需要复制的Table；
+>
+> Replicate_Ignore_Table：设定可以忽略的Table；
+>
+> Replicate_Wild_Do_Table：功能同Replicate_Do_Table，但可以带通配符来进行设置；
+>
+> Replicate_Wild_Ignore_Table：功能同Replicate_Ignore_Table，可带通配符设置；
+>
 
 
 通过上面这八个参数，我们就可以非常方便按照实际需求，控制从Master端到Slave端的Binlog量尽可能的少，从而减小Master端到Slave端的网络流量，减少IO线程的IO量，还能减少SQL线程的解析与应用SQL的数量，最终达到改善Slave上的数据延时问题。
@@ -370,7 +394,7 @@ Replicate_Wild_Ignore_Table：功能同Replicate_Ignore_Table，可带通配符�
 3）慢查询日志Query Log 相关参数及使用建议
 再来看看SlowQueryLog的相关参数配置。有些时候，我们为了定位系统中效率比较地下的Query语句，则需要打开慢查询日志，也就是SlowQueryLog。我们可以如下查看系统慢查询日志的相关设置：
 
-```mysql
+```ini
 mysql> show variables like 'log_slow%';
 +------------------+-------+
 | Variable_name | Value |
