@@ -20,4 +20,4 @@ IDEA 快捷键：Alt+Enter 手动导包
 
 [Mac安装、配置Maven](https://www.jianshu.com/p/abec70821e82)
 
-java -jar -Xmx768m -Xms256m -Xlog:gc:gc.log /Volumes/work/europa-1.0/lib/europa-1.0.jar
+

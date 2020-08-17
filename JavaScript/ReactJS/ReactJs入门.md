@@ -14,5 +14,6 @@ $ npm start / yarn start
 ```
 
 ## react全家桶
-react + react-dom + react-router + axios + redux
+> react + react-dom + react-router + axios + redux
+>
 

@@ -3,22 +3,22 @@ Mysql5.6主从复制
 主服务IP：192.168.1.117 从服务IP：192.168.1.118
 
 1. 修改主服务my.cnf，重启mysql服务
-```
-   [mysqld]
+```ini
+[mysqld]
    innodb_buffer_pool_size = 512M
    log_bin = mysqlmaster-bin.log
    server_id = 117
 ```
 
 2. 修改从服务my.cnf，重启mysql服务
-```sql
-  [mysqld]
+```ini
+[mysqld]
   innodb_buffer_pool_size = 512M
   log_bin = mysqlslave-bin.log
   server_id = 118  #大于主服务server_id
 ```
 配置从实例的 server-id 和要同步的数据库。
-```sql
+```ini
 [mysqld]
 server-id               =  123456789              //服务 ID，主从实例 server-id 需不同。
 log_bin                 =  /var/log/mysql/mysql-bin.log
@@ -30,7 +30,7 @@ replicate-ignore-db     =  information_schema     // 不需要同步的数据库
 replicate-ignore-db     =  performance_schema     // 不需要同步的数据库
 ```
 配置 GTID 同步模式，binlog 格式为 row，以兼容主实例。
-```sql
+```ini
 #GTID
 gtid_mode=on
 enforce_gtid_consistency=on
@@ -57,15 +57,15 @@ log-slave-updates=1
 3. 192.168.1.117创建用于主从复制的账户并复制数据
 
 (1)创建账户(192.168.1.118上一样)
-```sh
+```mysql
 mysql>GRANT REPLICATION SLAVE ON *.* TO 'sync-1'@'192.168.1.118' IDENTIFIED BY '123456';
 ```
 (2)数据库锁表(192.168.1.118上一样)
-```sh
+```mysql
 mysql>FLUSH TABLES WITH READ LOCK;
 ```
 (3)查看master状态
-```sh
+```mysql
 mysql> show master status;
 +------------------------+----------+--------------+------------------+-------------------+
 | File                   | Position | Binlog_Do_DB | Binlog_Ignore_DB | Executed_Gtid_Set |
@@ -96,9 +96,10 @@ mysql> SHOW slave STATUS \G
 ```
 显示Slave_IO_Running: Yes Slave_SQL_Running: Yes则表示成功，如果Slave_IO_Running:connecting，则可能是防火墙的原因
 
+### **GTID复制异常的解决**
 
-**GTID复制异常的解决**
 mysql开启GTID跳过错误的方法
+
 ```sh
 rds> show global variables like '%gtid%';
 slave>
@@ -108,10 +109,21 @@ efcd7239-927f-11e6-8e28-7cd30ab8f7e4:1-112202382,
 ffd58b84-927f-11e6-8e29-58605f589dfb:1-451531593';
 ```
 **mysql-5.6.20主从同步错误之Error_code: 1032; handler error HA_ERR_KEY_NOT_FOUND**
-解决的办法：
+
+**解决的办法：**
 1.最好的办法是升级数据库 保证bug不会重现。
-2.利用配置参数 来躲避这个bug    vi /etc/my.cnf
-  slave-skip-errors = 1032,xxxx,xxxx ....
+2.利用配置参数 来躲避这个bug    
+
+```ini
+ vi /etc/my.cnf
+ slave-skip-errors = 1032,xxxx,xxxx ....
+```
+
 3.临时逃避此次错误。
-　set global sql_slave_skip_counter=1;   stop slave; start slave;
+
+```mysql
+set global sql_slave_skip_counter=1;   
+stop slave; 
+start slave;
+```
 

@@ -1,5 +1,5 @@
-springCloud 微服务
----------------------------
+# springCloud 微服务
+
 ## SpringBoot 核心功能
 - 独立运行  java -jar xxx.jar
 - 内嵌web服务器
@@ -22,10 +22,9 @@ SpringCloud 意在简化分布式，是功能的集合，风格统一
 - Netflix Zuul    服务网关
 - Netflix Cloud Config 分布式配置
 
-
-Eureka实现了微服务的注册与发现，
-Ribbon实现了客户端侧的负载均衡，
-Feign实现了声明式的API调用，
-Hystrix实现容错。
+> Eureka实现了微服务的注册与发现，
+> Ribbon实现了客户端侧的负载均衡，
+> Feign实现了声明式的API调用，
+> Hystrix实现容错。
 
 feign和ribbon是Spring Cloud的Netflix中提供的两个实现软负载均衡的组件，Ribbon和Feign都是用于调用其他服务的，方式不同。Feign则是在Ribbon的基础上进行了一次改进，采用接口的方式。

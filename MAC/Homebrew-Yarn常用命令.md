@@ -1,8 +1,8 @@
-Homebrew/Yarn常用命令
----
+# Homebrew/Yarn常用命令
+
 ## Homebrew常用命令
 
-```sh
+```bash
 brew search git        // 搜索软件包
 brew install git        // 安装软件包
 brew unistall git        // 卸载软件包

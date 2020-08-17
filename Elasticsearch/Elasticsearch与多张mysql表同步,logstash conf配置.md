@@ -2,7 +2,7 @@ Elasticsearch与多张mysql表同步,logstash conf配置
 ---
 之前已经涉及到利用logstash.conf配置文件使Elasticsearch与mysql一张表进行同步，但实际上在生产环境中肯定不可能只与一张表进行同步，所以必须对conf文件进行修改，这样才能适应多张表同步需求。
 
-```sh
+```ini
 input {
     stdin {
     }

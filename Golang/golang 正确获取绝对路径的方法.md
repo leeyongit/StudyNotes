@@ -6,7 +6,7 @@ package main
 
 import (
     "fmt"
-    "os"#
+    "os"
     "os/exec"
     "path/filepath"
     "strings"

@@ -5,7 +5,7 @@
 
 ## Numeric types
 
-```
+```go
 A numeric type represents sets of integer or floating-point values. The predeclared architecture-independent numeric types are:
 uint8       the set of all unsigned  8-bit integers (0 to 255)
 uint16      the set of all unsigned 16-bit integers (0 to 65535)
@@ -45,7 +45,7 @@ For instance, int32 and int are not the same type even though they may have the 
 所以上面的文档解释了为什么int，int32，int64之间需要进行类型转换才能进行运算。
 
 ## String types
-```
+```go
 A string type represents the set of string values. A string value is a (possibly empty) sequence of bytes. Strings are immutable: once created, it is impossible to change the contents of a string. The predeclared string type is string.
 The length of a string s (its size in bytes) can be discovered using the built-in function len. The length is a compile-time constant if the string is a constant. A string's bytes can be accessed by integer indices 0 through len(s)-1. It is illegal to take the address of such an element; if s[i] is the i'th byte of a string, &s[i] is invalid.
 ```

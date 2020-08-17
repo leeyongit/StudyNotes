@@ -40,6 +40,6 @@ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/ngin
 
 检查服务
 ```sh
-> kubectl get pod -n ingress-nginx
-> kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
+kubectl get pod -n ingress-nginx
+kubectl get pods --all-namespaces -l app.kubernetes.io/name=ingress-nginx --watch
 ```

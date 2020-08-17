@@ -1,5 +1,5 @@
-mac启动zookeeper单机模式
----
+# Mac启动zookeeper单机模式
+
 ## 安装
 ```sh
 > brew install zookeeper

@@ -68,12 +68,8 @@ sudo sysctl -w vm.max_map_count=262144
 访问默认的9200端口
 ```sh
 curl -X GET http://localhost:9200
-```
 
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+```
 
 ## Logstash
 
@@ -106,7 +102,7 @@ hello world! # 输入测试字符串
 ### 配置
 
 新建kafka-logstash-es.conf
-```sh
+```ini
 cd config
 vim kafka-logstash-es.conf
 
@@ -225,10 +221,7 @@ yum install rh-ruby23  -y　　　　   //直接yum安装即可　　
 scl  enable  rh-ruby23 bash　　　　 //必要一步
 ruby -v　　　　                     //查看安装版本
 ```
-&nbsp;
-&nbsp;
-&nbsp;
-&nbsp;
+
 
 ## Kibana
 

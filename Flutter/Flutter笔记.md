@@ -49,7 +49,7 @@ rm -rf /Users/liyong/development/flutter/bin/cache/lockfile
 打开Flutter SDK：/Users/liyong/development/flutter/packages/flutter_tools/gradle/flutter.gradle
 改为以下即可解决！
 
-```sh
+```ini
 // Generated file. Do not edit.
 
 buildscript {
@@ -73,7 +73,7 @@ buildscript {
 
 打开android/gradle.properties
 
-```
+```ini
 android.enableJetifier=true
 android.useAndroidX=true
 ```

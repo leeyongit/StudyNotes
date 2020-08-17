@@ -1,45 +1,38 @@
-Mysql数据库之Binlog日志使用总结(必看篇)
-----
+# Mysql数据库之Binlog日志使用总结
 
-binlog二进制日志对于mysql数据库的重要性有多大，在此就不多说了。下面根据本人的日常操作经历，并结合网上参考资料，对binlog日志使用做一梳理：
 
-### 一、binlog日志介绍
-1）什么是binlog
+## 一、binlog日志介绍
+### 1）什么是binlog
+
 binlog日志用于记录所有更新了数据或者已经潜在更新了数据（例如，没有匹配任何行的一个DELETE）的所有语句。语句以“事件”的形式保存，它描述数据更改。
 
-2）binlog作用
+### 2）binlog作用
+
 因为有了数据更新的binlog，所以可以用于实时备份，与master/slave主从复制结合。
 
 3）和binlog有关参数
-log_bin
-设置此参数表示启用binlog功能，并指定路径名称
+* log_bin: 设置此参数表示启用binlog功能，并指定路径名称
+* log_bin_index: 设置此参数是指定二进制索引文件的路径与名称
+* binlog_do_db: 此参数表示只记录指定数据库的二进制日志
+* binlog_ignore_db: 此参数表示不记录指定的数据库的二进制日志
+* max_binlog_cache_size: 此参数表示binlog使用的内存最大的尺寸
+* binlog_cache_size: 此参数表示binlog使用的内存大小，可以通过状态变量binlog_cache_use和binlog_cache_disk_use来帮助测试。
+* binlog_cache_use：使用二进制日志缓存的事务数量
+* binlog_cache_disk_use:使用二进制日志缓存但超过binlog_cache_size值并使用临时文件来保存事务中的语句的事务数量
+* max_binlog_size Binlog: 最大值，最大和默认值是1GB，该设置并不能严格控制Binlog的大小，尤其是Binlog比较靠近最大值而又遇到一个比较大事务时，为了保证事务的完整性，不可能做切换日志的动作，只能将该事务的所有SQL都记录进当前日志，直到事务结束
+* sync_binlog: 这个参数直接影响mysql的性能和完整性
 
-log_bin_index
-设置此参数是指定二进制索引文件的路径与名称
-binlog_do_db
-此参数表示只记录指定数据库的二进制日志
-binlog_ignore_db
-此参数表示不记录指定的数据库的二进制日志
-max_binlog_cache_size
-此参数表示binlog使用的内存最大的尺寸
-binlog_cache_size
-此参数表示binlog使用的内存大小，可以通过状态变量binlog_cache_use和binlog_cache_disk_use来帮助测试。
-binlog_cache_use：使用二进制日志缓存的事务数量
-binlog_cache_disk_use:使用二进制日志缓存但超过binlog_cache_size值并使用临时文件来保存事务中的语句的事务数量
+  > sync_binlog=0
+  > 当事务提交后，Mysql仅仅是将binlog_cache中的数据写入Binlog文件，但不执行fsync之类的磁盘 同步指令通知文件系统将缓存刷新到磁盘，而让Filesystem自行决定什么时候来做同步，这个是性能最好的。
+  > sync_binlog=n，在进行n次事务提交以后，Mysql将执行一次fsync之类的磁盘同步指令，同志文件系统将Binlog文件缓存刷新到磁盘。
+  > Mysql中默认的设置是sync_binlog=0，即不作任何强制性的磁盘刷新指令，这时性能是最好的，但风险也是最大的。一旦系统绷Crash，在文件系统缓存中的所有Binlog信息都会丢失
 
-max_binlog_size
-Binlog最大值，最大和默认值是1GB，该设置并不能严格控制Binlog的大小，尤其是Binlog比较靠近最大值而又遇到一个比较大事务时，为了保证事务的完整性，不可能做切换日志的动作，只能将该事务的所有SQL都记录进当前日志，直到事务结束
-sync_binlog
-这个参数直接影响mysql的性能和完整性
-sync_binlog=0
-当事务提交后，Mysql仅仅是将binlog_cache中的数据写入Binlog文件，但不执行fsync之类的磁盘 同步指令通知文件系统将缓存刷新到磁盘，而让Filesystem自行决定什么时候来做同步，这个是性能最好的。
-sync_binlog=n，在进行n次事务提交以后，Mysql将执行一次fsync之类的磁盘同步指令，同志文件系统将Binlog文件缓存刷新到磁盘。
-Mysql中默认的设置是sync_binlog=0，即不作任何强制性的磁盘刷新指令，这时性能是最好的，但风险也是最大的。一旦系统绷Crash，在文件系统缓存中的所有Binlog信息都会丢失
+### 4）binlog的删除
 
-4）binlog的删除
 binlog的删除可以手工删除或自动删除：
 a）自动删除binlog
 通过binlog参数（expire_logs_days ）来实现mysql自动删除binlog
+
 ```sh
 mysql> show binary logs;
 mysql> show variables like 'expire_logs_days';      //该参数表示binlog日志自动删除/过期的天数，默认值为0，表示不自动删除
@@ -73,7 +66,7 @@ mysql-bin.000005
 …
 
 删除这些binlog日志有三种解决方法：
-1.关闭mysql主从，关闭binlog；
+**1.关闭mysql主从，关闭binlog；**
 实例操作如下：
 
 ```ini
@@ -92,8 +85,9 @@ mysql-bin.000005
 
 然后重启数据库
 
-2.开启mysql主从，设置expire_logs_days；
+**2.开启mysql主从，设置expire_logs_days；**
 实例操作如下：
+
 ```ini
 [root@huqniupc ~]# vim /etc/my.cnf //修改expire_logs_days,x是自动删除的天数，一般将x设置为短点，如10
 expire_logs_days = x //二进制日志自动删除的天数。默认值为0,表示“没有自动删除”
@@ -106,34 +100,42 @@ expire_logs_days = x //二进制日志自动删除的天数。默认值为0,表�
 > set global expire_logs_days = 10;
 ```
 
-3.手动清除binlog文件，(比如Mysql> PURGE MASTER LOGS TO ‘MySQL-bin.010′;）
+**3.手动清除binlog文件，(比如Mysql> PURGE MASTER LOGS TO ‘MySQL-bin.010′;）**
 实例操作如下：
-```sh
+
+```mysql
 [root@huqniupc ~]# /usr/local/mysql/bin/mysql -u root -p
 > PURGE MASTER LOGS BEFORE DATE_SUB(CURRENT_DATE, INTERVAL 10 DAY);  //删除10天前的MySQL binlog日志,附录2有关于PURGE MASTER LOGS手动删除用法及示例
 > show master logs;
 ```
 也可以重置master，删除所有binlog文件：
-```sh
+```mysql
 # /usr/local/mysql/bin/mysql -u root -p
 > reset master; //附录3有清除binlog时，对从mysql的影响说明
 ```
 
 PURGE MASTER LOGS手动删除用法及示例,MASTER和BINARY是同义词
-> PURGE {MASTER | BINARY} LOGS TO 'log_name'
-> PURGE {MASTER | BINARY} LOGS BEFORE 'date'
+```mysql
+PURGE {MASTER | BINARY} LOGS TO 'log_name'
+PURGE {MASTER | BINARY} LOGS BEFORE 'date'
+```
+
+
 删除指定的日志或日期之前的日志索引中的所有二进制日志。这些日志也会从记录在日志索引文件中的清单中被删除MySQL BIN-LOG 日志，这样被给定的日志成为第一个。
 
 实例：
-> PURGE MASTER LOGS TO 'MySQL-bin.010'; //清除MySQL-bin.010日志
-> PURGE MASTER LOGS BEFORE '2008-06-22 13:00:00';  //清除2008-06-22 13:00:00前binlog日志
-> PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 3 DAY); //清除3天前binlog日志BEFORE，变量的date自变量可以为'YYYY-MM-DD hh:mm:ss'格式。
+```mysql
+PURGE MASTER LOGS TO 'MySQL-bin.010'; //清除MySQL-bin.010日志
+PURGE MASTER LOGS BEFORE '2008-06-22 13:00:00';  //清除2008-06-22 13:00:00前binlog日志
+PURGE MASTER LOGS BEFORE DATE_SUB( NOW( ), INTERVAL 3 DAY); //清除3天前binlog日志BEFORE，变量的date自变量可以为'YYYY-MM-DD hh:mm:ss'格式。
+```
 
-5）清除binlog时，对从mysql的影响
+**5）清除binlog时，对从mysql的影响**
 如果有一个活跃的slave从属服务器，该服务器当前正在读取您正在试图删除的日志之一，则本语句不会起作用，而是会失败，并伴随一个错误；不过如果slave从属服务器是关闭的（或master-slave主从关系关闭），并且碰巧清理了其想要读取的日志之一，则slave从属服务器启动后不能复制；当从属服务器正在复制时，本语句可以安全运行，不需要停止它们。
 
-6）binglog的查看
+**6）binglog的查看**
 通过mysqlbinlog命令可以查看binlog的内容
+
 ```ini
 [root@localhost ~]# mysqlbinlog /home/mysql/binlog/binlog.000003 | more
 /*!40019 SET @@session.max_insert_delayed_threads=0*/;
@@ -154,38 +156,39 @@ alter table tt7 engine=innodb/*!*/;
 ```
 解析binlog格式：
 
-位置
-位于文件中的位置，“at 196”说明“事件”的起点，是以第196字节开始；“end_log_pos 294”说明以第294字节结束
-时间戳
-事件发生的时间戳：“120330 17:54:46”
-事件执行时间
-事件执行花费的时间:"exec_time=28"
-错误码
-错误码为：“error_code=0”
-服务器的标识
-服务器的标识id：“server id 1”
+> 位置
+> 位于文件中的位置，“at 196”说明“事件”的起点，是以第196字节开始；“end_log_pos 294”说明以第294字节结束
+> 时间戳
+> 事件发生的时间戳：“120330 17:54:46”
+> 事件执行时间
+> 事件执行花费的时间:"exec_time=28"
+> 错误码
+> 错误码为：“error_code=0”
+> 服务器的标识
+> 服务器的标识id：“server id 1”
 
 注意下面几点：
-1.mysql的日志切不可想象是可以恢复到任何时间的状态，这个恢复是有前提的！
-至少得有一个从日志记录开始后的数据库备份，通过日志恢复数据库实际上只是一个对以前操作的回放过程而已，不用想得太复杂。
-既然是回放操作，那么就得注意了，如果是执行了两次恢复那就相当于是回放了两次，后果可想而知。
-所以：
 
-1）恢复前务必先备份数据.
+1. mysql的日志切不可想象是可以恢复到任何时间的状态，这个恢复是有前提的！
+   至少得有一个从日志记录开始后的数据库备份，通过日志恢复数据库实际上只是一个对以前操作的回放过程而已，不用想得太复杂。
+   既然是回放操作，那么就得注意了，如果是执行了两次恢复那就相当于是回放了两次，后果可想而知。
+   所以：
 
-2）由于二进制文件多,并且需要恢复的数据跨度大,可以考虑将日志文件合并在恢复.
+   1）恢复前务必先备份数据.
+
+   2）由于二进制文件多,并且需要恢复的数据跨度大,可以考虑将日志文件合并在恢复.
 
 2. 开启binlog日志功能
-要想通过日志恢复数据库，必须首先在my.cnf文件里定义，log-bin=mysql-bin，这样产生的binlog日志名就是以mysql-bin命名的
+  要想通过日志恢复数据库，必须首先在my.cnf文件里定义，log-bin=mysql-bin，这样产生的binlog日志名就是以mysql-bin命名的
 
-3.什么时候会生成新的binlog文件
-1）在备份的时候加入--flush-logs
-2）重新启动mysql服务的时候
-特别提示，mysql每次启动都会重新生成一个类似mysql-bin.00000n的文件，如果你的mysql每天都要重新启动一次的话，这时候你就要特别注意不要选错日志文件了。
+3. 什么时候会生成新的binlog文件
+   1）在备份的时候加入--flush-logs
+   2）重新启动mysql服务的时候
+   特别提示，mysql每次启动都会重新生成一个类似mysql-bin.00000n的文件，如果你的mysql每天都要重新启动一次的话，这时候你就要特别注意不要选错日志文件了。
 
-### 二、binlog日志格式介绍
+## 二、binlog日志格式介绍
 
-（1）Mysql binlog日志有三种格式，分别是Statement、MiXED、ROW
+### （1）Mysql binlog日志有三种格式，分别是Statement、MiXED、ROW
 
 1）Statement：每一条会修改数据的sql都会记录在binlog中
 优点：不需要记录每一行的变化，减少了binlog日志量，节约了IO，提高性能。(相比row能节约多少性能与日志量，这个取决于应用的SQL情况，正常同一条记录修改或者插入row格式所产生的日志量还小于Statement产生的日志量，但是考虑到如果带条件的update操作，以及整表删除，alter表等操作，ROW格式会产生大量日志，因此在考虑是否使用ROW格式日志时应该跟据应用的实际情况，其所产生的日志量会增加多少，以及带来的IO性能问题。)
@@ -209,7 +212,8 @@ alter table tt7 engine=innodb/*!*/;
 Mixed日志说明：
 在slave日志同步过程中，对于使用now这样的时间函数，MIXED日志格式，会在日志中产生对应的unix_timestamp()*1000的时间字符串，slave在完成同步时，取用的是sqlEvent发生的时间来保证数据的准确性。另外对于一些功能性函数slave能完成相应的数据同步，而对于上面指定的一些类似于UDF函数，导致Slave无法知晓的情况，则会采用ROW格式存储这些Binlog，以保证产生的Binlog可以供Slave完成数据同步。
 
-（2）binlog基本配制与格式设定
+### （2）binlog基本配制与格式设定
+
 1）基本配制
 
 > binlog日志格式可以通过mysql的my.cnf文件的属性binlog_format指定。如以下：
@@ -232,7 +236,7 @@ mysql对于日志格式的选定原则:如果是采用 INSERT，UPDATE，DELETE 
 
 通过MysqlBinlog指令查看具体的mysql日志，如下:
 ```ini
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 
 SET TIMESTAMP=1350355892/*!*/;
 
@@ -256,7 +260,7 @@ Insert into T_test….)
 
 COMMIT/*!*/;
 
-///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////
 ```
 1.开始事物的时间:
 
@@ -270,15 +274,11 @@ BEGIN
 at 1643330 :为事件的起点，是以1643330字节开始。
 ```
 
-
-
 3.sqlevent 发生的时间点
 
 ```ini
 121016 10:51:32:是事件发生的时间，
 ```
-
-
 
 4.serverId
 
@@ -294,13 +294,14 @@ error_code=0:错误码
 
 Xid:事件指示提交的XA事务
 
-### 三、mysql日志（重点binlog日志）的优化说明
+## 三、mysql日志（重点binlog日志）的优化说明
 MySQL系统的伸缩性很强，既可以在充足的硬件资源环境下高效运行，也可以在极少资源环境下很好的运行，
 但不管怎样，尽可能充足的硬件资源对MySQL的性能提升总是有帮助的。
 
 下面着重分析一下MySQL的日志（主要是Binlog）对系统性能的影响，并根据日志的相关特性得出相应的优化思路。
 
-1）日志产生的性能影响
+### 1）日志产生的性能影响
+
 由于日志的记录带来的直接性能损耗就是数据库系统中最为昂贵的IO资源。
 
 MySQL的日志主要包括错误日志（ErrorLog），更新日志（UpdateLog），二进制日志（Binlog），查询日志（QueryLog），慢查询日志（SlowQueryLog）等。
@@ -313,9 +314,11 @@ MySQL的日志主要包括错误日志（ErrorLog），更新日志（UpdateLog�
 一般情况下，在生产系统中很少有系统会打开查询日志。因为查询日志打开之后会将MySQL中执行的每一条Query都记录到日志中，会该系统带来比较大的IO负担，而带来的实际效益却并不是非常大。一般只有在开发测试环境中，为了定位某些功能具体使用了哪些SQL语句的时候，才会在短时间段内打开该日志来做相应的分析。
 所以，在MySQL系统中，会对性能产生影响的MySQL日志（不包括各存储引擎自己的日志）主要就是Binlog了。
 
-2）Binlog 相关参数及优化策略
+### 2）Binlog 相关参数及优化策略
+
 我们首先看看Binlog的相关参数，通过执行如下命令可以获得关于Binlog的相关参数。
 当然，其中也显示出了“innodb_locks_unsafe_for_binlog”这个Innodb存储引擎特有的与Binlog相关的参数：
+
 ```ini
 mysql> show variables like '%binlog%';
 +-----------------------------------------+----------------------+
@@ -391,7 +394,8 @@ MySQL中Binlog的产生量是没办法改变的，只要我们的Query改变了�
 
 而如果是在Slave端设置后面的六个参数，在性能优化方面可能比在Master端要稍微逊色一点，因为不管是需要还是不需要复制的Event都被会被IO线程读取到Slave端，这样不仅仅增加了网络IO量，也给Slave端的IO线程增加了RelayLog的写入量。但是仍然可以减少Slave的SQL线程在Slave端的日志应用量。虽然性能方面稍有逊色，但是在Slave端设置复制过滤机制，可以保证不会出现因为默认Schema的问题而造成Slave和Master数据不一致或者复制出错的问题。
 
-3）慢查询日志Query Log 相关参数及使用建议
+### 3）慢查询日志Query Log 相关参数及使用建议
+
 再来看看SlowQueryLog的相关参数配置。有些时候，我们为了定位系统中效率比较地下的Query语句，则需要打开慢查询日志，也就是SlowQueryLog。我们可以如下查看系统慢查询日志的相关设置：
 
 ```ini
@@ -416,5 +420,3 @@ mysql> show variables like 'long_query%';
 打开SlowQueryLog功能对系统性能的整体影响没有Binlog那么大，毕竟SlowQueryLog的数据量比较小，带来的IO损耗也就较小，但是，系统需要计算每一条Query的执行时间，所以消耗总是会有一些的，主要是CPU方面的消耗。如果大家的系统在CPU资源足够丰富的时候，可以不必在乎这一点点损耗，毕竟他可能会给我们带来更大性能优化的收获。但如果我们的CPU资源也比较紧张的时候，也完全可以在大部分时候关闭该功能，而只需要间断性的打开SlowQueryLog功能来定位可能存在的慢查询。
 
 MySQL的其他日志由于使用很少（QueryLog）或者性能影响很少，在此就不做过多分析了。
-
-以上这篇Mysql数据库之Binlog日志使用总结(必看篇)就是小编分享给大家的全部内容了，希望能给大家一个参考，也希望大家多多支持脚本之家。

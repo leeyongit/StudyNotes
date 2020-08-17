@@ -38,7 +38,7 @@
 
 比如：
 
-```
+```react
 import React, { Component } from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 
@@ -116,7 +116,7 @@ const styles = StyleSheet.create({
 
 #### 初始化
 
-```
+```sh
 # 安装 react-native-cli
 npm install -g react-native-cli
 
@@ -129,7 +129,7 @@ cd demo
 
 #### 开发
 
-```
+```sh
 # 开启本地 `js` UI 进程服务（开发模式）
 npm run start
 
@@ -142,7 +142,7 @@ react-native run-android
 
 #### 打包 `apk, ipa`
 
-```
+```sh
 # 打包 android APP 所需的 js bundle 文件
 react-native bundle --platform android --dev false --entry-file index.js --bundle-output android/app/src/main/assets/index.android.bundle --assets-dest android/app/src/main/res/
 
@@ -167,7 +167,7 @@ react-native bundle --platform ios --dev false --entry-file index.js --bundle-ou
 
 #### 初始化
 
-```
+```sh
 # 安装 create-react-native-app
 npm install -g create-react-native-app
 
@@ -180,7 +180,7 @@ cd demo
 
 或者
 
-```
+```sh
 # 安装 expo
 npm install -g expo-cli
 
@@ -193,7 +193,7 @@ cd demo
 
 #### 开发
 
-```
+```sh
 # 运行 ios 程序
 npm run ios
 
@@ -203,7 +203,7 @@ npm run android
 
 或者
 
-```
+```sh
 # 手机上安装 expo 客户端
 
 # 开启本地 `js` UI 进程服务（开发模式）
@@ -218,7 +218,7 @@ expo start
 
 #### 打包 `apk, ipa`
 
-```
+```sh
 # 打包 apk
 expo build:android
 
@@ -254,7 +254,7 @@ expo build:ios
 
 以 [ignite](https://github.com/infinitered/ignite) 举例：
 
-```
+```sh
 # 安装 ignite-cli
 npm install -g ignite-cli
 

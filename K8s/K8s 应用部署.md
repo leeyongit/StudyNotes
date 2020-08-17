@@ -8,12 +8,13 @@ K8s 应用部署
 
 1. 部署应用
 1.1 命令方式
-```sh
-> kubectl run httpd-app --image=httpd --replicas=3
+```bash
+kubectl run httpd-app --image=httpd --replicas=3
 ```
 通过命令行方式部署apache服务
 
 1.2 配置文件方式
+
 ```sh
 cat >> nginx.yml << EOF
 apiVersion: extensions/v1beta1
@@ -33,29 +34,29 @@ spec:
         image: nginx:latest
 EOF
 ```
-```sh
-> kubectl apply -f nginx.yml
+```bash
+kubectl apply -f nginx.yml
 ```
 2. 状态查看
 2.1 查看节点状态
 ```sh
-> kubectl get nodes
+kubectl get nodes
 ```
 2.2 查看pod状态
 ```sh
-> kubectl get pod --all-namespaces
+kubectl get pod --all-namespaces
 ```
 2.3 查看副本数
 ```sh
-> kubectl get deployments
+kubectl get deployments
 ```
 2.4 查看deployment详细信息
 ```sh
-> kubectl describe deployments
+kubectl describe deployments
 ```
 2.5 查看集群基本组件状态
 ```sh
-> kubectl get cs
+kubectl get cs
 ```
 
 ### 测试创建第一个Pod
@@ -80,36 +81,36 @@ kubectl describe deployment nginx
 
 运行下面的kubectl命令。
 
-```
+```sh
 kubectl create service nodeport nginx --tcp=80:80
 ```
 
-[![创建第一个吊舱](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/13.png)](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/big/13.png)
+![image-20200817230738877](/Users/liyong/Library/Application Support/typora-user-images/image-20200817230738877.png)
 
 确保没有错误。现在，使用下面的kubectl命令检查nginx服务nodeport和IP。
 
-```
+```sh
 kubectl get pods
 kubectl get svc
 ```
 
-[![获取豆荚列表](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/14.png)](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/big/14.png)
+![image-20200817230840777](/Users/liyong/Library/Application Support/typora-user-images/image-20200817230840777.png)
 
 现在，您将获得nginx pod，它现在在群集IP地址“ 10.160.60.38”端口80下运行，节点主IP地址“ 10.0.15.x”在端口“ 30691”下运行。
 
 从“ k8s-master”服务器运行以下[curl命令](https://www.howtoforge.com/community/threads/how-to-install-curl.20374/) 。
 
-```
+```sh
 curl node01:30691
 ```
 
-[![卷曲测试](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/15.png)](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/big/15.png)
+![image-20200817230931757](/Users/liyong/Library/Application Support/typora-user-images/image-20200817230931757.png)
 
-```
+```sh
 curl node02:30691
 ```
 
-[![卷曲测试节点2](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/16.png)](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/big/16.png)
+![image-20200817231003065](/Users/liyong/Library/Application Support/typora-user-images/image-20200817231003065.png)
 
 Nginx Pod现在已经部署在Kubernetes集群下，并且可以通过Internet访问。
 
@@ -119,10 +120,10 @@ Nginx Pod现在已经部署在Kubernetes集群下，并且可以通过Internet�
 
 然后您将获得Nginx默认页面。
 
-[![节点1上的页面](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/17.png)](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/big/17.png)
+![image-20200817231036747](/Users/liyong/Library/Application Support/typora-user-images/image-20200817231036747.png)
 
 在node02服务器上-http: ***//10.0.15.11:*** 30691/
 
-[![节点2上的页面](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/18.png)](https://www.howtoforge.com/images/how_to_set_up_kubernetes_cluster_on_centos_7/big/18.png)
+![image-20200817231102616](/Users/liyong/Library/Application Support/typora-user-images/image-20200817231102616.png)
 
 CentOS 7上的Kubernetes集群安装和配置已成功完成。

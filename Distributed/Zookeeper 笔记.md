@@ -1,3 +1,5 @@
+# ZooKeeper 笔记
+
 ## 一 什么是 ZooKeeper 
 
 **ZooKeeper 是一个典型的分布式数据一致性解决方案，分布式应用程序可以基于 ZooKeeper 实现诸如数据发布/订阅、负载均衡、命名服务、分布式协调/通知、集群管理、Master 选举、分布式锁和分布式队列等功能。**
@@ -41,11 +43,13 @@ Zookeeper将所有数据存储在内存中，数据模型是一棵树（Znode Tr
 
 Zookeeper采用ACL（AccessControlLists）策略来进行权限控制，类似于 UNIX 文件系统的权限控制。Zookeeper 定义了如下5种权限。
 
-![img](https://segmentfault.com/img/remote/1460000016349829)
+* CREATE: 创建子节点的权限。
+* READ：获取节点数据和子节点列表的权限
+* WRITE：更新节点数据的权限
+* DELETE：删除子节点的权限
+* ADMIN：设置节点的ACL的权限
 
 其中尤其需要注意的是，CREATE和DELETE这两种权限都是针对子节点的权限控制。
-
-
 
 ## 三 ZooKeeper 特点
 
@@ -54,9 +58,11 @@ Zookeeper采用ACL（AccessControlLists）策略来进行权限控制，类似�
 - **单一系统映像 ：** 无论客户端连到哪一个 ZooKeeper 服务器上，其看到的服务端数据模型都是一致的。
 - **可靠性：** 一旦一次更改请求被应用，更改的结果就会被持久化，直到被下一次更改覆盖。
 
-zookeeper 三个默认端口**
+zookeeper 三个默认端口
 
-    2181：对clinet端提供服务
-    3888：选举leader使用
-    2888：集群内机器通讯使用（Leader监听此端口）
+```ini
+2181：对clinet端提供服务
+3888：选举leader使用
+2888：集群内机器通讯使用（Leader监听此端口）
+```
 

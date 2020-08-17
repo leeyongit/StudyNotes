@@ -2,7 +2,7 @@ MongoDB基本使用
 ---
 成功启动MongoDB后，再打开一个命令行窗口输入mongo，就可以进行数据库的一些操作。
 输入help可以看到基本操作命令：
-```yaml
+```bash
 show dbs:显示数据库列表
 show collections：显示当前数据库中的集合（类似关系数据库中的表）
 show users：显示用户

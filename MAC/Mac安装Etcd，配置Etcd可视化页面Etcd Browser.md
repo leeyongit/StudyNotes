@@ -1,5 +1,5 @@
-Mac安装Etcd，配置Etcd可视化页面Etcd Browser
----
+# Mac安装Etcd，配置Etcd可视化页面Etcd Browser
+
 ## 一、Etcd
 **类比于Zookeeper，开源的、分布式的键值对数据存储系统，主要用来做配置共享、服务的注册和发现。高可用，强一致性。内部采用 Raft 协议作为一致性算法选举leader，保证集群数据不丢失**
 每个 etcd cluster 都是有若干个 member 组成的，每个 member 是一个独立运行的 etcd 实例，单台机器上可以运行多个 member。在正常运行的状态下，集群中会有一个 leader，其余的 member 都是 followers。leader 向 followers 同步日志，保证数据在各个 member 都有副本。leader 还会定时向所有的 member 发送心跳报文，如果在规定的时间里 follower 没有收到心跳，就会重新进行选举。客户端所有的请求都会先发送给 leader，leader 向所有的 followers 同步日志，等收到超过半数的确认后就把该日志存储到磁盘，并返回响应客户端。每个 etcd 服务有三大主要部分组成：raft 实现、WAL 日志存储、数据的存储和索引。WAL 会在本地磁盘（就是之前提到的 --data-dir）上存储日志内容（wal file）和快照（snapshot）

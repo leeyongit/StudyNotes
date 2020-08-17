@@ -1,5 +1,5 @@
-kubernetes 命令记录
----
+# kubernetes 命令记录
+
 操作基本命令：
 通过yaml文件创建：
 ```yaml
@@ -25,26 +25,25 @@ kubectl get pod -n kube-system
 ```
 查看pod描述：
 ```yaml
-
- XXX -n kube-system
+XXX -n kube-system
 ```
 查看pod 日志 （如果pod有多个容器需要加-c 容器名）
 ```yaml
 kubectl logs xxx -n kube-system
 ```
-## 删除应用（先确定是由说明创建的，再删除对应的kind）：
+### 删除应用（先确定是由说明创建的，再删除对应的kind）：
 ```yaml
 kubectl delete deployment xxx -n kube-system
 ```
-## 根据label删除：
+### 根据label删除：
 ```yaml
 kubectl delete pod -l app=flannel -n kube-system
 ```
-## 扩容
+### 扩容
 ```yaml
 kubectl scale deployment spark-worker-deployment --replicas=8
 ```
-## 导出配置文件：
+### 导出配置文件：
 导出proxy
 ```yaml
 kubectl get ds -n kube-system -l k8s-app=kube-proxy -o yaml>kube-proxy-ds.yaml
@@ -59,14 +58,14 @@ kubectl get services -n kube-system -l k8s-app=kube-dns -o yaml >kube-dns-servic
 kubectl get configmap -n kube-system -o wide -o yaml > configmap.yaml
 ```
 
-## 复杂操作命令：
+### 复杂操作命令：
 删除kube-system 下Evicted状态的所有pod：
 ```yaml
 kubectl get pods -n kube-system |grep Evicted| awk '{print $1}'|xargs kubectl delete pod  -n kube-system
 ```
 
 
-## 以下为维护环境相关命令：
+### 以下为维护环境相关命令：
 
 重启kubelet服务
 ```yaml

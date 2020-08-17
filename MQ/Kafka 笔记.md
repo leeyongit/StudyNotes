@@ -1,6 +1,7 @@
 # Kafka 笔记
 
-## Kafka 配置项
+**Kafka 配置项**
+
 这里只记录一些目前使用Kafka可能会比较有用的配置项。关于单个broker的，和关于topic-level的。其中有些配置项可以是topic级别的。
 Kafka的版本是0.8.2.1。
 - log.flush.interval：默认500，数据积累的量，超过这个量就将数据写到磁盘
@@ -24,7 +25,8 @@ Kafka的版本是0.8.2.1。
 - min.insync.replicas：覆盖min.insync.replicas
 - segment.jitter.ms：覆盖log.roll.jitter.{ms,hours}
 
-##  kafka配置中request.required.acks含义
+**kafka配置中request.required.acks含义**
+
 > Kafka producer的ack有3中机制，初始化producer时的producerconfig可以通过配置request.required.acks不同的值来实现。
 
 0：这意味着生产者producer不等待来自broker同步完成的确认继续发送下一条（批）消息。此选项提供最低的延迟但最弱的耐久性保证（当服务器发生故障时某些数据会丢失，如leader已死，但producer并不知情，发出去的信息broker就收不到）。
@@ -39,7 +41,7 @@ Kafka的版本是0.8.2.1。
 
 
 
-## kafka-manager 出现错误
+### kafka-manager 出现错误
 
 > Yikes! Ask timed out on [ActorSelection[Anchor(akka://kafka-manager-system/), Path(/user/kafka-manager)]] after [5000 ms]
 
