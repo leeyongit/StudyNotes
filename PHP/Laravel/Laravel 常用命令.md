@@ -1,14 +1,19 @@
 Laravel 常用命令
 ---
-## 常用命令
-### 数据迁移 & 数据填充
 ```php
+php artisan key:generate
+```
+
+## 常用命令
+
+### 数据迁移 & 数据填充
+```sh
 php artisan migrate
 php artisan migrate --seed
 ```
 
 ### 清缓存
-```php
+```sh
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear # 路由清理缓存

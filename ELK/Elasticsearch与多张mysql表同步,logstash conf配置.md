@@ -17,7 +17,7 @@ input {
       jdbc_paging_enabled => "true"
       jdbc_page_size => "1000"
       statement => "sql statement"
-      schedule => "* * * * *"
+      schedule => "* * * * *" # 执行 sql 时机，类似 crontab 的调度
       type => "数据库表名1"
       tags => "数据库表名1"
     }
@@ -64,4 +64,44 @@ output {
         codec => json_lines
     }
 }
+```
+
+#### logstash-input-jdbc 读取数据库，当数据库中有新的记录时，进行实时读取
+
+作者：慎独
+链接：https://www.zhihu.com/question/49776719/answer/375871990
+来源：知乎
+著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。
+
+
+
+Logstash配置：
+
+```ini
+input {
+  jdbc {
+    jdbc_driver_library => "drivers/mysql-connector-java-5.1.45.jar"
+    jdbc_driver_class => "com.mysql.jdbc.Driver"
+    jdbc_connection_string => "jdbc:mysql://localhost:3306/mybatis"
+    jdbc_user => "root"
+    jdbc_password => "root123.."
+    parameters => { "gender" => "Male" }
+    schedule => "* * * * *"
+    statement => "SELECT id,last_name,email,gender from employee where id > :sql_last_value and gender = :gender"
+    use_column_value => true
+    tracking_column => "id"
+  }
+}
+
+output {
+    stdout { codec => rubydebug }
+}
+```
+
+1. 重点在于 **use_column_value** 和 **tracking_column** 这两个参数，当use_column_value为true时，可以用 **:sql_last_value** 这个变量来获取tracking_column对应的字段的最新值，默认即第一次启动时为 **0** 。我的示例中tracking_column对应id，即Logstash都会记录每次查询结果id的最大值，供下一次查询使用。
+
+2. Logstash将tracking_column的最新值记录到 **last_run_metadata_path** 参数下的 **.logstash_jdbc_last_run** 文件，默认是**/home/${user}/.logstash_jdbc_last_run**，所以重启后也不会从最初加载，还是从上次记录的最新值开始查。当然，也可以设置 **clean_run** 参数为true，重启后删除上次的运行状态，就可以从最初的数据开始读取了。
+
+```
+sql_last_start
 ```

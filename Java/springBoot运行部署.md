@@ -18,6 +18,6 @@ java -jar target/hello-0.0.1-SNAPSHOT.jar --server.port=8000
 
 IDEA 快捷键：Alt+Enter 手动导包
 
-[Mac安装、配置Maven](https://www.jianshu.com/p/abec70821e82)
+
 
 
