@@ -98,7 +98,7 @@ exception InvalidOperation {
 
 使用Thrift类型定义服务。对一个服务的定义在语法上等同于在面向对象编程中定义一个接口（或一个纯虚抽象类）。Thrift编译器生成实现该接口的客户与服务器存根。服务的定义如下：
 
-```
+```protobuf
 service <name> {
 <returntype> <name>(<arguments>)
 [throws (<exceptions>)]

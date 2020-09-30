@@ -43,6 +43,16 @@
 - [RPC 框架之 thrift 学习笔记之二](https://icharle.com/rpcthrifttwo.html)
 - [Thrift多种语言Rpc调用实战](https://www.jianshu.com/p/62948d6e5db9)
 
+### gRPC
+
+- [gRPC的那些事 - streaming](https://colobu.com/2017/04/06/dive-into-gRPC-streaming/)
+- [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
+
+- [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
+- [GRPC的metadata使用](https://blog.csdn.net/hjxzb/article/details/88980186)
+- [gRPC双向数据流的交互控制](https://www.jianshu.com/p/5158d6686769)
+- [python 实战 grpc](https://www.jianshu.com/p/43fdfeb105ff)
+
 ### Zookeeper
   - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
   - [ZooKeeper 初探：安装、使用](http://ningg.top/zookeeper-getting-started/)
@@ -60,6 +70,7 @@
 ### Elasticsearch
 - [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
 - [Elasticsearch推荐插件篇(head,sense,marvel)](https://www.cnblogs.com/xing901022/p/5962722.html)
+- [系统学ElasticSearch](http://mp.weixin.qq.com/mp/homepage?__biz=MzIxMjE3NjYwOQ==&hid=5&sn=b9c85139ca524fc7823379f4a2da99ba&scene=18#wechat_redirect)
 
 ### Kafka
 - [PHP下kafka的实践](https://segmentfault.com/a/1190000015765348)
@@ -110,16 +121,6 @@
 - [Golang系列（五）之Golang指针](https://blog.csdn.net/huwh_/article/details/77879970)
 - [[译]Golang中的依赖注入](https://segmentfault.com/a/1190000016140106)
 - [Golang几种依赖注入的实现](https://luncher.github.io/2018/12/26/Golang%E5%87%A0%E7%A7%8D%E4%BE%9D%E8%B5%96%E6%B3%A8%E5%85%A5%E7%9A%84%E5%AE%9E%E7%8E%B0/)
-
-### gRPC
-
-- [gRPC的那些事 - streaming](https://colobu.com/2017/04/06/dive-into-gRPC-streaming/)
-- [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
-
-- [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
-- [GRPC的metadata使用](https://blog.csdn.net/hjxzb/article/details/88980186)
-- [gRPC双向数据流的交互控制](https://www.jianshu.com/p/5158d6686769)
-- [python 实战 grpc](https://www.jianshu.com/p/43fdfeb105ff)
 
 
 ## Java
@@ -199,8 +200,17 @@
 ## 疑难杂症
 - [Axios跨域处理方案（开发环境）](https://www.jianshu.com/p/9938aff0a0fc)
 
+## 安全
+
+- [XSS CSRF 攻击](http://www.cnblogs.com/siqi/archive/2012/11/19/2777224.html)
+
+## 其他
+
+- [莓派---MAC下安装Raspbian](http://www.ihubin.com/blog/raspberrypi-mac-install-raspbian/)
+- [顶尖 API 文档管理工具 (Yapi)](https://www.jianshu.com/p/a97d2efb23c5)
 
 ## 技巧
+
 1. Windows下如何查看某个端口被谁占用
 ```sh
 netstat -aon|findstr "8081"

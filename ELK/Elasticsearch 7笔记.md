@@ -1,4 +1,4 @@
-# Elasticsearch 7笔记
+# Elasticsearch 7 笔记
 
 **查看所有索引**
 
@@ -27,4 +27,25 @@ GET _cat/indices/hwyy_*?v
 
 - keyword 的最长长度是 32766 字节。（原因应该是底层lucene做倒排索引时，限制了单词的长度。UTF-8中，英文字母是1个字节，中文一般是3个字节，表情符号是4个字节）
 - text 无长度限制。（但被分析器处理后的单词不应该超过 32766 个字节。-> 这是我推论出来的，待验证）。
+
+
+
+ **"track_total_hits":true 的作用**
+
+```json
+# 获取超过1w条数据 需要加上  "track_total_hits":true ，不然只能显示出9999条
+GET /pg03_h3/_doc/_search
+{
+  "_source":["terminalId",
+              "lon",
+              "lat",
+              "time",
+             "h3_2"
+            ],
+  "query": {"match": {
+    "h3_2":"586321722337132543"
+  }},
+  "size":10000,
+  "track_total_hits":true
+```
 

@@ -110,17 +110,22 @@ git checkout -- <file>
 
 回退到上一次提交的状态，按照某一次的commit完全反向的进行一次commit.(代码回滚到上个版本，并提交git)
 
+```sh
 git revert HEAD
+```
+
+
 
 ### Git分支
 ```sh
 git branch # 查看分支
 git branch <name> # 创建分支
+git branch -m 原名 新名 # 分支改名
+git branch -d <name> # 删除分支
 git checkout <name> # 切换分支
 git checkout -b <name> # 创建+切换分支
-git merge <name> # 合并某分支到当前分支
-git branch -d <name> # 删除分支
 git checkout --track origin/dev # 远程建立了dev分支本地获取对应分支
+git merge <name> # 合并某分支到当前分支
 ```
 
 ## 修改最后一次提交
