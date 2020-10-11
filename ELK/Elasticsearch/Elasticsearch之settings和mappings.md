@@ -10,7 +10,7 @@
 
 ## **1、ES中的settings**
 
-　　查询索引库的settings信息
+### 查询索引库的settings信息
 
 curl -XGET http://192.168.80.10:9200/user/_settings?pretty
 
@@ -61,7 +61,7 @@ curl -XPUT '192.168.80.10:9200/user/_settings' -d'{"index":{"number_of_replicas"
 
 **Mapping**,就是对索引库中索引的字段名称及其数据类型进行定义，类似于mysql中的表结构信息。不过es的mapping比数据库灵活很多，它可以动态识别字段。一般不需要指定mapping都可以，因为es会自动根据数据格式识别它的类型，**如果你**需要对某些字段添加特殊属性（如：定义使用其它分词器、是否分词、是否存储等），**就必须手动添加mapping**。
 
-　　我们在es中添加索引数据时不需要指定数据类型，es中有自动影射机制，字符串映射为string，数字映射为long。通过mappings可以指定数据类型是否存储等属性。
+我们在es中添加索引数据时不需要指定数据类型，es中有自动影射机制，字符串映射为string，数字映射为long。通过mappings可以指定数据类型是否存储等属性。
 
 ###  查询索引库的mapping信息
 
