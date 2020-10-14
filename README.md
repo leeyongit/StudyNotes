@@ -71,6 +71,7 @@
 - [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
 - [Elasticsearch推荐插件篇(head,sense,marvel)](https://www.cnblogs.com/xing901022/p/5962722.html)
 - [系统学ElasticSearch](http://mp.weixin.qq.com/mp/homepage?__biz=MzIxMjE3NjYwOQ==&hid=5&sn=b9c85139ca524fc7823379f4a2da99ba&scene=18#wechat_redirect)
+- [Elasticsearch 学习笔记](https://www.letianbiji.com/elasticsearch/)
 
 ### Kafka
 - [PHP下kafka的实践](https://segmentfault.com/a/1190000015765348)

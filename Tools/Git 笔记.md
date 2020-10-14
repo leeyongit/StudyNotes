@@ -116,7 +116,7 @@ git revert HEAD
 
 
 
-### Git分支
+## Git分支
 ```sh
 git branch # 查看分支
 git branch <name> # 创建分支
@@ -128,7 +128,49 @@ git checkout --track origin/dev # 远程建立了dev分支本地获取对应分�
 git merge <name> # 合并某分支到当前分支
 ```
 
+### Git 从master拉取代码创建新分支
+
+从master拉取新分支并push到远端
+
+开发过程中经常用到从master分支copy一个开发分支：
+
+1.切换到被copy的分支（master），并且从远端拉取最新版本
+
+```sh
+git checkout master
+git pull
+```
+
+2.从当前分支拉copy开发分支
+
+```sh
+git checkout -b dev
+
+# Switched to a new branch 'dev'
+```
+
+3.把新建的分支push到远端
+
+```sh
+git push origin dev
+```
+
+4.关联
+
+```sh
+git branch --set-upstream-to=origin/dev
+```
+
+5.再次拉取验证
+
+```sh
+git pull
+```
+
+
+
 ## 修改最后一次提交
+
 用于修改上一次的提交信息，或漏提交文件等情况。
 
 ```sh
