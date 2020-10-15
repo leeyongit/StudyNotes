@@ -1,6 +1,6 @@
 # Elasticsearch聚合
 
-终于到了最后一个业务需求：支持管理者对员工目录做分析。 Elasticsearch 有一个功能叫聚合（aggregations），允许我们基于数据生成一些精细的分析结果。聚合与 SQL 中的 `GROUP BY` 类似但更强大。
+Elasticsearch 有一个功能叫聚合（aggregations），允许我们基于数据生成一些精细的分析结果。聚合与 SQL 中的 `GROUP BY` 类似但更强大。
 
 举个例子，挖掘出员工中最受欢迎的兴趣爱好：
 
@@ -134,6 +134,8 @@ GET /megacorp/employee/_search
 
 
 输出基本是第一次聚合的加强版。依然有一个兴趣及数量的列表，只不过每个兴趣都有了一个附加的 `avg_age` 属性，代表有这个兴趣爱好的所有员工的平均年龄。
+
+## 问题解决
 
 **es进行聚合操作时提示Fielddata is disabled on text fields by default**
 
