@@ -68,8 +68,6 @@ output {
 
 #### logstash-input-jdbc 读取数据库，当数据库中有新的记录时，进行实时读取
 
-
-
 Logstash配置：
 
 ```ini
@@ -96,7 +94,3 @@ output {
 1. 重点在于 **use_column_value** 和 **tracking_column** 这两个参数，当use_column_value为true时，可以用 **:sql_last_value** 这个变量来获取tracking_column对应的字段的最新值，默认即第一次启动时为 **0** 。我的示例中tracking_column对应id，即Logstash都会记录每次查询结果id的最大值，供下一次查询使用。
 
 2. Logstash将tracking_column的最新值记录到 **last_run_metadata_path** 参数下的 **.logstash_jdbc_last_run** 文件，默认是**/home/${user}/.logstash_jdbc_last_run**，所以重启后也不会从最初加载，还是从上次记录的最新值开始查。当然，也可以设置 **clean_run** 参数为true，重启后删除上次的运行状态，就可以从最初的数据开始读取了。
-
-```
-sql_last_start
-```

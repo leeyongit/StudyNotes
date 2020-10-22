@@ -34,3 +34,20 @@ sudo spctl --master-disable
 ```sh
 sudo spctl --master-enable
 ```
+
+
+
+### git使用代理出现LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443 错误
+
+操作系统：MAC OS 10.13.6
+
+git版本：2.15.2
+
+设置了ssr作为git代理在执行git pull时出现LibreSSL SSL_connect: SSL_ERROR_SYSCALL in connection to github.com:443错误
+
+是由于ipv6引起的 执行networksetup -setv6off Wi-Fi即可
+
+```sh
+networksetup -setv6off Wi-Fi
+```
+

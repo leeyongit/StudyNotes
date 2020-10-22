@@ -1,8 +1,17 @@
-# Python 笔记
+# Python 环境安装
+
 Python 有两个重要版本且区别较大，分别是 Python2（v2.7.13）和 Python3（v3.6.1）。
 在这选择 Python3。
 
-## 安装包管理器 pip
+### venv虚拟环境安装配置
+
+```sh
+sudo pip3 install virtualenv
+virtualenv venv
+. venv/bin/activate
+```
+
+### 安装包管理器 pip
 https://pypi.python.org/pypi/pip/
 
 使用get-pip.py文件安装
@@ -17,6 +26,7 @@ python get-pip.py
 ## 安装模块
 python3 -m pip install xxx 或 pip3 install xxx
 PyMySQL
+
 ```
 python3 -m pip install pymysql
 ```
@@ -68,17 +78,37 @@ pip3 --default-timeout=500 install -U pillow
 ```
 超时时间默认为100，改大点就好（这里我改成了500）
 
-## venv虚拟环境安装配置
-```sh
-sudo pip3 install virtualenv
-virtualenv venv
-. venv/bin/activate
-```
-
 ## Python打包方法——Pyinstaller
 ### 安装Pyinstaller
 使用pip命令安装：
 ```sh
 pip3 install PyInstaller
 pyinstaller -F myfile.py
+```
+
+
+
+### 解决:pip is configured with locations that require TLS/SSL
+
+打开终端，输入
+
+```
+mkdir ~/.pip    
+cd ~/.pip
+```
+
+创建pip.conf文件:
+
+```
+touch pip.conf
+```
+
+复制粘贴以下配置到pip.conf文件中：
+
+```
+[global]
+index-url = http://mirrors.aliyun.com/pypi/simple/ 
+
+[install]
+trusted-host=mirrors.aliyun.com
 ```
