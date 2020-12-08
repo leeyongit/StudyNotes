@@ -8,7 +8,7 @@ git clone https://github.com/laruence/yaf.git
 2. 查找php bin目录
 ```php
 which php
-#/Applications/MAMP/bin/php/php7.2.22/bin/php
+#/Applications/MAMP/bin/php/php7.3.9/bin/php
 ```
 我本机的目录是:/Applications/MAMP/bin/php/php7.2.10/bin/
 which这条命令主要是用来查找系统*PATH目录下**的可执行文件。
@@ -16,11 +16,11 @@ which这条命令主要是用来查找系统*PATH目录下**的可执行文件�
 
 ```php
 cd ~/Downloads/yaf
- /Applications/MAMP/bin/php/php7.2.22/bin/phpize
- ./configure --with-php-config=/Applications/MAMP/bin/php/php7.2.22/bin/php-config
+ /Applications/MAMP/bin/php/php7.3.9/bin/phpize
+ ./configure --with-php-config=/Applications/MAMP/bin/php/php7.3.9/bin/php-config
  make
  make install
- # Installing shared extensions:     /Applications/MAMP/bin/php/php7.2.22/lib/php/extensions/no-debug-non-zts-20170718/
+ # Installing shared extensions:     /Applications/MAMP/bin/php/php7.3.9/lib/php/extensions/no-debug-non-zts-20170718/
 ```
 初次使用 phpize 需要 安装 autoconf
 ```php

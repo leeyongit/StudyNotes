@@ -1,7 +1,6 @@
 go-zookeeper库的使用
----
-## go-zookeeper库使用
-[samuel/go-zookeeper/zk]是zookeeper的golang客户端，也是个人感觉目前最好用的ZK-golang的客户端了，本文档主要介绍该库的使用方法，并给出自己使用的一个简单事例，至于该库的内部实现，可能会在其他文档中有所阐述。
+===
+[samuel/go-zookeeper/zk](https://github.com/samuel/go-zookeeper.git)是zookeeper的golang客户端，本文档主要介绍该库的使用方法。
 
 
 ### 使用事例
@@ -127,4 +126,5 @@ func Watcher(wg sync.WaitGroup, childCh <-chan zk.Event) {
     Receive event: {Type:EventNodeChildrenChanged State:StateSyncConnected Path:/ Err:<nil>}
     Receive event: {Type:EventNodeDeleted State:StateSyncConnected Path:/gozk-test-2 Err:<nil>}
 
-[samuel/go-zookeeper/zk]:https://github.com/samuel/go-zookeeper.git
+
+
