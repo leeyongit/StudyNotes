@@ -66,4 +66,4 @@ php artisan queue:failed-table # 处理失败的任务
 php artisan queue:work redis --sleep=3 --tries=3
 php artisan queue:work --daemon --quiet --queue=default --delay=3 --sleep=3 --tries=3
 ```
-ZOOKEEPER_URL=herse:2181,europa:2181,juno:2181
+
