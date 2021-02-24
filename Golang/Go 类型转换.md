@@ -5,22 +5,18 @@
 int转换成int32，int64
 
 ```go
-// int转换成int32
-i32 = int32(i)
-// int转换成int64
-i64 = int64(i)
+i32 = int32(i) // int转换成int32
+i64 = int64(i) // int转换成int64
 ```
 
 int32，int64转换成int
 
 ```go
-// int32转换成int
-i = int(int32)
-// int64转换成int
-i = int(int64)
+i = int(int32) // int32转换成int
+i = int(int64) // int64转换成int
 ```
 
-# int -> string
+# int 转 string
 
 int，int32，int64转换成string
 
@@ -33,7 +29,7 @@ str2 := strconv.Itoa(i)
 str3 := strconv.FormatInt(int64(i), 10)
 ```
 
-# string -> int
+# string 转 int
 
 ```go
 strInt, err := strconv.Atoi(str) 							// string转换成int
@@ -45,7 +41,7 @@ realInt32 := int32(strInt32)
 
 ```
 
-# string -> float
+# string 转 float
 
 - 使用方法：`func ParseFloat(s string, bitSize int) (f float64, err error)`
   bitSize：32或64 对应系统的位数
@@ -59,7 +55,7 @@ if err != nil {
 fmt.Printf("type:%T value:%#v\n", str, str)
 ```
 
-# float -> string
+# float 转 string
 
 - 使用方法：`func FormatFloat(f float64, fmt byte, prec, bitSize int) string`
   bitSize表示f的来源类型（32：float32、64：float64），会据此进行舍入。

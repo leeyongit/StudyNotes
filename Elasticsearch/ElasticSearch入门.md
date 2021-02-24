@@ -71,7 +71,7 @@ $ ./elasticsearch
 
 - url 例子
 
-```
+```sh
 $ curl -X GET "localhost:9200/_search"
 #结果
 {"took":35,"timed_out":false,"_shards":{"total":2,"successful":2,"skipped":0,"failed":0},"hits":{"total":{"value":0,"relation":"eq"},"max_score":null,"hits":[]}}%
@@ -85,7 +85,7 @@ Kibana也是java开发的，安装启动非常简单，只要下载安装包，�
 
 我下载的版本是kibana-7.9.1-darwin-x86_64.tar.gz。
 
-```
+```sh
 $ tar -zxvf kibana-7.9.1-darwin-x86_64.tar.gz
 $ cd /usr/local/Cellar/kibana-7.9.1-darwin-x86_64/bin
 $ ./kibana

@@ -78,14 +78,6 @@ pip3 --default-timeout=500 install -U pillow
 ```
 超时时间默认为100，改大点就好（这里我改成了500）
 
-## Python打包方法——Pyinstaller
-### 安装Pyinstaller
-使用pip命令安装：
-```sh
-pip3 install PyInstaller
-pyinstaller -F myfile.py
-```
-
 
 
 ### 解决:pip is configured with locations that require TLS/SSL

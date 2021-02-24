@@ -1,20 +1,20 @@
 # Supervisord管理
 
-## 安装 & 启动
+### 安装 & 启动
 ```sh
 yum install -y epel-release supervisor
 supervisord -c /etc/supervisord.conf
 ```
-## 重载配置
+### 重载配置
 ```sh
 supervisorctl reread && supervisorctl update
 ```
-## 终端交互
+### 终端交互
 ```
 supervisorctl
 ```
 
-## 配置例子
+### 配置例子
 ```sh
 [program:nginx]
 process_name=%(program_name)s_%(process_num)02d

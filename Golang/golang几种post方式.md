@@ -86,7 +86,7 @@ func newfileUploadRequest(uri string, params map[string]string, paramName, path 
 
 # golang 模擬 curl post
 
-```plain
+```go
 package main
 
 import (

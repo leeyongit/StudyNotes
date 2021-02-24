@@ -3,6 +3,9 @@
 ## Docker 安装 (CentOS 7)
 ```sh
 yum -y install docker-io
+
+# 使用官方安装脚本自动安装 （仅适用于公网环境）
+curl -fsSL https://get.docker.com | bash -s docker --mirror Aliyun
 ```
 基于CentOS 7构建，安装Docker环境参考官网。国内环境，推荐使用[阿里云Docker Hub加速器服务。
 ```sh
@@ -12,6 +15,7 @@ $ sudo tee /etc/docker/daemon.json <<-'EOF'
   "registry-mirrors": ["https://muehonsf.mirror.aliyuncs.com"]
 }
 EOF
+
 ```
 
 ## 常用命令
@@ -31,6 +35,9 @@ sudo systemctl status docker.service # 查看运行状态 Loaded行：配置文�
 $ curl -L https://github.com/docker/compose/releases/download/1.25.0/docker-compose-`uname -s`-`uname -m` > ./docker-compose
 $ sudo mv ./docker-compose /usr/bin/docker-compose
 $ sudo chmod +x /usr/bin/docker-compose
+# 国内安装
+curl -L https://get.daocloud.io/docker/compose/releases/download/1.23.2/docker-compose-`uname -s`-`uname -m` > /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
 ```
 
 ## 安装 ctop 工具可以帮助查看容器在主机的使用情况。

@@ -167,6 +167,30 @@ git branch --set-upstream-to=origin/dev
 git pull
 ```
 
+## git pull 设置git记住用户和密码
+
+在使用https git拉取代码时，每次git pull的时候都会让输入用户名和密码
+
+进入项目目录
+
+```sh
+git config --global credential.helper store
+```
+
+如果要清除用户名和密码
+
+运行一下命令缓存输入的用户名和密码
+
+```sh
+git config --global credential.helper wincred
+```
+
+清除掉缓存在git中的用户名和密码
+
+```sh
+git credential-manager uninstall
+```
+
 
 
 ## 修改最后一次提交

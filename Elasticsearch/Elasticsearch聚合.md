@@ -5,7 +5,6 @@ Elasticsearch 有一个功能叫聚合（aggregations），允许我们基于数
 举个例子，挖掘出员工中最受欢迎的兴趣爱好：
 
 ```json
-
 GET /megacorp/employee/_search?pretty
 {
   "size": 10, 
@@ -15,11 +14,9 @@ GET /megacorp/employee/_search?pretty
     }
   }
 }
-
 ```
 暂时忽略掉语法，直接看看结果：
 ```json
-
 {
    ...
    "hits": { ... },
