@@ -15,7 +15,6 @@ $ sudo tee /etc/docker/daemon.json <<-'EOF'
   "registry-mirrors": ["https://muehonsf.mirror.aliyuncs.com"]
 }
 EOF
-
 ```
 
 ## 常用命令

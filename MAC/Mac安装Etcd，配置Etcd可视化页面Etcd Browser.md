@@ -51,11 +51,11 @@ node server.js
 
 ## 四、etcd命令行操作key
 除了 HTTP API 外，etcd 还提供了 etcdctl 命令行工具和 etcd 服务交互。
-etcdctl get / --prefix --keys-only 查看所有key
-etcdctl --endpoints=[172.31.22.xxx:2379] get / --prefix --keys-only 查看所有key(参数加上etcd服务地址)
-etcdctl get /mechat/websocket/service/mapping 查看某个key的值
-etcdctl --endpoints=[172.31.22.142:2379] get /mechat/websocket/service/mapping 查看某个key的值
+`etcdctl get / --prefix --keys-only` 查看所有key
+`etcdctl --endpoints=[172.31.22.xxx:2379] get / --prefix --keys-only` 查看所有key(参数加上etcd服务地址)
+`etcdctl get /mechat/websocket/service/mapping` 查看某个key的值
+`etcdctl --endpoints=[172.31.22.142:2379] get /mechat/websocket/service/mapping` 查看某个key的值
 
-etcdctl del /mechat/websocket/service/mapping 删除某个key
-etcdctl put /mechat/websocket/service/mapping ‘io.test.baidu.com:443->172.31.19.xxx:8085’ 修改某个key的值
+`etcdctl del /mechat/websocket/service/mapping` 删除某个key
+`etcdctl put /mechat/websocket/service/mapping 'io.test.baidu.com:443->172.31.19.xxx:8085'` 修改某个key的值
 

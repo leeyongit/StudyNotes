@@ -1,6 +1,6 @@
 # Mac启动zookeeper单机模式
 
-## 安装
+### 1. 安装zookeeper
 ```sh
 > brew install zookeeper
 > zkServer
@@ -15,7 +15,7 @@ tickTime=2000
 dataDir=/var/lib/zookeeper
 clientPort=2181
 ```
-## 连接zookeeper
+### 2. 连接zookeeper
 ```sh
 > zkCli
 ```
@@ -34,7 +34,7 @@ JLine 下，常用命令：
     # 删除节点
     delete /zk_test
 
-## 查看zookeeper状态
+### 3. 查看zookeeper状态
 ```sh
 > zkServer status
 ZooKeeper JMX enabled by default
@@ -43,5 +43,5 @@ Mode: standalone
 ```
 这里的standalone指的是单机模式
 
-## 关闭zookeeper
+### 3. 关闭zookeeper
 执行$ `zkServer stop`:
