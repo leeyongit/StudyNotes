@@ -1,6 +1,6 @@
-# json数据解码的两种方法NewDecoder与Unmarshal
+## json数据解码的两种方法NewDecoder与Unmarshal
 
-### golang中处理http响应数据解码，一般有两种方式
+golang中处理http响应数据解码，一般有两种方式
 
 - json.Unmarshal进行解码
 

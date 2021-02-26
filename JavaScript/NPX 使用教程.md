@@ -1,5 +1,8 @@
 # NPX 使用
-安装:
+npm 从5.2版开始，增加了 npx 命令。
+
+Node 自带 npm 模块，所以可以直接使用 npx 命令。万一不能用，就要手动安装一下。
+
 ```sh
 npm install -g npx
 ```

@@ -1,7 +1,3 @@
----
-typora-copy-images-to: ../../../../Downloads/php_delay_queue_3.9038e63a.jpg
----
-
 #  Beanstalkd延迟队列
 
 ## 一：介绍

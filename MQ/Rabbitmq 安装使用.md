@@ -9,7 +9,7 @@ yum install
 build-essential openssl openssl-devel unixODBC unixODBC-devel
 make gcc gcc-c++ kernel-devel m4 ncurses-devel tk tc xz
 ```
-##  手动安装
+###  手动安装
 
 1. 下载：
 
@@ -40,7 +40,7 @@ vim /usr/lib/rabbitmq/lib/rabbitmq_server-3.6.5/ebin/rabbit.app
 
  访问地址：http://ip:15672/
 
-## Yum 安装
+### Yum 安装
 
 ```sh
 yum install rabbitmq-server
