@@ -44,7 +44,13 @@ flutter packages upgrade
 sudo flutter create flutterdemo
 ```
 
-查看本地grade版本
+通过--org指定你的包名，你指定的org将取代com.example。
+
+```sh
+sudo flutter create --org com.leeyongit flutterdemo
+```
+
+**查看本地grade版本**
 
 ```sh
 gradle -v

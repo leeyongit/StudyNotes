@@ -1,4 +1,50 @@
-## Git冲突：commit your changes or stash them before you can merge. 解决办法
+#Git 常见问题解决
+
+## 解决Github上clone项目太慢
+
+### 1. 搜索
+
+在 [www.ipaddress.com/](https://www.ipaddress.com/) 上分别搜索
+
+- github.global.ssl.fastly.net
+- github.com
+
+这两个域名对应的ip
+
+### ![image-20210323230219453](assets/image-20210323230219453.png)
+
+### 2. 更改hosts文件
+
+Linux的hosts文件路径在：sudo vim /etc/hosts
+
+在文件中添加
+
+199.232.69.194 github.global-ssl.fastly.net
+
+140.82.114.3 github.com
+
+### 3.保存更新DNS
+
+Centos7 清缓存命令 `nscd -i hosts`
+
+**有可能nscd没装，下面讲解一下，安装，启动，清缓存的命令**
+
+**1. 安装 nscd**
+
+```sh
+yum -y install nscd
+```
+
+**2. 查看状态 及 启动命令**
+
+```sh
+systemctl status nscd          # 查看状态
+systemctl start nscd            # 启动 nscd
+```
+
+## Git冲突
+
+> commit your changes or stash them before you can merge
 
 用git pull来更新代码的时候，遇到了下面的问题：
 

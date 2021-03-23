@@ -1,4 +1,4 @@
-# Flutter Study
+# Flutter 基础学习
 
 ## 1. Flutter Widget
 
@@ -12,17 +12,7 @@ Flutter 中一切皆 Widget 呈现，通过 build 方法返回 Widget。
 
 * Widget 分为 有状态 和 无状态 两种，在 Flutter 中每个⻚面都是一帧，无状态就是保持在那一帧，而 有状态的 Widget 当数据更新时，其实是创建了新的 Widget，只是 State 实现了跨帧的数据同步保存。
 
-InkWell()
 
-*new* Stack
-
-*new* CorrectWrongOverlay
-
- void initState() {
-
-​    super.initState();
-
- }
 
 ## 2. 无状态**StatelessWidget**
 

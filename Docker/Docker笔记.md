@@ -49,6 +49,15 @@ sudo chmod +x /usr/local/bin/ctop
 ## 常用Docker命令
 
 ```sh
+
+启动容器：
+   docker run --name master -d  -p 6379:6379 -p 26379:26379  redis
+   docker run 启动容器
+          --name 容器名称
+          -d 容器后台启动
+          -p 主机端口：容器的端口
+          redis 运行镜像
+
 docker attach containerID # 连接到正在运行中的容器
 docker exec -it containerID /bin/bash # 使用docker exec进入Docker容器
 docker exec -it containerID /bin/sh (alpine)
@@ -62,6 +71,9 @@ docker save ImageId > web.tar # 保存镜像
 docker load -i web.tar    # 导入镜像 --input , -i : 指定导入的文件
 docker commit -a="作者"  -m="提交的描述信息"  容器id   要创建的目标镜像名:[标签名]
 docker push NAME[:TAG] # 将本地的镜像上传到镜像仓库,要先登陆到镜像仓库
+
+查看容器运行的局域网ip地址：（阿里云默认第一个启动的容器IP地址：172.17.0.2, 依次为172.17.0.3, ...）
+docker inspect 容器id
 ```
 
 退出容器

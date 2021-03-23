@@ -4,13 +4,16 @@
 ## Interview
 - [剑指Offer - PHP](https://learnku.com/docs/jianzhioffer)
 - [Interview](https://hadyang.github.io/interview/)
+- [Interview求职指南](https://interview.apachecn.org/)
+- [CS-Notes](http://www.cyc2018.xyz/)
 - [笔试面试知识整理](https://hit-alibaba.github.io/interview)
-- [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
 - [小土刀的面试刷题笔记](https://wdxtub.com/interview/index.html)
 - [Java学习+面试指南](https://github.com/Snailclimb/JavaGuide) <small>一份涵盖大部分Java程序员所需要掌握的核心知识</small>
 - [《吊打面试官》系列](https://my.oschina.net/javaFamily?tab=popular)
 - [【推荐】最新200篇：技术文章整理](https://segmentfault.com/a/1190000018855112)
+- [PHP-Interview](https://xianyunyh.gitbooks.io/php-interview/) <small>PHP面试准备的资料</small>
 - [PHP面试总结](https://segmentfault.com/a/1190000016353193)
+- [PHPer 面试指南-扩展阅读资源整理](https://segmentfault.com/a/1190000012971148)
 
 ## 数据结构与算法
 - [十大经典排序算法](https://www.runoob.com/w3cnote/ten-sorting-algorithm.html)
@@ -34,10 +37,8 @@
 
 ### Apache Thrift ™
 - [Thrift PHP Tutorial](https://thrift.apache.org/tutorial/php)
-- [Thrift使用指南](http://dongxicheng.org/search-engine/thrift-guide/)
 - [RPC框架-Thrift的使用](https://blog.csdn.net/rlanffy/article/details/51873022)
 - [Thrift使用-php](https://blog.csdn.net/xjc200808/article/details/51135934)
-- [Thrift在php框架laravel中的应用](http://ju.outofmemory.cn/entry/272744)
 - [RPC 框架 thrift 在 PHP 结合 Laravel 使用](https://icharle.com/thriftrpcphplaravel.html)
 - [RPC 框架之 thrift 学习笔记之一](https://icharle.com/rpcthrift.html)
 - [RPC 框架之 thrift 学习笔记之二](https://icharle.com/rpcthrifttwo.html)
@@ -65,11 +66,9 @@
   - [徒手教你使用zookeeper编写服务发现](https://zhuanlan.zhihu.com/p/34156758)
   - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
   - [基于ZooKeeper和Thrift构建动态RPC调用](https://blog.csdn.net/likewindy/article/details/51352179)
-  - [Zookeeper知识点](https://www.cnblogs.com/cjsblog/p/9682648.html)
 
 ### Elasticsearch
 - [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
-- [Elasticsearch推荐插件篇(head,sense,marvel)](https://www.cnblogs.com/xing901022/p/5962722.html)
 - [系统学ElasticSearch](http://mp.weixin.qq.com/mp/homepage?__biz=MzIxMjE3NjYwOQ==&hid=5&sn=b9c85139ca524fc7823379f4a2da99ba&scene=18#wechat_redirect)
 - [Elasticsearch 学习笔记](https://www.letianbiji.com/elasticsearch/)
 
@@ -81,13 +80,7 @@
 
 ### RabbitMQ
 - [RabbitMQ 从入门到放弃系列笔记（一）：核心概念及术语](https://laravelacademy.org/post/7401.html)
-- [全网最全RabbitMQ总结](https://www.toutiao.com/i6781284630222864903/)
-- [Mac部署 PHP、RabbitMQ](https://blog.csdn.net/u012460314/article/details/82467952)
-- [PHP 下基于 php-amqp 扩展的 RabbitMQ 简单用例 (四) -- Push API 和 Pull API](https://www.cnblogs.com/fxyy/p/10590812.html)
 - [PHP 连接 Rabbitmq 实例代码](http://www.dahouduan.com/2017/11/23/php-rabbitmq-demo/)
-
-### 认证授权
- - [php firebase/php-jwt token验证](https://blog.csdn.net/cjs5202001/article/details/80228937)
 
 ### 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
@@ -109,13 +102,10 @@
 - [从 0 到 1 学习 Go 语言](https://www.oschina.net/translate/learning-go-from-zero-to-hero)
 - [Mac OS下Windows和Linux交叉编译器](https://blog.filippo.io/easy-windows-and-linux-cross-compilers-for-macos/)
 - [golang database/sql 包的使用](https://blog.csdn.net/embinux/article/details/84031620)
-- [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
 - [Go 的依赖注入](https://studygolang.com/articles/14851?fr=sidebar)
 - [go语言基于etcd的服务注册与发现](https://www.jianshu.com/p/7c0d23c818a5)
 - [go-micro 框架初探](https://segmentfault.com/a/1190000017572032?utm_source=tag-newest)
 - [Golang信号处理和优雅退出守护进程](https://www.jianshu.com/p/ae72ad58ecb6)
-- [如何使用goapp写你的后台管理系统](https://www.cnblogs.com/hotion/p/11665837.html)
-- [kafka的go版本api使用](https://blog.csdn.net/qq_32292967/article/details/78675116)
 - [go中的main函数和init函数](https://blog.csdn.net/rznice/article/details/18987047)
 - [Go net/http包](https://studygolang.com/articles/9467)
 - [Go文件操作大全](https://colobu.com/2016/10/12/go-file-operations/)
@@ -174,7 +164,6 @@
 ## Flutter
  - [一文了解Dart语法](https://juejin.im/post/5c52a386f265da2de25b5c36#heading-26)
  - [细说Flutter-MacOS下搭建Flutter开发环境](https://juejin.im/post/5c638662f265da2da23d0e1f)
- - [使用 Flutter 快速构建美观又高性能的移动应用](https://www.bilibili.com/video/av27857568/)
  - [FlutterExampleApps](https://github.com/iampawan/FlutterExampleApps)
 
 ## JavaScript
@@ -197,9 +186,6 @@
  - [PHP 7.2 on CentOS/RHEL 7.5 via Yum](https://webtatic.com/packages/php72/)
  - [Centos 7安装MySQL Server5.7](https://www.daguanren.cc/post/mysql_installation_guide.html#toc-29f)
  - [Centos 7下配置MySQL Server5.7主从同步](https://www.daguanren.cc/post/sync_master_slave_mysql.html)
-
-## 疑难杂症
-- [Axios跨域处理方案（开发环境）](https://www.jianshu.com/p/9938aff0a0fc)
 
 ## 安全
 

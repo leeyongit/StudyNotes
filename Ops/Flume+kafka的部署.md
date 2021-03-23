@@ -13,6 +13,8 @@ yum install java-1.8.0-openjdk
 ```
 安装完之后，默认的安装目录是在:
 > /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
+>
+> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.282.b08-1.el7_9.x86_64/jre
 ### 设置java的环境变量
 
 ```sh
