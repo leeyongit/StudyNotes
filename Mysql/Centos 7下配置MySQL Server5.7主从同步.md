@@ -77,7 +77,7 @@ mysql> flush privileges;
 mysql>  show master status;
 ```
 
-![alt](/Users/liyong/Desktop/docs/Images/tTjaGT0Sj_DAk7ArRAgezQBE.png)
+![image-20210330235044302](assets/image-20210330235044302.png)
 
 这里的 File 、Position 是在配置Salve的时候要使用到的，Binlog_Do_DB表示要同步的数据库，Binlog_Ignore_DB 表示Ignore的数据库，这些都是在配置的时候进行指定的。
 

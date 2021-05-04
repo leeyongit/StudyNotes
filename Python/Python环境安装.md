@@ -80,6 +80,18 @@ pip3 --default-timeout=500 install -U pillow
 
 
 
+## MAC安装chromedriver
+
+选择与浏览器版本一致的版本下载
+
+http://npm.taobao.org/mirrors/chromedriver/
+
+```sh
+cp chromedriver /usr/local/bin
+```
+
+
+
 ### 解决:pip is configured with locations that require TLS/SSL
 
 打开终端，输入
