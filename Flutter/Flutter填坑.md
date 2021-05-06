@@ -6,8 +6,6 @@
 rm -rf /Users/liyong/development/flutter/bin/cache/lockfile
 ```
 
-
-
 #### **2. This is taking an unexpectedly long time.**
 
 打开Flutter SDK：/Users/liyong/development/flutter/packages/flutter_tools/gradle/flutter.gradle

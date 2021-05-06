@@ -1,6 +1,4 @@
-# Yapi笔记
-
-## 使用 Docker 部署 YAPI
+# 使用 Docker 部署 YAPI
 
 **1、运行 MongoDB**
 
@@ -78,7 +76,7 @@ docker run -d \
 
 因不明原因，yapi 的扩展被 chrome 官方下架了，大家只能使用本地安装的方式了。
 
-### 安装方法
+## 安装方法
 
 #### 1. 下载扩展 zip
 
@@ -88,11 +86,11 @@ docker run -d \
 
 > **必须开启开发者模式**
 
-![img](https://user-gold-cdn.xitu.io/2020/2/6/1701961bc4d7a7e4?imageslim)
+![img](../assets/1701961bc4d7a7e4.png)
 
 #### 3. 然后点击加载已解压的扩展程序
 
-![img](https://user-gold-cdn.xitu.io/2020/2/12/170374fdac330967?imageslim)
+![img](../assets/170374fdac330967.png)
 
 ### FAQ
 
@@ -100,7 +98,7 @@ docker run -d \
 
 - 检测是否在 chrome://extensions 开启了开发者模式
 
-## yapi chrome插件cross-request无法安装
+## Yapi chrome插件cross-request无法安装
 
 `YApi` 是一个可本地部署的、打通前后端及QA的、可视化的接口管理平台。
 

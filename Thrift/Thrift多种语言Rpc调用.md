@@ -139,7 +139,7 @@ func main()  {
 
  thrift的php官方代码仓库在[github](https://github.com/apache/thrift/tree/master/lib/php),我们在根目录创建lib,然后在lib下创建Thrift这个目录，然后把链接点开，把lib下面的所有代码都拷贝到Thrift这个目录下面。
 
-![img](https://upload-images.jianshu.io/upload_images/12890383-976c0fea0b014541.png)
+![img](../assets/12890383-976c0fea0b014541.png)
 
 2. 接下来就是生成我们的php代码，依然用的还是那个thrift文件
    比较简单的生成方式是

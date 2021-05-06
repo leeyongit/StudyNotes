@@ -7,7 +7,7 @@
 - **暂存区：**英文叫stage, 或index。一般存放在 ".git目录下" 下的index文件（.git/index）中，所以我们把暂存区有时也叫作索引（index）。
 - **版本库：**工作区有一个隐藏目录.git，这个不算工作区，而是Git的版本库。
 
-![img](https://www.runoob.com/wp-content/uploads/2015/02/1352126739_7909.jpg)
+![img](../assets/1352126739_7909.png)
 
 全局设置用户信息
 
@@ -209,5 +209,3 @@ git pull /git push # (第一次输入，后续就不用再次数据)
 ```
 
 
-
-# git branch dev origin/dev

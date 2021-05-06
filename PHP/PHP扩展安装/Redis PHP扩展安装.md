@@ -1,5 +1,5 @@
-Redis扩展安装
----
+Redis PHP扩展安装
+===
 
 ### 安装Redis php扩展前先安装redis-3.0.0
 ```sh

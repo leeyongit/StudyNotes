@@ -64,7 +64,7 @@ nsqadmin --lookupd-http-address=127.0.0.1:4161
 
 ###### 启动nsqd-node1 当nsqd进程退出时，将内存中的数据写入到磁盘；当nsqd进程启动时，将磁盘中的数据读入到内存
 
-![image-20210323103448108](assets/image-20210323103448108.png)
+![image-20210323103448108](../assets/image-20210323103448108.png)
 
 ###### 总的来说，nsqd 具有以下功能或特性：
 
@@ -98,7 +98,7 @@ curl -d "hello world!" 'http://127.0.0.1:4151/pub?topic=demo'
 
 消费者有两种方式与nsqd建立连接
 
-![image-20210323103817944](assets/image-20210323103817944.png)
+![image-20210323103817944](../assets/image-20210323103817944.png)
 
 - 消费者直连nsqd
 - 消费者通过http查询nsqlookupd获取该nsqlookupd上所有nsqd的连接地址，然后再分别和这些nsqd建立连接

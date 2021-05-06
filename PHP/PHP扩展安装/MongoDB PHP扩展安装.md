@@ -1,4 +1,4 @@
-# mac安裝php mongodb extension
+# MongoDB PHP扩展安装
 
 依照下列步骤 make 一个mongodb.so
 

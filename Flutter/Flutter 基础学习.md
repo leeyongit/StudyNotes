@@ -12,8 +12,6 @@ Flutter 中一切皆 Widget 呈现，通过 build 方法返回 Widget。
 
 * Widget 分为 有状态 和 无状态 两种，在 Flutter 中每个⻚面都是一帧，无状态就是保持在那一帧，而 有状态的 Widget 当数据更新时，其实是创建了新的 Widget，只是 State 实现了跨帧的数据同步保存。
 
-
-
 ## 2. 无状态**StatelessWidget**
 
 直接进入主题，如下下代码所示是无状态 Widget 的简单实现。继承 **StatelessWidget**，通过 **build** 方法返回一个布局好的控件。可能现在你还对 Flutter 的内置控件不熟悉，but **Don't worry , take it easy** ，后面我们就会详细介绍这里你只需要知道，一个无状态的 Widget 就是这么简单。
