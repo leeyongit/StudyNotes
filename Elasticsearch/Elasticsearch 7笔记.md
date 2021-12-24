@@ -35,7 +35,7 @@ GET _cat/indices/hwyy_*?v
 **查看 setting、mapping 信息**
 
 ```sh
-GET movies/_settings
+es
 GET movies/_doc/_mapping
 ```
 

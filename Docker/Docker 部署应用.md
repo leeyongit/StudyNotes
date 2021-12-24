@@ -42,8 +42,8 @@ docker run -d --restart=always --name xunsearch -p 8383:8383 -p 8384:8384 \
 
 ```sh
 docker pull mysql:5.6
-docker run --name fshd-mysql -v /docker/mysql/datadir:/var/lib/mysql \
-    -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.6
+docker run --name nq-mysql -v /data/mysql:/var/lib/mysql \
+    -e MYSQL_ROOT_PASSWORD=ly@dev.2021 -d mysql:5.6
 ```
 
 ## Docker部署ElasticHD

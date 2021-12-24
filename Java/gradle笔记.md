@@ -1,3 +1,22 @@
+
+
+## gradlew 和 gradle命令的区别
+
+#### 定义区别：
+
+##### Gradlew是包装器，自动下载包装器里定义好的gradle 版本，保证编译环境统一，gradle 是用本地的gradle版本。
+
+#### 存放路径不同
+
+对于系统gradle其存放在 ~/.gradle 下面。本系统可在该文件夹下面找到gradle2.12相关的内容。对于gradlew其存放在 ～/.gradlew/wrapper/dists 下面。这个下面有着许多版本的gradle。这些就是gradlew下载下来的gradle版本。
+
+#### 使用gradle版本不同
+
+若你在命令行使用gradlew 那么你使用的是存放在～/.gradlew/wrapper/dists路径下面的,通过在gradle/wrapper/gradle-wrapper.properties文件指定的gradle脚本。而你若使用gradle命令行，那么你使用的是~/.gradle下面的gradle脚本。
+
+
+
+
 gradle 强制清除 缓存的依赖，再次主动下载，使用服务器上最新的依赖jar包
 
 Mac:
@@ -32,8 +51,3 @@ Mac:
 - 显示所有的task：gradle tasks
 - 显示gradle的gui：gradle --gui 或 gradle --gui&（后台运行）
 - 查找所有的gradle命令: gradle --help
-
-```bash
-thrift -r -gen java europa.thrift
-```
-

@@ -19,16 +19,12 @@ du -h -d1 # 只查看一级目录统计的空间占用
 du -d 1 | sort -n -r| awk '{printf("   %.2f %s\t %s \n", $1/1024/1024, "G", $2)}' # 格式化为G按从大到小排序
 ```
 
-
-
 ### scp命令
 
 ```sh
 scp local_file remote_username@remote_ip:remote_folder  # 从本地复制到远程
 scp -r local_folder remote_username@remote_ip:remote_folder # 复制目录命令格式
 ```
-
-
 
 ### 监控网络状态信息
 

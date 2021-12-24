@@ -22,17 +22,19 @@ $ java -version
 ```
 1. 下载
 ```
-$ cd /opt
-$ wget http://mirrors.hust.edu.cn/apache/zookeeper/zookeeper-3.6.1/apache-zookeeper-3.6.1-bin.tar.gz
+wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.9/zookeeper-3.4.9.tar.gz
 ```
 2. 解压
-```
-$ tar zxvf zookeeper-3.6.1.tar.gz
-mv zookeeper-3.6.1 zookeeper
+```bash
+tar zxvf apache-zookeeper-3.4.9.tar.gz
+cd zookeeper-3.4.9/src/c
+./configure --prefix=/usr/local/zookeeper-lib #（生成zookeeper lib）
+# -bash: ./configure: No such file or directory
+# centos yum -y install gcc automake autoconf libtool make
 ```
 3. 生成配置文件
 ```
-cd zookeeper/
+cd /usr/local/zookeeper-lib/
 $ cp conf/zoo_sample.cfg conf/zoo.cfg
 ```
 4. 启动
@@ -48,9 +50,14 @@ wget https://pecl.php.net/get/zookeeper-0.6.4.tgz
 tar -zxvf zookeeper-0.6.4.tgz
 cd zookeeper-0.6.4
 phpize
-./configure --with-php-config=/usr/bin/php-config --with-libzookeeper-dir=/usr/local/zookeeper-lib/
+./configure --with-php-config=/usr/local/php/bin/php-config --with-libzookeeper-dir=/usr/local/zookeeper-lib/
 make && make install
 sudo vim /etc/php.ini 添加：extension=zookeeper.so
+
+#mac
+./configure --with-php-config=/Applications/MAMP/bin/php/php7.3.9/bin/php-config
+./configure --with-php-config=/Applications/MAMP/bin/php/php7.3.9/bin/php-config --with-libzookeeper-dir=/usr/local/Cellar/zookeeper/3.4.14
+make && make install
 ```
 
 ## php例子
@@ -97,3 +104,22 @@ if ($zookeeper->exists($path)) {
     )));
 }
 ```
+
+https://archive.apache.org/dist/zookeeper/zookeeper-3.4.5/zookeeper-3.4.5.tar.gz
+
+
+
+```
+sudo ./configure -with-php-config=/usr/local/php/bin/php-config -with-libzookeeper-dir=/data/apps/apache-zookeeper-3.6.3/zookeeper-client/zookeeper-client-c
+```
+
+
+
+```
+wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
+```
+
+/usr/local/php/lib/php/extensions/no-debug-non-zts-20180731/libzookeeper.so
+
+/usr/local/php/lib/php/extensions/no-debug-non-zts-20180731/
+

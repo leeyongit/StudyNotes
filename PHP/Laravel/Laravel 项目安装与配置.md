@@ -41,6 +41,11 @@ location / {
 ```
 
 ### 启动调度器
+
+```
+id,name,longitude,latitude,ROUND(ST_DISTANCE(point(longitude,latitude),point({$lon},{$lat})) /0.0111,2) distance
+```
+
 ```sh
 * * * * * php /home/wwwroot/web/artisan schedule:run >> /dev/null 2>&1
 ```
@@ -48,6 +53,7 @@ location / {
 ### 技巧
 
 **DB:select toArray() 对象转数组的方法**
+
 ```php
 $resultArray = json_decode(json_encode($result), true);
 ```

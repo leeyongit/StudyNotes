@@ -12,8 +12,19 @@ npm --registry https://registry.npm.taobao.org install express
 * 持久使用
 ```sh
 npm config set registry https://registry.npm.taobao.org
+
 ```
+使用腾讯云镜像源加速npm
+
+```
+npm config set registry http://mirrors.cloud.tencent.com/npm/
+yarn config set registry http://mirrors.cloud.tencent.com/npm/
+```
+
+
+
 配置后可通过下面方式来验证是否成功
+
 ```sh
 npm config get registry
 # 或

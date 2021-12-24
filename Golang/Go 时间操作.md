@@ -86,3 +86,4 @@ func main() {
 }
 ```
 
+GET_MACHINE_VARIABLES

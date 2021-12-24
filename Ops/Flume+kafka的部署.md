@@ -12,16 +12,14 @@ yum search java|grep jdk
 yum install java-1.8.0-openjdk
 ```
 安装完之后，默认的安装目录是在:
-> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
->
-> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.282.b08-1.el7_9.x86_64/jre
+> /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre
 ### 设置java的环境变量
 
 ```sh
 vi /etc/profile
 ```
     #set java environment
-    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.212.b04-0.el7_6.x86_64/jre
+    JAVA_HOME=/usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre
     JRE_HOME=$JAVA_HOME
     CLASS_PATH=.:$JAVA_HOME/lib/dt.jar:$JAVA_HOME/lib/tools.jar:$JRE_HOME/lib
     PATH=$PATH:$JAVA_HOME/bin:$JRE_HOME/bin

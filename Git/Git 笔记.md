@@ -126,6 +126,7 @@ git checkout <name> # 切换分支
 git checkout -b <name> # 创建+切换分支
 git checkout --track origin/dev # 远程建立了dev分支本地获取对应分支
 git merge <name> # 合并某分支到当前分支
+git pull origin dev # 拉取远程分支代码
 ```
 
 ### Git 从master拉取代码创建新分支
@@ -207,5 +208,4 @@ git 解决每次更新代码都要输入用户名密码的解决方案
 git config --global credential.helper store
 git pull /git push # (第一次输入，后续就不用再次数据)
 ```
-
 
