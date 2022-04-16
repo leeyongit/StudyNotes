@@ -66,23 +66,23 @@ chown -R www:www /home/wwwroot
 ## 安装 PHP v7.2
 https://mirrors.tuna.tsinghua.edu.cn/remi/enterprise/7/php72/x86_64/repoview/
 首先，安装额外包括 PHP v7.2 的 CentOS repo :
+
 ```sh
-//wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
-wget http://rpms.remirepo.net/enterprise/7/remi/x86_64/remi-release-7.6-2.el7.remi.noarch.rpm
+wget http://rpms.remirepo.net/enterprise/remi-release-7.rpm
 rpm -Uvh remi-release-7.rpm [--force --nodeps]
 ```
 使 php72 repository 生效（默认不生效）:
 ```sh
 yum install yum-utils -y
-yum-config-manager --enable remi-php72
+yum-config-manager --enable remi-php73
 ```
 然后安装 PHP package:
 ```sh
-yum --enablerepo=remi,remi-php72 install php-fpm php-common
+yum --enablerepo=remi,remi-php73 install php-fpm php-common
 ```
 安装通用模块:
 ```sh
-yum --enablerepo=remi,remi-php72 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml php-pecl-zip
+yum --enablerepo=remi,remi-php73 install php-opcache php-pecl-apcu php-cli php-pear php-pdo php-mysqlnd php-pgsql php-pecl-mongodb php-pecl-redis php-pecl-memcache php-pecl-memcached php-gd php-mbstring php-mcrypt php-xml php-pecl-zip
 ```
 ### 安装swoole
 ```sh
@@ -94,7 +94,12 @@ yum install php-pecl-swoole4 php-pecl-swoole4-devel
 yum install php-pecl-rdkafka
 ```
 
+dnf --enablerepo=remi install php73-php-pecl-mongodb
+
+
+
 ### Php-fpm 开启服务、重启服务、开机启动
+
 ```sh
 systemctl start php-fpm.service
 systemctl restart php-fpm.service

@@ -13,6 +13,7 @@ scrapy startproject mySpider
 ```
 制作爬虫
 spider目录下创建一个名为itcast的爬虫，并指定爬取域的范围
+
 ```sh
 scrapy genspider itcast "itcast.cn" # 将在mySpider/
 ```
