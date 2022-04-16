@@ -61,11 +61,6 @@
   - [徒手教你使用zookeeper编写服务发现](https://zhuanlan.zhihu.com/p/34156758)
   - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
 
-### Elasticsearch
-- [Elasticsearch，为了搜索](https://segmentfault.com/a/1190000006431332)
-- [系统学ElasticSearch](http://mp.weixin.qq.com/mp/homepage?__biz=MzIxMjE3NjYwOQ==&hid=5&sn=b9c85139ca524fc7823379f4a2da99ba&scene=18#wechat_redirect)
-- [Elasticsearch 学习笔记](https://www.letianbiji.com/elasticsearch/)
-
 ### 微服务
 - [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
 - [有效的微服务：10 个最佳实践](https://mp.weixin.qq.com/s/jO3-fJGh8WqtSz4tdcZj5Q)
