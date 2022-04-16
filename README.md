@@ -83,14 +83,6 @@
 - [Redis及缓存雪崩、缓存穿透](https://zhuanlan.zhihu.com/p/58265935)
 - [Redis 21问](https://www.toutiao.com/i6740616409446875659/)
 
-## K8S
-- [基于阿里云镜像站安装kubernetes](http://ljchen.net/2018/10/23/%E5%9F%BA%E4%BA%8E%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%AB%99%E5%AE%89%E8%A3%85kubernetes/)
-- [30分钟带你搭建一套Dashboard的kubernetes（K8S）集群](https://zhuanlan.zhihu.com/p/92923128)
-- [k8s实践(一)：Centos7.6部署k8s(v1.14.2)集群](https://blog.51cto.com/3241766/2405624)
-- [K8S 部署 ingress-nginx (一) 原理及搭建](https://www.cnblogs.com/klvchen/p/9903480.html)
-- [使用 k8s 部署你的第一个应用: Pod，Deployment 与 Service](https://juejin.im/post/5db8c2b46fb9a020256692dc)
-- [Harbor仓库搭建及简单使用](https://blog.csdn.net/qq_40378034/article/details/90752212)
-
 ## Git
 - [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
 - [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
