@@ -11,7 +11,7 @@ rm -rf /Users/liyong/development/flutter/bin/cache/lockfile
 打开Flutter SDK：/Users/liyong/development/flutter/packages/flutter_tools/gradle/flutter.gradle
 改为以下即可解决！
 
-```ini
+```groovy
 // Generated file. Do not edit.
 
 buildscript {
@@ -21,7 +21,6 @@ buildscript {
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/jcenter' }
         maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
-
     }
 
     dependencies {

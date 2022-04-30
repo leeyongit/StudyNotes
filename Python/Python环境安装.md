@@ -24,7 +24,8 @@ python get-pip.py
 ```
 
 ## 安装模块
-python3 -m pip install xxx 或 pip3 install xxx
+> python3 -m pip install xxx 或 pip3 install xxx
+
 PyMySQL
 
 ```
@@ -62,7 +63,7 @@ pip3 list
 pydoc modules
 ```
 
-## 使用镜像
+### 使用镜像
 - `http://pypi.douban.com/` 豆瓣
 - `http://pypi.hustunique.com/` 华中理工大学
 - `http://pypi.tuna.tsinghua.edu.cn/simple/` 清华大学
@@ -78,9 +79,20 @@ pip3 --default-timeout=500 install -U pillow
 ```
 超时时间默认为100，改大点就好（这里我改成了500）
 
+### 使用pipreqs一键安装Python项目所有依赖包
+
+```python
+# 安装pipreqs工具
+pip install pipreqs 
+# 在项目根目录下执行  生成所需依赖包名、版本
+pipreqs ./
+# 安装所需依赖
+pip install -r requirements.txt
+```
 
 
-## MAC安装chromedriver
+
+### MAC安装chromedriver
 
 选择与浏览器版本一致的版本下载
 
@@ -116,3 +128,4 @@ index-url = http://mirrors.aliyun.com/pypi/simple/
 [install]
 trusted-host=mirrors.aliyun.com
 ```
+

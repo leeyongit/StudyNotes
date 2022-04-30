@@ -13,9 +13,10 @@ source ~/.bash_profile
 
 ```sh
 # 【flutter环境信息】
+flutter --version # 查看版本信息
 flutter doctor 		# 检查flutter环境是否配置好
 flutter doctor -v # 查看系统中flutter相关环境的配置
-flutter --version # 查看版本信息
+
 flutter emulators # 模拟器列表
 flutter emulators --launch Pixel_2_XL_API_30 # 启动安卓模拟器
 

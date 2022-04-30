@@ -6,9 +6,7 @@ Flutter 中一切皆 Widget 呈现，通过 build 方法返回 Widget。
 
 * 在 Flutter 中一切的显示都是 Widget ，Widget 是一切的基础，利用响应式模式进行渲染。通过 build 方法返回 Widget。
 
-* 我们可以通过修改数据，再用 setState 设置数据，Flutter 会自动通过绑定的数据更新 Widget ， 所
-
-  以你需要做的就是实现 **Widget** 界面，并且和数据绑定起来。
+* 我们可以通过修改数据，再用 setState 设置数据，Flutter 会自动通过绑定的数据更新 Widget ， 所以你需要做的就是实现 **Widget** 界面，并且和数据绑定起来。
 
 * Widget 分为 有状态 和 无状态 两种，在 Flutter 中每个⻚面都是一帧，无状态就是保持在那一帧，而 有状态的 Widget 当数据更新时，其实是创建了新的 Widget，只是 State 实现了跨帧的数据同步保存。
 
