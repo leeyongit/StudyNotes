@@ -46,7 +46,6 @@
 
 - [gRPC的那些事 - streaming](https://colobu.com/2017/04/06/dive-into-gRPC-streaming/)
 - [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
-
 - [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
 - [GRPC的metadata使用](https://blog.csdn.net/hjxzb/article/details/88980186)
 - [gRPC双向数据流的交互控制](https://www.jianshu.com/p/5158d6686769)
@@ -61,28 +60,4 @@
   - [徒手教你使用zookeeper编写服务发现](https://zhuanlan.zhihu.com/p/34156758)
   - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
 
-### 微服务
-- [“微服务”博客中译完整版](https://mp.weixin.qq.com/s?__biz=MjM5MjEwNTEzOQ==&mid=401500724&idx=1&sn=4e42fa2ffcd5732ae044fe6a387a1cc3#rd)
-- [有效的微服务：10 个最佳实践](https://mp.weixin.qq.com/s/jO3-fJGh8WqtSz4tdcZj5Q)
 
-## Golang
-- [GO知识图谱](https://www.processon.com/view/link/5a9ba4c8e4b0a9d22eb3bdf0#map)
-- [如何写 go 代码](https://studygolang.com/articles/2561)
-- [如何写出优雅的 Golang 代码](https://www.jianshu.com/p/596eaebd6e54)
-- [Mac OS下Windows和Linux交叉编译器](https://blog.filippo.io/easy-windows-and-linux-cross-compilers-for-macos/)
-- [golang database/sql 包的使用](https://blog.csdn.net/embinux/article/details/84031620)
-- [go语言基于etcd的服务注册与发现](https://www.jianshu.com/p/7c0d23c818a5)
-- [Go net/http包](https://studygolang.com/articles/9467)
-- [Go文件操作大全](https://colobu.com/2016/10/12/go-file-operations/)
-- [Golang系列（五）之Golang指针](https://blog.csdn.net/huwh_/article/details/77879970)
-
-## Redis
-- [phpredis中文手册——《redis中文手册》](https://www.cnblogs.com/ikodota/archive/2012/03/05/php_redis_cn.html#set)
-- [为什么一定要有redis？](https://zhuanlan.zhihu.com/p/59168140)
-- [面试官:你的Redis怎么持久化的?](https://zhuanlan.zhihu.com/p/68402040)
-- [Redis及缓存雪崩、缓存穿透](https://zhuanlan.zhihu.com/p/58265935)
-- [Redis 21问](https://www.toutiao.com/i6740616409446875659/)
-
-## Git
-- [常用 Git 命令清单](http://www.ruanyifeng.com/blog/2015/12/git-cheat-sheet.html)
-- [Git分支管理策略](http://www.ruanyifeng.com/blog/2012/07/git.html)
