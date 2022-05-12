@@ -43,7 +43,6 @@
 - [Thrift多种语言Rpc调用实战](https://www.jianshu.com/p/62948d6e5db9)
 
 ### gRPC
-
 - [gRPC的那些事 - streaming](https://colobu.com/2017/04/06/dive-into-gRPC-streaming/)
 - [[转]Protobuf3 语法指南](https://colobu.com/2017/03/16/Protobuf3-language-guide/)
 - [go的grpc实现](https://blog.csdn.net/ys5773477/article/details/77834697)
@@ -51,13 +50,5 @@
 - [gRPC双向数据流的交互控制](https://www.jianshu.com/p/5158d6686769)
 - [python 实战 grpc](https://www.jianshu.com/p/43fdfeb105ff)
 
-### Zookeeper
-  - [Zookeeper教程](https://www.w3cschool.cn/zookeeper/?)
-  - [ZooKeeper 初探：安装、使用](http://ningg.top/zookeeper-getting-started/)
-  - [php zookeeper你需要知道的细节](https://www.onmpw.com/tm/xwzj/prolan_227.html)
-  - [简单理解Zookeeper的Leader选举](https://blog.csdn.net/chengyuqiang/article/details/79190061)
-  - [可能是全网把 ZooKeeper 概念讲的最清楚的一篇文章](https://zhuanlan.zhihu.com/p/44348274)
-  - [徒手教你使用zookeeper编写服务发现](https://zhuanlan.zhihu.com/p/34156758)
-  - [Zookeeper：分布式系统入门到实战-youtube](https://www.youtube.com/watch?v=BhosKsE8up8)
 
 
