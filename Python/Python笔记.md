@@ -1,4 +1,25 @@
 # Python 笔记
+
+Python 编程语言中有四种集合数据类型：
+
+- *列表（List）*是一种有序和可更改的集合。允许重复的成员。
+- *元组（Tuple）*是一种有序且不可更改的集合。允许重复的成员。
+- *集合（Set）*是一个无序和无索引的集合。没有重复的成员。
+- *词典（Dictionary）*是一个无序，可变和有索引的集合。没有重复的成员。
+
+## 列表
+
+列表是一个有序且可更改的集合。在 Python 中，列表用方括号编写。
+
+创建列表：
+
+```python
+thislist = ["apple", "banana", "cherry"]
+print(thislist)
+```
+
+
+
 ## 变量相关
 ```sh
 type(variable).__name__   #  获取变量类型(字符串表示)
@@ -40,5 +61,4 @@ for root, dirs, files in os.walk(os.path.abspath(os.getcwd() + '/..')):
         dirs.remove('.idea')
     pass
 ```
-
 

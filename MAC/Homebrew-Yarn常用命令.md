@@ -1,6 +1,6 @@
 # Homebrew/Yarn常用命令
 
-## Homebrew常用命令
+### Homebrew常用命令
 
 ```bash
 brew search git        // 搜索软件包
@@ -16,7 +16,7 @@ brew cleanup        // 清理所有包的旧版本的缓存
 brew cleanup git        // 清理指定包的旧版本
 ```
 
-## Yarn常用命令
+### Yarn常用命令
 
 ```sh
 yarn init        // 项目初始化,等同于npm的npm init
@@ -31,7 +31,7 @@ yarn run        // 列出包里所有可运行的脚本
 yarn run dev        // 运行package.json中scripts定义的脚本命令,等同于npm run
 ```
 
-## 把Yarn的下载源设置为淘宝镜像
+### 把Yarn的下载源设置为淘宝镜像
 
 ```sh
 yarn config get registry    //查看当前下载源,初始为https://registry.yarnpkg.com

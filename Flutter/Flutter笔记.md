@@ -1,6 +1,5 @@
 # Flutter 笔记
 
-
 ## flutter配置国内镜像
 
 ```sh
@@ -14,10 +13,12 @@ source ~/.bash_profile
 
 ```sh
 # 【flutter环境信息】
-# 检查flutter环境是否配置好
-flutter doctor
-# 查看系统中flutter相关环境的配置
-flutter doctor -v
+flutter --version # 查看版本信息
+flutter doctor 		# 检查flutter环境是否配置好
+flutter doctor -v # 查看系统中flutter相关环境的配置
+
+flutter emulators # 模拟器列表
+flutter emulators --launch Pixel_2_XL_API_30 # 启动安卓模拟器
 
 # 【分支】
 # 查看当前使用的分支：
@@ -38,45 +39,21 @@ flutter packages get
 flutter packages upgrade
 ```
 
-## Flutter填坑
+**Mac电脑用命令行工具创建Flutter项目**
 
-**Waiting for another flutter command to release the startup lock**
 ```sh
-rm -rf /Users/liyong/development/flutter/bin/cache/lockfile
-```
-**This is taking an unexpectedly long time.**
-
-打开Flutter SDK：/Users/liyong/development/flutter/packages/flutter_tools/gradle/flutter.gradle
-改为以下即可解决！
-
-```ini
-// Generated file. Do not edit.
-
-buildscript {
-    repositories {
-        //google()
-        //jcenter()
-        maven { url 'https://maven.aliyun.com/repository/google' }
-        maven { url 'https://maven.aliyun.com/repository/jcenter' }
-        maven { url 'http://maven.aliyun.com/nexus/content/groups/public' }
-
-    }
-
-    dependencies {
-        classpath 'com.android.tools.build:gradle:3.1.2'
-    }
-}
-
+sudo flutter create flutterdemo
 ```
 
-**[!] Your app isn't using AndroidX.**
+通过--org指定你的包名，你指定的org将取代com.example。
 
-打开android/gradle.properties
-
-```ini
-android.enableJetifier=true
-android.useAndroidX=true
+```sh
+sudo flutter create --org com.leeyongit flutterdemo
 ```
 
+**查看本地grade版本**
 
+```sh
+gradle -v
+```
 

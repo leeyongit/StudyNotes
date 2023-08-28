@@ -11,6 +11,12 @@ export GOPROXY=https://goproxy.io
 source ~/.bash_profile
 ```
 
+**关闭go mod**
+
+```sh
+export GO111MODULE=off
+```
+
 **安装交叉编译工具链编译windows和linux下的C/C++**
 
 ```sh
@@ -19,6 +25,7 @@ brew install mingw-w64
 ```
 
 **Mac 下编译windows下应用**
+
 ```sh
 env GOOS="windows" GOARCH="386" CGO_ENABLED="1" CC="i686-w64-mingw32-gcc"   go build main.go
 # or to target win 64
@@ -30,19 +37,43 @@ env GOOS="windows" GOARCH="amd64" CGO_ENABLED="1" CC="x86_64-w64-mingw32-gcc" go
 go build -ldflags "-H windowsgui"
 ```
 
-**Mac 上交叉编译Golang项目到Linux**
+**Mac 下编译 Linux 可执行程序**
+
+```sh
+CGO_ENABLED=0 GOOS=linux GOARCH=amd64 go build main.go
+```
+
+**Mac 上使用Docker交叉编译Golang项目到Linux**
+
 ```sh
 docker run --rm -it --network=none -v $GOPATH:/go golang:1.13 bash -c 'cd $GOPATH/src/go-nas && go build'
 ```
 
-**VS Code 调试错误**
-could not launch process: executables built by Go 1.11 or later need Delve built by Go 1.11 or later
+
+
+### sprintf、fprintf和printf函数的区别:
+
+> 都是把格式好的字符串输出，只是输出的目标不一样：
+>
+> 1. Printf，是把格式字符串输出到标准输出（一般是屏幕，可以重定向）。
+>
+> 2. Sprintf，是把格式字符串输出到指定字符串中，所以参数比printf多一个char*。那就是目标字符串地址。（字符串格式化，并把格式化后的字符串返回，所以可以用于赋值操作）
+>
+> 3. Fprintf， 是把格式字符串输出到指定文件设备中，所以参数笔printf多一个文件指针FILE*。
+
+
+
+### golang 打印变量类型
+
+直接使用reflect的TypeOf方法就可以了
+
+模块是：  "reflect"
 
 ```go
-go get -u github.com/go-delve/delve/cmd/dlv
+fmt.Println(reflect.TypeOf(var)) 
 ```
 
-## Go语言fmt.Sprintf（格式化输出）
+### Go语言fmt.Sprintf（格式化输出）
 
 ```go
 fmt.Sprintf(格式化样式, 参数列表…)
@@ -64,3 +95,13 @@ fmt.Sprintf(格式化样式, 参数列表…)
 | %f     | 浮点数                                   |
 | %p     |                                          |
 
+```js
+uint8  : 0 to 255 
+uint16 : 0 to 65535 
+uint32 : 0 to 4294967295 
+uint64 : 0 to 18446744073709551615 
+int8   : -128 to 127 
+int16  : -32768 to 32767 
+int32  : -2147483648 to 2147483647 
+int64  : -9223372036854775808 to 9223372036854775807
+```

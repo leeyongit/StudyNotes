@@ -181,7 +181,7 @@ so, what is the difference  between connection and request? 
 
 **3. 那么在Nginx中，对于连接限制模块：limit_conn_module来看：**
 
-```
+```nginx
 limit_conn_zone $binanry_remote_addr zone=conn_zone:1m;
 locoation /limit.html {
     limit_conn conn_zone 1;
@@ -205,7 +205,7 @@ locoation /limit.html {
 
 **4. limit_req_module**
 
-```sh
+```nginx
 limit_req_zone $binary_remtoe_addr zone=req_zone:1m rate=1r/s;
 location /limit.html{
     limit_conn zone=req_zone;

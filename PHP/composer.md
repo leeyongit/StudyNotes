@@ -31,6 +31,8 @@ composer require elasticsearch/elasticsearch
 ```sh
 composer dump-autoload // 自动加载功能
 composer show // 罗列所有扩展包括版本信息
+composer update --prefer-source # Install of kylekatarnls/update-helper failed
+env COMPOSER_MEMORY_LIMIT=-1 
 ```
 
 ## 创建一个自己的 Composer 库

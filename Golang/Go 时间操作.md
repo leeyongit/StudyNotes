@@ -63,3 +63,27 @@ day := time.Now().Day()
 
 方式三：将日期转换成字符串，然后截取字符串，删除字符串的最后两位字符加上"01"，或者是直接替换最后两位字符
 缺点：在Go官方strings包中并没有找到合适的截取或者替换方法
+
+### 通过系统time来获取上月的开始和结束日期
+
+```go
+package main
+
+import (
+    "fmt"
+    "time"
+)
+
+const DATE_FORMAT = "2006-01-02"
+
+func main() {
+    year, month, _ := time.Now().Date()
+    thisMonth := time.Date(year, month, 1, 0, 0, 0, 0, time.Local)
+    start := thisMonth.AddDate(0, -1, 0).Format(DATE_FORMAT)
+    end := thisMonth.AddDate(0, 0, -1).Format(DATE_FORMAT)
+    timeRange := fmt.Sprintf("%s~%s", start, end)
+    fmt.Println(timeRange)
+}
+```
+
+GET_MACHINE_VARIABLES

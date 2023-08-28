@@ -1,11 +1,11 @@
 # 现代化PHP
-命名空间
-PSR规范
-Composer包管理器
-匿名和闭包函数
-Traits
-新的语法
-PHP 7 性能
+* 命名空间
+* PSR规范
+* Composer包管理器
+* 匿名和闭包函数
+* Traits
+* 新的语法
+* PHP 7 性能
 
 ## PSR
 PSR 是 PHP Standard Recommendations （PHP 推荐标准）的简写，由 PHP FIG 组织制定的 PHP 规范，是 PHP 开发的实践标准。
