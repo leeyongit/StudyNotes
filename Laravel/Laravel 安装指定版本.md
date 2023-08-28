@@ -30,7 +30,7 @@ php artisan --version
 
 ## 问题解决
 
-* 解决composer install遇到：Your requirements could not be resolved to an installable set of packages
+> 解决composer install遇到：Your requirements could not be resolved to an installable set of packages
 
 解决办法：直接忽略版本就是了
 
