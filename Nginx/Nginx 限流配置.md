@@ -4,7 +4,7 @@
 
 ### 令牌桶算法
 
-![](Nginx 限流配置.assets/IMG22.jpg)
+![](assets/IMG22.jpg)
 
 算法思想是：
 
@@ -17,7 +17,7 @@
 
 
 
-![img](./Nginx 限流配置.assets/v2-ec875d0a1896c93bb6a66261d0b0299c_720w.webp)
+![img](./assets/v2-ec875d0a1896c93bb6a66261d0b0299c_720w.webp)
 
 算法思想是：
 
