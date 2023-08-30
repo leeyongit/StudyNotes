@@ -57,6 +57,7 @@ http {
          include /etc/nginx/default.d/*.conf;
 
          location / {
+         # ...
          }
 
          error_page 404 /404.html;

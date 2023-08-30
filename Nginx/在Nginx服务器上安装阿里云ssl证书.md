@@ -13,12 +13,15 @@ server {
     ssl on;
     root /var/www/html; 													// 前台文件存放文件夹，可改成别的
     index index.html index.htm;										// 上面配置的文件夹里面的index.html
+    
     ssl_certificate  cert/214292799730473.pem;		// 改成你的证书的名字
     ssl_certificate_key cert/214292799730473.key;	// 你的证书的名字
+    
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
     ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
     ssl_prefer_server_ciphers on;
+  
     location / {
         index index.html index.htm;
     }
