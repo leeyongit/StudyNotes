@@ -12,7 +12,7 @@
 
  作为Java语言的SDK，普通用户并不需要安装JDK来运行Java程序，而只需要安装JRE（Java Runtime Environment）。而程序开发者必须安装JDK来编译、调试程序。
 
-![在这里插入图片描述](assets/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzQ0ODk1Njgx,size_16,color_FFFFFF,t_70.png)
+![在这里插入图片描述](https://raw.githubusercontent.com/leeyongit/picGo/master/images/java_jdk.png)
 
 
  从上方的JDK各个版本发布时间和版本名称表也可以看到，Java大体有3大类命名方式：JDK、J2SE、JAVA SE。

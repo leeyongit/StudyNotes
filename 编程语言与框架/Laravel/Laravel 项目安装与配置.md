@@ -21,6 +21,7 @@ php artisan serve
 ```
 
 **设置Laravel Composer Bin目录路径**
+
 ```sh
 vi ~/.bash_profile
 export PATH=~/.composer/vendor/bin:$PATH
@@ -28,29 +29,25 @@ source ~/.bash_profile
 ```
 当你全局安装laravel安装程序时，它会被添加到服务端上的某个位置，因此当你设置路径时，实际上是让你的服务器知道这个目录，因此当你运行命令:`laravel new project`时，它会从composer/bin/目录中找到laravel可执行文件。
 
-### Laravel 的远程服务器任务处理器 Envoy
+##### Laravel 的远程服务器任务处理器 Envoy
 ```sh
 envoy run deploy
 ```
 
-### nginx laravel 配置
+##### nginx laravel 配置
 ```sh
 location / {
     try_files $uri $uri/ /index.php?$query_string;
 }
 ```
 
-### 启动调度器
-
-```
-id,name,longitude,latitude,ROUND(ST_DISTANCE(point(longitude,latitude),point({$lon},{$lat})) /0.0111,2) distance
-```
+##### 启动调度器
 
 ```sh
 * * * * * php /home/wwwroot/web/artisan schedule:run >> /dev/null 2>&1
 ```
 
-### 技巧
+#### 技巧
 
 **DB:select toArray() 对象转数组的方法**
 

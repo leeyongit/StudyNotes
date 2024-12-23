@@ -1,5 +1,5 @@
 # Rabbitmq 扩展模块amqp安装
-## 1. 安装rabbitmq-c-0.7.1
+### 1. 安装rabbitmq-c-0.7.1
 ```bash
 cd /usr/local
 wget https://github.com/alanxz/rabbitmq-c/releases/download/v0.7.1/rabbitmq-c-0.7.1.tar.gz
@@ -13,7 +13,7 @@ make && make install
 /usr/local/rabbitmq-c-0.7.1/lib/librabbitmq.so
 ```
 
-## 2. 第二步安装amqp
+### 2. 第二步安装amqp
 
 运行命令：pecl install amqp 运行该命令会出现如下提示，
 
@@ -26,7 +26,7 @@ make && make install
 pecl config-set "/Applications/MAMP/bin/php/php7.3.9/conf/php.ini"
 ```
 
-## 安装php rabbit 扩展包
+### 安装php rabbit 扩展包
 ```php
 composer require bschmitt/laravel-amqp
 ```

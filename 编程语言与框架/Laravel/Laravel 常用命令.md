@@ -4,22 +4,24 @@ Laravel 常用命令
 php artisan key:generate
 ```
 
-## 常用命令
+### 常用命令
 
-### 数据迁移 & 数据填充
+数据迁移 & 数据填充
+
 ```sh
 php artisan migrate
 php artisan migrate --seed
 ```
 
-### 清缓存
+清缓存
+
 ```sh
 php artisan cache:clear
 php artisan config:clear
 php artisan route:clear # 路由清理缓存
 ```
 
-## 创建命令
+### 创建命令
 创建模型
 ```php
 php artisan make:model Test (模型文件名)
@@ -59,7 +61,7 @@ php artisan make:job TestJob
 php artisan make:command TestCommand
 ```
 
-## 队列相关
+### 队列相关
 ```php
 php artisan queue:restart # 重启队列
 php artisan queue:failed-table # 处理失败的任务

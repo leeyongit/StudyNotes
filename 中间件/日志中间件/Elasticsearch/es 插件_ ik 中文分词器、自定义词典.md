@@ -4,12 +4,12 @@ es插件包含JAR文件，也可能包含脚本和配置文件，并且必须在
 https://github.com/medcl/elasticsearch-analysis-ik
 ### 安装
 #### 方法1：es 节点网络下载
-```
+```bash
 # es 服务器需能够连接外网
 ./bin/elasticsearch-plugin install https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip
 ```
 #### 方法2： 使用源码包
-```
+```bash
 # 下载 ik 二进制包
 https://github.com/medcl/elasticsearch-analysis-ik/releases/download/v7.1.1/elasticsearch-analysis-ik-7.1.1.zip
 
@@ -33,7 +33,7 @@ $ sh /sdata/usr/local/elasticsearch/start_elasticsearsh.sh
 
 ## 测试
 dev tool 执行
-```
+```yaml
 GET _analyze?pretty
 {
   "analyzer": "ik_smart",
@@ -41,7 +41,7 @@ GET _analyze?pretty
 }
 ```
 返回值
-```
+```yaml
 {
   "tokens" : [
     {
@@ -70,7 +70,7 @@ GET _analyze?pretty
 }
 ```
 返回值
-```
+```yaml
 {
   "tokens" : [
     {
@@ -159,7 +159,7 @@ https://www.cnblogs.com/leixingzhi7/p/6903938.html</br>
 </properties>
 ```
 自定义词典测试
-```
+```yaml
 GET _analyze?pretty
 {
   "analyzer": "ik_smart",
@@ -223,7 +223,7 @@ GET _analyze?pretty
 ```
 ## ansible playbook 部署
 由于需要操作多个节点，建议使用 ansible playbook 部署
-```
+```yaml
 ---
 
 

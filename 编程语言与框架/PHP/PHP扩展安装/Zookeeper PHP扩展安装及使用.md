@@ -121,7 +121,5 @@ sudo ./configure -with-php-config=/usr/local/php/bin/php-config -with-libzookeep
 wget https://archive.apache.org/dist/zookeeper/zookeeper-3.4.11/zookeeper-3.4.11.tar.gz
 ```
 
-/usr/local/php/lib/php/extensions/no-debug-non-zts-20180731/libzookeeper.so
 
-/usr/local/php/lib/php/extensions/no-debug-non-zts-20180731/
 

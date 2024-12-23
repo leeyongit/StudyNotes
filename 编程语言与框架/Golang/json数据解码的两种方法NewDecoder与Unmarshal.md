@@ -37,13 +37,13 @@ func HandleUse(w http.ResponseWriter, r *http.Request) {
 }
 ```
 
-### 区别
+#### 区别
 
 1. json.NewDecoder是从一个流里面直接进行解码，代码精干
 2. json.Unmarshal是从已存在与内存中的json进行解码
 3. 相对于解码，json.NewEncoder进行大JSON的编码比json.marshal性能高，因为内部使用pool
 
-### 场景应用
+#### 场景应用
 
 1. json.NewDecoder用于http连接与socket连接的读取与写入，或者文件读取
 2. json.Unmarshal用于直接是byte的输入

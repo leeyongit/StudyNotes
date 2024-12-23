@@ -96,7 +96,7 @@ consumer获取了当前 `ready` 的job后，该job就会迁移到 `reserved` 状
 
 
 
-![image-20210123010145235](../assets/image-20210123010145235.png)
+![image-20210123010145235](https://raw.githubusercontent.com/leeyongit/picGo/master/images/image-20210123010145235.png)
 
 # 五：例子
 

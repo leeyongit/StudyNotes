@@ -38,9 +38,9 @@ NSQ 的主要特点如下:
 
 从 NSQ 的[设计文档](http://nsq.io/overview/design.html)中得知，单个nsqd 被设计为一次能够处理多个流数据，NSQ 中的数据流模型是由stream 和consumer 组成。Topic 是一种独特的stream，Channel 是一个订阅了给定Topic 的consumer 逻辑分组。NSQ 的数据流模型结构如下图所示：
 
-![image-20210323104436024](../assets/image-20210323104436024.png)
+![image-20210323104436024](https://raw.githubusercontent.com/leeyongit/picGo/master/images/image-20210323104436024.png)
 
-![image-20210323104539391](../assets/image-20210323104539391.png)
+![image-20210323104539391](https://raw.githubusercontent.com/leeyongit/picGo/master/images/image-20210323104539391.png)
 
 从上图可以看出，单个 nsqd 可以有多个 Topic，每个 Topic 又可以有多个 Channel。Channel 能够接收 Topic 所有消息的副本，从而实现了消息多播分发；而 Channel 上的每个消息被分发给它的订阅者，从而实现负载均衡，所有这些就组成了一个可以表示各种简单和复杂拓扑结构的强大框架。
 

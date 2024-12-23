@@ -9,13 +9,13 @@
 ```nginx
 server {
     listen 443;
-    server_name your-domain.com; 									// 你的域名
+    server_name your-domain.com; 									# 你的域名
     ssl on;
-    root /var/www/html; 													// 前台文件存放文件夹，可改成别的
-    index index.html index.htm;										// 上面配置的文件夹里面的index.html
+    root /var/www/html; 													# 前台文件存放文件夹，可改成别的
+    index index.html index.htm;										# 上面配置的文件夹里面的index.html
     
-    ssl_certificate  cert/214292799730473.pem;		// 改成你的证书的名字
-    ssl_certificate_key cert/214292799730473.key;	// 你的证书的名字
+    ssl_certificate  cert/214292799730473.pem;		# 改成你的证书的名字
+    ssl_certificate_key cert/214292799730473.key;	# 你的证书的名字
     
     ssl_session_timeout 5m;
     ssl_ciphers ECDHE-RSA-AES128-GCM-SHA256:ECDHE:ECDH:AES:HIGH:!NULL:!aNULL:!MD5:!ADH:!RC4;
@@ -28,8 +28,8 @@ server {
 }
 server {
     listen 80;
-    server_name your-domain.com;// 你的域名
-    rewrite ^(.*)$ https://$host$1 permanent;			// 把http的域名请求转成https
+    server_name your-domain.com; # 你的域名
+    rewrite ^(.*)$ https://$host$1 permanent;			# 把http的域名请求转成https
 }
 ```
 

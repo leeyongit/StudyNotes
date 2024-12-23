@@ -4,7 +4,7 @@
 
 https://classic.yarnpkg.com/zh-Hans/docs/install
 
-### 查询与更换源
+##### 查询与更换源
 
 ```csharp
 yarn config get registry
@@ -12,7 +12,7 @@ yarn config get registry
 yarn config set registry https://registry.npm.taobao.org/
 ```
 
-### 使用方法：安装依赖
+##### 使用方法：安装依赖
 
 下载所有依赖：
 
@@ -36,7 +36,7 @@ npm config get registry
 npm config set registry https://registry.npm.taobao.org/
 ```
 
-### 恢复官方源
+##### 恢复官方源
 
 你可以这样设置官方源，从而恢复，不过，搜索依然无法使用：
 
@@ -52,12 +52,12 @@ yarn config delete registry
 npm config delete registry
 ```
 
-### finaly
+##### finaly
 
 yarn无法搜索，npm换源后无法搜索，所以最终采用的方法是：
 yarn更换源为国内镜像，npm保持搜索功能！
 
-### 附录
+##### 附录
 
 淘宝npm镜像
 
@@ -69,11 +69,9 @@ cnpmjs镜像
 * 搜索地址：[http://cnpmjs.org](http://cnpmjs.org/)
 * registry地址：[http://r.cnpmjs.org](http://r.cnpmjs.org/)
 
+### 问题记录
 
-
-## 问题记录
-
-### npm/yarn报错there appears to be trouble with your network connection. retrying
+###### npm/yarn报错there appears to be trouble with your network connection. retrying
 
 1. **添加超时时间**
 

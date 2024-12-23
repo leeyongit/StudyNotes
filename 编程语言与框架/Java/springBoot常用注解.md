@@ -2,13 +2,13 @@ springBoot
 ======
 
 
-## **一、什么是SpringBoot?**
+### **一、什么是SpringBoot?**
 
 SpringBoot 是一个快速开发框架，快速的将一些常用的第三方依赖整合（原理：通过 Maven 子父工程的方式），简化 XML 配置，全部采用注解形式，内置 Http 服务器（ Jetty 和 Tomcat ），最终以 java 应用程序进行执行。
 
 
 
-## **二、SpringBoot** **核心原理**
+### **二、SpringBoot** **核心原理**
 
 1. 基于 SpringMVC 无配置文件（纯 Java ）完全注解化 + 内置 tomcat-embed-core 实现 SpringBoot 框架， Main 函数启动。
 
@@ -16,7 +16,7 @@ SpringBoot 是一个快速开发框架，快速的将一些常用的第三方依
 
 
 
-## **三、SpringBoot** **重点**
+### **三、SpringBoot** **重点**
 
 3.1: 快速整合第三方依赖： maven 子父依赖关系。
 
@@ -45,9 +45,9 @@ springBoot 框架流程：先创建 Tomcat 容器，然后加载 class 文件，
 
 
 
-## **四、SpringBoot** **常用注解**
+### **四、SpringBoot** **常用注解**
 
-### 1 、 @RestController 和 @RequestMapping 注解
+##### 1 、 @RestController 和 @RequestMapping 注解
 
 @RestController 注解，它继承自 @Controller 注解。 4.0 之前的版本， Spring MVC 的组件都使用 @Controller 来标识当前类是一个控制器 servlet 。使用这个特性，我们可以开发 REST 服务的时候不需要使用 @Controller 而专门的 @RestController 。
 
@@ -67,7 +67,7 @@ public @interface RestController
 
 注： @RestController 和 @RequestMapping 注解是 Spring MVC 注解（它们不是 Spring Boot 的特定部分）
 
-###2 、 @EnableAutoConfiguration 注解
+##### 2 、 @EnableAutoConfiguration 注解
 
 第二个类级别的注解是 @EnableAutoConfiguration 。这个注解告诉 Spring Boot 根据添加的 jar 依赖猜测你想如何配置 Spring 。由于spring-boot-starter-web 添加了 Tomcat 和 Spring MVC ，所以 auto-configuration 将假定你正在开发一个 web 应用并相应地对 Spring 进行设置。Starter POMs 和 Auto-Configuration ：设计 auto-configuration 的目的是更好的使用 "Starter POMs" ，但这两个概念没有直接的联系。你可以自由地挑选 starter POMs 以外的 jar 依赖，并且 Spring Boot 将仍旧尽最大努力去自动配置你的应用。
 
@@ -93,7 +93,7 @@ public class MyConfiguration {
 
 
 
-###3 、 @Configuration
+##### 3 、 @Configuration
 
 Spring Boot 提倡基于 Java 的配置。尽管你可以使用一个 XML 源来调用 SpringApplication.run() ，我们通常建议你使用 @Configuration 类作为主要源。一般定义外汇返佣[http://www.fx61.com/](https://link.zhihu.com/?target=http%3A//www.fx61.com/) 方法的类也是主要 @Configuration 的一个很好候选。你不需要将所有的 @Configuration 放进一个单独的类。 @Import 注解可以用来导入其他配置类。另外，你也可以使用 @ComponentScan 注解自动收集所有的 Spring 组件，包括@Configuration 类。
 
@@ -105,7 +105,7 @@ Spring Boot 提倡基于 Java 的配置。尽管你可以使用一个 XML 源来
 
 
 
-###4 、 @SpringBootApplication
+##### 4 、 @SpringBootApplication
 
 很多Spring Boot 开发者总是使用 @Configuration ， @EnableAutoConfiguration 和 @ComponentScan 注解他们的 main 类。由于这些注解被如此频繁地一块使用（特别是你遵循以上最佳实践时）， Spring Boot 提供一个方便的 @SpringBootApplication 选择。
 
@@ -141,9 +141,7 @@ public class ConnectionSettings {
 }
 ```
 
-
-
-###5 、 @ResponseBody
+##### 5 、 @ResponseBody
 
 表示该方法的返回结果直接写入HTTP response body 中
 
@@ -153,11 +151,11 @@ public class ConnectionSettings {
 
 异步获取json 数据，加上 @responsebody 后，会直接返回 json 数据。
 
-###6 、 @Component
+##### 6 、 @Component
 
 泛指组件，当组件不好归类的时候，我们可以使用这个注解进行标注。一般公共的方法我会用上这个注解
 
-###7 、 @AutoWired
+##### 7 、 @AutoWired
 
 byType 方式。把配置好的 Bean 拿来用，完成属性、方法的组装，它可以对类成员变量、方法及构
 
@@ -165,13 +163,13 @@ byType 方式。把配置好的 Bean 拿来用，完成属性、方法的组装�
 
 当加上（required=false ）时，就算找不到 bean 也不报错。
 
-###8 、 @RequestParam
+##### 8 、 @RequestParam
 
 用在方法的参数前面：
 
 @RequestParam String a =request.getParameter("abc")
 
-###9 、 @PathVariable
+##### 9 、 @PathVariable
 
 路径变量。
 
@@ -219,9 +217,7 @@ public class MyCommentController extends BaseController {
 }
 ```
 
-
-
-###10 、 @ControllerAdvice
+##### 10 、 @ControllerAdvice
 
 全局处理异常的：
 
@@ -257,7 +253,7 @@ class GlobalDefaultExceptionHandler {
 }
 ```
 
-###11 、 @ComponentScan
+##### 11 、 @ComponentScan
 
 做过web 开发的同学一定都有用过 @Controller ， @Service ， @Repository 注解，查看其源码你会发现，他们中有一个共同的注解@Component ，没错 @ComponentScan 注解默认就会装配标识了 @Controller ， @Service ， @Repository ， @Component 注解的类到 spring容器中。
 
@@ -283,9 +279,7 @@ public class CheckApiApplication {
 }
 ```
 
-
-
-###12 、 @Conditional
+##### 12 、 @Conditional
 
 @Conditional 是 Spring4 新提供的注解，通过 @Conditional 注解可以根据代码中设置的条件装载不同的 bean ，在设置条件注解之前，先要把装载的 bean 类去实现 Condition 接口，然后对该实现接口的类设置是否装载的条件。 Spring Boot 注解中的 @ConditionalOnProperty 、@ConditionalOnBean 等以 @Conditional* 开头的注解，都是通过集成了 @Conditional 来实现相应功能的。
 

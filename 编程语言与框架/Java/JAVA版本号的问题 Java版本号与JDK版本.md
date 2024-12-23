@@ -31,7 +31,7 @@ Java SE版本时间线
 ​			 
 下图来自《Java核心技术》卷1 第2章 2.1.1
 
-![img](https://img-blog.csdnimg.cn/20190405160849110.png?x-oss-process=image/watermark,type_ZmFuZ3poZW5naGVpdGk,shadow_10,text_aHR0cHM6Ly9ibG9nLmNzZG4ubmV0L3FxXzM3NDk5ODQw,size_16,color_FFFFFF,t_70)
+![img](https://raw.githubusercontent.com/leeyongit/picGo/master/images/java_shuyu.png)
 
 > 你已经看到， JDK 是 Java Development Kit 的缩写。有点混乱的是： 这个工具包的版本1.2 ~ 版本 1.4 被称为 Java SDK (软件开发包， Software Development Kit )。 在某些场合下，
 > 还可以看到这个过时的术语。另外， 还有一个术语是 Java 运行时环境（ JRE ), 它包含虚拟机

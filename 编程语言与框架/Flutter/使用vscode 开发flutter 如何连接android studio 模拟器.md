@@ -1,4 +1,4 @@
-# 使用vscode开发flutter 如何连接android studio 模拟器 
+## 使用vscode开发flutter 如何连接android studio 模拟器 
 
 在Visual Studio Code (VSCode) 中开发Flutter并连接到Android Studio模拟器需要一些配置。以下是一些建议的步骤：
 

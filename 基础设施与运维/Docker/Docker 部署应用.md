@@ -1,7 +1,8 @@
 # Docker 部署
 
-## Docker 部署Nginx + PHP开发环境
+### Docker 部署Nginx + PHP开发环境
 1. 拉取镜像
+
 ```sh
 docker pull 20.10.1.32:5000/ifensi-app:v0.2
 ```
@@ -26,19 +27,19 @@ docker exec ifensi "/usr/bin/openresty" -s reload
 docker exec ifensi "/etc/rc.d/init.d/php-fpm" start
 ```
 
-## Docker 部署 xunsearch
+### Docker 部署 xunsearch
 ```sh
 docker pull hightman/xunsearch
 docker run -d --restart=always --name xunsearch -p 8383:8383 -p 8384:8384 \
     -v /data/docker/xunsearch/data:/usr/local/xunsearch/data hightman/xunsearch:latest
 ```
 
-## Docker 部署 redis
+### Docker 部署 redis
 ```sh
  docker run --name fshd-redis -d -p 6379:6379 -v /data/docker/redis/fshd_data:/data redis --requirepass "fshd_@2020_6379"
  docker run --name ad-redis -d -p 6389:6379 -v /data/docker/redis/ad_data:/data redis --requirepass "fshd_@2020_6389"
 ```
-## Docker 部署Mysql
+### Docker 部署Mysql
 
 ```sh
 docker pull mysql:5.6
@@ -46,7 +47,7 @@ docker run --name nq-mysql -v /data/mysql:/var/lib/mysql \
     -e MYSQL_ROOT_PASSWORD=ly@dev.2021 -d mysql:5.6
 ```
 
-## Docker部署ElasticHD
+### Docker部署ElasticHD
 
 > Elasticsearch 可视化DashBoard, 支持Es监控、实时搜索，Index template快捷替换修改，索引列表信息查看， SQL converts to DSL等
 

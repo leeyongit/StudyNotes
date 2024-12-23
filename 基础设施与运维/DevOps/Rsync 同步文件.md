@@ -2,7 +2,7 @@
 
 服务器同步电影到客户机
 
-## 服务端
+### 服务端
 
 服务端修改配置文件
 
@@ -29,7 +29,7 @@ rm /var/run/rsyncd.pid
 /usr/bin/rsync --daemon
 ```
 
-## 客户端
+### 客户端
 
 ```sh
 rsync -avz --progress root@192.168.0.117:/volume1/fshd/nas/video/  /volume1/fshd/nas/video/

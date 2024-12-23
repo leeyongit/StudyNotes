@@ -6,7 +6,7 @@ Thrift实际上是实现了C/S模式，通过代码生成工具将接口定义�
 
 Thrift的协议栈如下图所示：
 
-![img](https://images2018.cnblogs.com/blog/645085/201803/645085-20180304155305568-1935823842.png)
+![img](https://raw.githubusercontent.com/leeyongit/picGo/master/images/645085-20180304155305568-1935823842.png)
 
 在Client和Server的最顶层都是用户自定义的处理逻辑，也就是说用户只需要编写用户逻辑，就可以完成整套的RPC调用流程。用户逻辑的下一层是Thrift自动生成的代码，这些代码主要用于结构化数据的解析,发送和接收，同时服务器端的自动生成代码中还包含了RPC请求的转发（Client的A调用转发到Server A函数进行处理）。
 
@@ -143,7 +143,7 @@ service StringCache {
    	3: string blurb
    }
    ```
-如果变量有默认值，可以直接写在定义文件里:
+   如果变量有默认值，可以直接写在定义文件里:
    ```protobuf
    struct UserProfile {
    	1: i32 uid = 1,

@@ -98,7 +98,7 @@ curl -d "hello world!" 'http://127.0.0.1:4151/pub?topic=demo'
 
 消费者有两种方式与nsqd建立连接
 
-![image-20210323103817944](../assets/image-20210323103817944.png)
+![image-20210323103817944](https://raw.githubusercontent.com/leeyongit/picGo/master/images/image-20210323103817944.png)
 
 - 消费者直连nsqd
 - 消费者通过http查询nsqlookupd获取该nsqlookupd上所有nsqd的连接地址，然后再分别和这些nsqd建立连接

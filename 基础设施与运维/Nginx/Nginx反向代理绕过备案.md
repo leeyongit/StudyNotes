@@ -5,7 +5,7 @@
 ```nginx
 server {
     listen 80;
-    server_name blog.joyapp.net; #设置成需要绑定的域名
+    server_name blog.xxx.net; #设置成需要绑定的域名
 
 location / {
     proxy_pass http://xxx.xxx.xxx.xxx; #指向对应的主机，最好是用IP

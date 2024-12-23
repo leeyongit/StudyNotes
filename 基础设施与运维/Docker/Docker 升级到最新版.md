@@ -1,6 +1,6 @@
 # Docker 升级到最新版
 
-## 步骤
+### 步骤
 1. 卸载旧版 docker
 ```sh
 aprpm -qa | grep docker # 也可以使用 yum list installed | grep docker

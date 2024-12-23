@@ -1,19 +1,19 @@
 # Flume+kafka的部署
 
 ## 安装JDK
-### 用yum安装JDK
+#### 用yum安装JDK
 1.查看yum库中都有哪些jdk版本(暂时只发现了openjdk)
 ```sh
 java -version
 yum search java|grep jdk
 ```
-### 选择版本,进行安装
+#### 选择版本,进行安装
 ```sh
 yum install java-1.8.0-openjdk
 ```
 安装完之后，默认的安装目录是在:
 > /usr/lib/jvm/java-1.8.0-openjdk-1.8.0.292.b10-1.el7_9.x86_64/jre
-### 设置java的环境变量
+#### 设置java的环境变量
 
 ```sh
 vi /etc/profile
@@ -26,7 +26,7 @@ vi /etc/profile
 ```sh
 export JAVA_HOME JRE_HOME CLASS_PATH PATH
 ```
-### 让修改生效
+#### 让修改生效
 ```sh
 source /etc/profile
 ```
@@ -40,7 +40,7 @@ mv apache-flume-1.8.0-bin flume
 cd flume
 ```
 
-### 启动flume
+#### 启动flume
 ```sh
 nohup bin/flume-ng agent --conf-file  conf/kafka.properties -c conf/ --name agent -Dflume.root.logger=DEBUG,console 1>/dev/null 2>&1 &
 ```
@@ -49,7 +49,7 @@ nohup bin/flume-ng agent --conf-file  conf/kafka.properties -c conf/ --name agen
 
 [kafka教程](https://www.w3cschool.cn/apache_kafka/apache_kafka_introduction.html)
 
-### 安装kafka
+#### 安装kafka
 ```sh
 wget  https://mirrors.tuna.tsinghua.edu.cn/apache/kafka/2.1.0/kafka_2.12-2.1.0.tgz
 tar -zxf kafka_2.12-2.1.0.tgz
@@ -59,7 +59,7 @@ cp config/server.properties config/server-1.properties
 cp config/server.properties config/server-2.properties
 ```
 
-### 编辑这些新文件和设置以下属性：
+#### 编辑这些新文件和设置以下属性：
 ```sh
 config/server-1.properties:
     broker.id=1
@@ -73,11 +73,11 @@ config/server-2.properties:
     advertised.listeners=PLAINTEXT://39.107.158.137:9094
     log.dir=/tmp/kafka-logs-2
 ```
-### Kafka使用ZooKeeper的，所以你需要先启动ZooKeeper的服务器
+#### Kafka使用ZooKeeper的，所以你需要先启动ZooKeeper的服务器
 ```sh
 nohup bin/zookeeper-server-start.sh config/zookeeper.properties 1>/dev/null 2>&1 &
 ```
-### 启动Kafka服务器 3个实例
+#### 启动Kafka服务器 3个实例
 ```sh
 nohup bin/kafka-server-start.sh config/server.properties 1>/dev/null 2>&1 &
 bin/kafka-server-start.sh config/server-1.properties 1>/dev/null 2>&1 &
@@ -86,19 +86,19 @@ ps aux | grep server-1.properties
 kill -9 pid # 杀进程
 ```
 
-### 新增Topic test
+#### 新增Topic test
 ```sh
 bin/kafka-topics.sh --create --zookeeper localhost:2181 --replication-factor 1 --partitions 3 --topic log
 bin/kafka-topics.sh --list --zookeeper localhost:2181 # 要获取Kafka服务器中的主题列表
 bin/kafka-console-producer.sh --broker-list localhost:9092 --topic test # 发送消息
 ```
 
-### 打开新终端，在kafka安装目录下执行如下命令，生成对topic test 的消费
+#### 打开新终端，在kafka安装目录下执行如下命令，生成对topic test 的消费
 ```sh
 sh bin/kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic log --from-beginning
 ```
 
-## Kafka php [php-rdkafka](https://github.com/arnaud-lb/php-rdkafka)
+### Kafka php [php-rdkafka](https://github.com/arnaud-lb/php-rdkafka)
 
 
 ```sh
@@ -119,7 +119,7 @@ php -i | grep rdkafka
 
 ## Flume+kafka 整合
 
-### kafka.properties
+#### kafka.properties
 ```sh
 agent.sources = s1
 agent.channels = c1

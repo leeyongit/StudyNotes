@@ -1,4 +1,4 @@
-# nginx 配置ajax跨域访问php接口
+# Nginx 配置ajax跨域访问php接口
 
 > 配置nginx.conf文件
 

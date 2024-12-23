@@ -1,129 +1,167 @@
-K8s 应用部署
----
-## 概述
-当希望在Kubernetes中部署应用程序时，通常要定义三个组件：
-部署（Deployment）：这是创建Pod应用程序副本的方法
-服务（Service）：将流量调度到Pods的内部负载平衡器
-入口(Ingress)：描述流量如何从群集外部流到服务。
+以下是 Kubernetes (K8s) 应用部署的教程，主要分为以下步骤：
 
-1. 部署应用
-1.1 命令方式
-```bash
-kubectl run httpd-app --image=httpd --replicas=3
-```
-通过命令行方式部署apache服务
+------
 
-1.2 配置文件方式
+### 1. **准备环境**
 
-```sh
-cat >> nginx.yml << EOF
-apiVersion: extensions/v1beta1
+确保已安装以下工具：
+
+- **kubectl**: Kubernetes 的命令行工具。
+- **minikube 或 Kubernetes 集群**: 本地测试可用 minikube，生产环境需要云端或自建集群。
+- **Docker**: 用于构建和推送容器镜像。
+
+------
+
+### 2. **构建并推送容器镜像**
+
+1. 编写 Dockerfile：
+
+   ```dockerfile
+   FROM node:18
+   WORKDIR /app
+   COPY . .
+   RUN npm install
+   CMD ["npm", "start"]
+   EXPOSE 3000
+   ```
+
+2. 构建镜像：
+
+   ```bash
+   docker build -t your-dockerhub-username/your-app-name:tag .
+   ```
+
+3. 推送镜像到 Docker Hub：
+
+   ```bash
+   docker push your-dockerhub-username/your-app-name:tag
+   ```
+
+------
+
+### 3. **编写 K8s 部署文件**
+
+创建以下 YAML 文件：
+
+#### 3.1 Deployment 配置
+
+`deployment.yaml`：
+
+```yaml
+apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: nginx
+  name: your-app-deployment
+  labels:
+    app: your-app
 spec:
   replicas: 3
+  selector:
+    matchLabels:
+      app: your-app
   template:
     metadata:
       labels:
-        app: nginx
+        app: your-app
     spec:
-      restartPolicy: Always
       containers:
-      - name: nginx
-        image: nginx:latest
-EOF
+      - name: your-app
+        image: your-dockerhub-username/your-app-name:tag
+        ports:
+        - containerPort: 3000
 ```
+
+#### 3.2 Service 配置
+
+`service.yaml`：
+
+```yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: your-app-service
+spec:
+  selector:
+    app: your-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 3000
+  type: NodePort
+```
+
+------
+
+### 4. **部署到 Kubernetes 集群**
+
+1. 应用 Deployment：
+
+   ```bash
+   kubectl apply -f deployment.yaml
+   ```
+
+2. 应用 Service：
+
+   ```bash
+   kubectl apply -f service.yaml
+   ```
+
+3. 查看 Pod 和 Service 状态：
+
+   ```bash
+   kubectl get pods
+   kubectl get svc
+   ```
+
+------
+
+### 5. **验证部署**
+
+1. 获取 Service 的 NodePort：
+
+   ```bash
+   kubectl describe svc your-app-service
+   ```
+
+   查看 
+
+   ```
+   NodePort
+   ```
+
+    值。
+
+2. 访问应用： 在浏览器中访问 `http://<NodeIP>:<NodePort>`。
+
+------
+
+### 6. **扩展与更新**
+
+#### 6.1 扩容 Pod
+
 ```bash
-kubectl apply -f nginx.yml
-```
-2. 状态查看
-2.1 查看节点状态
-```sh
-kubectl get nodes
-```
-2.2 查看pod状态
-```sh
-kubectl get pod --all-namespaces
-```
-2.3 查看副本数
-```sh
-kubectl get deployments
-```
-2.4 查看deployment详细信息
-```sh
-kubectl describe deployments
-```
-2.5 查看集群基本组件状态
-```sh
-kubectl get cs
+kubectl scale deployment your-app-deployment --replicas=5
 ```
 
-### 测试创建第一个Pod
+#### 6.2 更新镜像
 
-在这一步中，我们将通过将Nginx pod部署到kubernetes集群来进行测试。吊舱是一组或多个具有共享存储和网络的容器，它们在Kubernetes下运行。Pod包含一个或多个容器，例如Docker容器。
+修改 `deployment.yaml` 中的镜像标签，然后执行：
 
-登录到"k8s-master"服务器，并使用kubectl命令创建名为"nginx"的新部署。
-
-```
-kubectl create deployment nginx --image=nginx
+```bash
+kubectl apply -f deployment.yaml
 ```
 
-要查看"nginx"部署分隔的详细信息，请运行以下命令。
+------
 
-```
-kubectl describe deployment nginx
-```
+### 7. **清理资源**
 
-您将获得nginx pod部署规范。
+当完成实验后，可以清理资源：
 
-接下来，我们将展示可通过互联网访问的Nginx Pod。为此，我们需要创建新的服务NodePort。
-
-运行下面的kubectl命令。
-
-```sh
-kubectl create service nodeport nginx --tcp=80:80
+```bash
+kubectl delete -f service.yaml
+kubectl delete -f deployment.yaml
 ```
 
-![image-20200817230738877](/Users/liyong/Library/Application Support/typora-user-images/image-20200817230738877.png)
+------
 
-确保没有错误。现在，使用下面的kubectl命令检查nginx服务nodeport和IP。
-
-```sh
-kubectl get pods
-kubectl get svc
-```
-
-![image-20200817230840777](/Users/liyong/Library/Application Support/typora-user-images/image-20200817230840777.png)
-
-现在，您将获得nginx pod，它现在在群集IP地址“ 10.160.60.38”端口80下运行，节点主IP地址“ 10.0.15.x”在端口“ 30691”下运行。
-
-从“ k8s-master”服务器运行以下[curl命令](https://www.howtoforge.com/community/threads/how-to-install-curl.20374/) 。
-
-```sh
-curl node01:30691
-```
-
-![image-20200817230931757](/Users/liyong/Library/Application Support/typora-user-images/image-20200817230931757.png)
-
-```sh
-curl node02:30691
-```
-
-![image-20200817231003065](/Users/liyong/Library/Application Support/typora-user-images/image-20200817231003065.png)
-
-Nginx Pod现在已经部署在Kubernetes集群下，并且可以通过Internet访问。
-
-现在从网络浏览器访问。
-
-***http://10.0.15.10:30691/***
-
-然后您将获得Nginx默认页面。
-
-![image-20200817231036747](/Users/liyong/Library/Application Support/typora-user-images/image-20200817231036747.png)
-
-在node02服务器上-http: ***//10.0.15.11:*** 30691/
-
-![image-20200817231102616](/Users/liyong/Library/Application Support/typora-user-images/image-20200817231102616.png)
-
-CentOS 7上的Kubernetes集群安装和配置已成功完成。
+如果有具体问题，可以详细说明，我会为你解答！
