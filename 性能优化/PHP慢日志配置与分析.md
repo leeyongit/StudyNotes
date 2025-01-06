@@ -56,6 +56,9 @@ tail -f /var/log/php-fpm/slow.log
 
 # 统计请求数最多的 URL
 cat /var/log/php-fpm/slow.log | grep "script_filename" | sort | uniq -c | sort -nr | head -n 10
+
+cat /www/server/php/74/var/log/slow.log | grep "script_filename" | sort | uniq -c | sort -nr | head -n 10
+
 ```
 
 建议：

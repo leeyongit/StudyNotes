@@ -46,6 +46,8 @@ pip uninstall package_name
 ```bash
 # 导出当前环境的所有包
 pip freeze > requirements.txt
+# 结合 --exclude-editable 选项来避免生成本地路径的依赖项
+pip freeze --exclude-editable > requirements.txt
 
 # 指定源安装
 pip install package_name -i https://pypi.tuna.tsinghua.edu.cn/simple

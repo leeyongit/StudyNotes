@@ -15,6 +15,18 @@ $ sudo tee /etc/docker/daemon.json <<-'EOF'
   "registry-mirrors": ["https://muehonsf.mirror.aliyuncs.com"]
 }
 EOF
+
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": [
+    "https://mirror.ccs.tencentyun.com",
+    "https://registry.docker-cn.com",
+    "https://docker.mirrors.ustc.edu.cn",
+    "https://x898kpnc.mirror.aliyuncs.com"
+  ],
+  "mtu": 1400
+}
+EOF
 ```
 
 ### 常用命令
@@ -49,7 +61,7 @@ sudo chmod +x /usr/local/bin/ctop
 
 ```sh
 
-启动容器：
+# 启动容器：
 docker run --name master -d  -p 6379:6379 -p 26379:26379  redis
 docker run 启动容器
           --name 容器名称
@@ -93,4 +105,17 @@ docker rmi -f $(docker images -a -q)
 docker system df
 docker system prune
 ```
+
+#### Docker代理
+
+`vim /etc/systemd/system/docker.service.d/http-proxy.conf`
+
+```
+[Service]
+Environment="HTTP_PROXY=http://127.0.0.1:1080"
+Environment="HTTPS_PROXY=http://127.0.0.1:1080"
+```
+
+export HTTP_PROXY="http://127.0.0.1:1080"
+export HTTPS_PROXY="http://127.0.0.1:1080"
 
